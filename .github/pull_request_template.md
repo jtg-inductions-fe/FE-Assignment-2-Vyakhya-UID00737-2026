@@ -6,8 +6,8 @@
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Documentation 
 
-## Related Issues/Tasks
-- Fixes: #[Issue Number]
+## Fixes that has been done
+<!-- Describe review fixes that has been done in this PR -->
 
 ## Screenshots
 <!-- Add Screenshot of any task that has been updated or need any fixes -->
