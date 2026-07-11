@@ -1,0 +1,95 @@
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+
+.dropdown {
+  position: relative;
+  width: functions.px-to-rem(250);
+
+  &__label {
+    position: absolute;
+    top: functions.px-to-rem(-8);
+    left: functions.px-to-rem(12);
+    z-index: 2;
+    padding: 0 functions.px-to-rem(3);
+    color: variables.$secondary-text;
+    background-color: variables.$bg-global;
+    font-size: functions.px-to-rem(12);
+    font-weight: 500;
+  }
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: functions.px-to-rem(40);
+    padding: functions.px-to-rem(4) functions.px-to-rem(12);
+    color: variables.$primary-text;
+    background-color: variables.$bg-global;
+    border: functions.px-to-rem(1) solid variables.$secondary-text;
+    border-radius: functions.px-to-rem(4);
+    font-family: inherit;
+    font-size: functions.px-to-rem(14);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      outline: none;
+      border-color: variables.$primary-text;
+    }
+
+    &--open {
+      border-color: variables.$border-primary;
+    }
+  }
+
+  &__icon {
+    color: variables.$secondary-text;
+    transition: transform 0.25s ease;
+    font-size: functions.px-to-rem(6);
+    &--open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    background-color: variables.$bg-global;
+    border: functions.px-to-rem(1) solid variables.$secondary-text;
+    border-radius: functions.px-to-rem(4);
+    transform: translateY(functions.px-to-rem(-6));
+    transition:
+      max-height 0.25s ease,
+      opacity 0.2s ease,
+      transform 0.25s ease,
+      visibility 0.25s ease;
+
+    &--open {
+      max-height: functions.px-to-rem(200);
+      overflow: auto;
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__option {
+    padding: functions.px-to-rem(8) functions.px-to-rem(12);
+    color: variables.$primary-text;
+    background-color: variables.$bg-global;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    &:hover {
+      color: variables.$bg-global;
+      background-color: variables.$bg-primary;
+    }
+  }
+}

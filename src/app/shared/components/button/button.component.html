@@ -11,6 +11,7 @@
     [class.btn--radius-sm]="borderRadius === 'sm'"
     [class.btn--radius-md]="borderRadius === 'md'"
     [class.btn--radius-lg]="borderRadius === 'lg'"
+    (click)="onClick()"
 >  <span 
         *ngIf="icon"
         class="btn__icon"
