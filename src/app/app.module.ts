@@ -8,8 +8,21 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 
 @NgModule({
+<<<<<<< HEAD
   declarations: [AppComponent, DashboardComponent, PageNotFoundComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
+=======
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    PageNotFoundComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+  ],
+>>>>>>> de30a38 (VN_A2_01: button component added)
   providers: [],
   bootstrap: [AppComponent],
 })

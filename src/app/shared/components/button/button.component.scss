@@ -1,0 +1,79 @@
+@use 'src/styles/abstract/variables.scss';
+@use 'src/styles/abstract/functions.scss';
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    font-size: functions.px-to-rem(14);
+    font-weight: 600;
+    line-height: functions.px-to-rem(21);
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                border 0.2s ease;
+
+    &--filled {
+        color: variables.$bg-global;
+        background-color: variables.$bg-primary;
+        box-shadow: 0 functions.px-to-rem(1) functions.px-to-rem(5) functions.px-to-rem(0) #0000001F,
+                    0 functions.px-to-rem(2) functions.px-to-rem(2) functions.px-to-rem(0) #00000024,
+                    0 functions.px-to-rem(3) functions.px-to-rem(1) functions.px-to-rem(-2) #00000033;
+        &:hover {
+            background-color: variables.$hover-primary;
+        }
+    }
+
+    &--outlined {
+        border: 1px solid variables.$border-primary;
+        color: variables.$bg-primary;
+        &:hover {
+            color: variables.$hover-primary;
+            border-color: variables.$hover-primary;
+        }
+    }
+
+    // different padding styles to buttons
+    &--xs {
+        padding: functions.px-to-rem(4) functions.px-to-rem(12);
+    }
+
+    &--sm {
+        padding: functions.px-to-rem(5) functions.px-to-rem(15);
+    }
+
+    &--md {
+        padding: functions.px-to-rem(6) functions.px-to-rem(16);
+    }
+
+    &--lg {
+        padding: functions.px-to-rem(9) functions.px-to-rem(17);
+    }
+
+    // different radius properties to button
+    &--radius-sm {
+        border-radius: functions.px-to-rem(4);
+    }
+
+    &--radius-md {
+        border-radius: functions.px-to-rem(8);
+    }
+
+    &--radius-lg {
+        border-radius: functions.px-to-rem(12);
+    }
+
+    // providing gap only if icon exists in the button
+    &--with-icon {
+        gap: functions.px-to-rem(6);
+    }
+
+    &__icon {
+        display: inline-flex;
+        font-size: functions.px-to-rem(10);
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,24 @@
+<button 
+    class="btn" 
+    [class.btn--filled]="variant === 'filled'"
+    [class.btn--outlined]="variant === 'outlined'"
+    [class.btn--with-icon]="icon"
+    [attr.type]="type"
+    [class.btn--xs]="size === 'xs'"
+    [class.btn--sm]="size === 'sm'"
+    [class.btn--md]="size === 'md'"
+    [class.btn--lg]="size === 'lg'"
+    [class.btn--radius-sm]="borderRadius === 'sm'"
+    [class.btn--radius-md]="borderRadius === 'md'"
+    [class.btn--radius-lg]="borderRadius === 'lg'"
+>  <span 
+        *ngIf="icon"
+        class="btn__icon"
+        [ngClass]="icon"
+        aria-hidden="true"
+    ></span>
+    <span class="btn__label">
+        {{ label }}
+    </span>
+
+</button>
