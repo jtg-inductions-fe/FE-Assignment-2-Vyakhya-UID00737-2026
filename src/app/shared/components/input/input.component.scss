@@ -1,0 +1,77 @@
+@use 'src/styles/abstract/variables.scss';
+@use 'src/styles/abstract/functions.scss';
+
+.form-input {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__wrapper {
+        position: relative;
+        width: 100%;
+    }
+
+    &__input {
+        width: 100%;
+        height: functions.px-to-rem(50);
+        padding: functions.px-to-rem(4) functions.px-to-rem(14);
+        font-family: inherit;
+        font-size: functions.px-to-rem(14);
+        font-weight: 500;
+        line-height: functions.px-to-rem(20);
+        color: variables.$primary-text;
+        background-color: variables.$bg-global;
+        border: functions.px-to-rem(1) solid variables.$secondary-text;
+        border-radius: functions.px-to-rem(4);
+        outline: none;
+        box-sizing: border-box;
+        &::placeholder {
+            color: variables.$secondary-text;
+        }
+
+        &--error {
+            border-color: variables.$warn;
+        }
+
+        &--error:focus {
+            border-color: variables.$bg-primary;
+        }
+    }
+
+    &__label {
+        position: absolute;
+        top: 50%;
+        left: functions.px-to-rem(12);
+        padding: 0 functions.px-to-rem(4);
+        font-size: functions.px-to-rem(14);
+        font-weight: 500;
+        line-height: functions.px-to-rem(20);
+        color: variables.$secondary-text;
+        background-color: variables.$bg-global;
+        transform: translateY(-50%);
+        transition:
+            top 0.2s ease,
+            transform 0.2s ease,
+            font-size 0.2s ease,
+            color 0.2s ease;
+
+        &--floating {
+            top: 0;
+            font-size: functions.px-to-rem(12);
+            transform: translateY(-50%);
+        }
+
+        &--error {
+            color: red;
+        }
+    }
+
+    &__error {
+        margin-top: functions.px-to-rem(4);
+        margin-left: functions.px-to-rem(4);
+        color: red;
+        font-size: functions.px-to-rem(12);
+        font-weight: 500;
+        line-height: functions.px-to-rem(16);
+    }
+}

@@ -1,1 +1,31 @@
-<input></input>
+<div class="form-input">
+    <div class="form-input__wrapper">
+        <input
+            class="form-input__input"
+            [class.form-input__input--error]="showRequiredError"
+            [id]="inputId"
+            [type]="type"
+            [placeholder]="placeholder"
+            [value]="value"
+            [required]="required"
+            (focus)="onFocus()"
+            (blur)="onBlur()"
+            (input)="onInput($event)"
+        />
+
+        <label
+            class="form-input__label"
+            [class.form-input__label--floating]="isFocused || value"
+            [class.form-input__label--error]="showRequiredError"
+            [for]="inputId"
+        >
+            {{ label }}
+        </label>
+    </div>
+
+    <span
+        *ngIf="showRequiredError"
+        class="form-input__error" >
+        Required!
+    </span>
+</div>
