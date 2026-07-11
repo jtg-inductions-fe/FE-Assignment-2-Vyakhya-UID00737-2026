@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <mat-form-field class="form-input" appearance="outline" [class.form-input--error]="showError">
   <mat-label>{{ label }}</mat-label>
   <input
@@ -11,4 +12,21 @@
   <mat-error class="form-input__error p-report-card" *ngIf="showError">
     {{ errorMessage }}
   </mat-error>
+=======
+<mat-form-field class="form-input" appearance="outline" [class.form-input--error]="showRequiredError">
+    <mat-label>{{ label }}</mat-label>
+    <input
+        matInput
+        class="form-input__field"
+        [id]="inputId"
+        [type]="type"
+        [placeholder]="placeholder"
+        [value]="value"
+        [required]="required"
+        (focus)="onFocus()"
+        (blur)="onBlur()"
+        (input)="onInput($event)"
+    />
+    <mat-error class="form-input__error" *ngIf="showRequiredError">Required!</mat-error>
+>>>>>>> acc4ceb (VN_A2_01: dropdown component added)
 </mat-form-field>

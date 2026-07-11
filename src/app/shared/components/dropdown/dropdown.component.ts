@@ -12,8 +12,34 @@ export class DropdownComponent {
   @Input() selectedValue = '';
   @Output() selectedValueChange = new EventEmitter<string>();
 
+<<<<<<< HEAD
   onSelectionChange(value: string): void {
     this.selectedValue = value;
     this.selectedValueChange.emit(value);
   }
 }
+<<<<<<< HEAD
+=======
+=======
+  isOpen = false;
+
+  get selectedLabel(): string {
+    return (
+      this.options.find(
+        option => option.value === this.selectedValue
+      )?.label ?? 'Select Option'
+    );
+  }
+
+  toggleDropdown(): void {
+    this.isOpen = !this.isOpen;
+  }
+
+  selectOption(option: DropdownOptions): void {
+    this.selectedValue = option.value;
+    this.selectedValueChange.emit(option.value);
+    this.isOpen = false;
+  }
+}
+>>>>>>> b77cf17 (VN_A2_01: dropdown component added)
+>>>>>>> acc4ceb (VN_A2_01: dropdown component added)

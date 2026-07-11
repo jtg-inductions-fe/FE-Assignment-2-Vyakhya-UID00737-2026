@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <mat-form-field class="dropdown" appearance="outline" floatLabel="always">
   <mat-label class="dropdown__label label"> {{ label }} </mat-label>
   <mat-select
@@ -10,3 +11,40 @@
     </mat-option>
   </mat-select>
 </mat-form-field>
+<<<<<<< HEAD
+=======
+=======
+<div class="dropdown">
+  <label class="dropdown__label">
+    {{ label }}
+  </label>
+  <button
+    type="button"
+    class="dropdown__wrapper"
+    [class.dropdown__wrapper--open]="isOpen"
+    (click)="toggleDropdown()"
+  >
+    <span class="dropdown__selected-value">
+      {{ selectedLabel }}
+    </span>
+    <span class="icon-dropdown dropdown__icon" [class.dropdown__icon--open]="isOpen"></span>
+  </button>
+
+  <ul
+    class="dropdown__menu"
+    [class.dropdown__menu--open]="isOpen"
+  >
+    <li
+      *ngFor="let option of options"
+      class="dropdown__option"
+      [class.dropdown__option--selected]="
+        option.value === selectedValue
+      "
+      (click)="selectOption(option)"
+    >
+      {{ option.label }}
+    </li>
+  </ul>
+</div>
+>>>>>>> b77cf17 (VN_A2_01: dropdown component added)
+>>>>>>> acc4ceb (VN_A2_01: dropdown component added)
