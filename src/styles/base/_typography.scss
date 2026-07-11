@@ -1,0 +1,79 @@
+// defining stylings for text, icons in classes to use them directly
+
+@use '../abstract/variables';
+@use '../abstract/functions';
+
+a {
+    font-size: functions.px-to-rem(24);    
+}
+
+.btn-text {
+    font-size: functions.px-to-rem(16);
+    line-height: functions.px-to-rem(24);
+    font-weight: 500;
+}
+
+.btn-icon {
+    font-size: px-to-rem(24);
+}
+
+.btn-report-icon {
+    font-size: px-to-rem(20);
+}
+
+.btn-report-text {
+    font-size: functions.px-to-rem(14);
+    line-height: functions.px-to-rem(21);
+    font-weight: 600;
+}
+
+p {
+    font-size: px-to-rem(14);
+    font-weight: 500;
+    line-height: px-to-rem(20);
+    color: secondary-text;
+}
+
+.p-card{
+    font-size: px-to-rem(12);
+    font-weight: 600;
+    line-height: px-to-rem(18);
+}
+
+.p-report-card {
+    font-size: px-to-rem(12);
+    font-weight: 500;
+    line-height: px-to-rem(18);
+}
+
+h1 {
+    font-size: px-to-rem(48);
+    font-weight: 700;
+    line-height: px-to-rem(62);
+}
+
+h2 {
+    font-size: px-to-rem(35);
+    font-weight: 700;
+    line-height: px-to-rem(40);
+}
+
+h3 {
+    font-size: px-to-rem(20);
+    font-weight: 700;
+    line-height: px-to-rem(30);
+}
+
+.card-heading {
+    font-weight: 600;
+}
+
+h4 {
+    font-size: px-to-rem(16);
+    font-weight: 700;
+    line-height: px-to-rem(24);
+}
+
+.list-heading {
+    font-weight: 600;
+}

@@ -1,0 +1,59 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
+// Primary color of website
+$primary-palette: (
+    100: #d1fae5,
+    500: #0e9f6e,
+    700: #087f5b,
+    contrast: (
+        100: #000000de,
+        500: #ffffff,
+        700: #ffffff,
+    ),
+);
+
+// Accent color of website
+$accent-palette: (
+    100: #fef3c7,
+    500: #d97706,
+    700: #92400e,
+    contrast: (
+        100: #000000de,
+        500: #ffffff,
+        700: #ffffff,
+    ),
+);
+
+// Warning palette of website
+$warn-palette: (
+    100: #fde8e8,
+    500: #e02424,
+    700: #9b1c1c,
+    contrast: (
+        100: #000000de,
+        500: #ffffff,
+        700: #ffffff,
+    ),
+);
+
+// defining palette and typographies to be used 
+$app-primary: mat.define-palette($primary-palette,500,100,700);
+$app-accent: mat.define-palette($accent-palette,500,100,700);
+$app-warn: mat.define-palette($warn-palette,500,100,700);
+$app-typography: mat.define-typography-config($font-family: 'Inter, sans-serif');
+
+// setting the custom theme and typography
+$app-theme: mat.define-light-theme(
+    (
+        color: (
+                primary: $app-primary,
+                accent: $app-accent,
+                warn: $app-warn,
+            ),
+            typography: $app-typography,
+    )
+);
+
+// including the theme in website by default
+@include mat.all-component-themes($app-theme);

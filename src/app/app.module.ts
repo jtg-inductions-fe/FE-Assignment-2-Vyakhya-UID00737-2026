@@ -24,7 +24,7 @@ import { PageNotFoundComponent } from './features/page-not-found/page-not-found.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
