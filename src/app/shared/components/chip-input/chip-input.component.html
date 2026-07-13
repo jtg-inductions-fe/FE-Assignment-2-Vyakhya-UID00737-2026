@@ -1,0 +1,62 @@
+<mat-form-field
+  class="chip-input"
+  appearance="outline"
+  [class.chip-input--error]="showRequiredError"
+>
+  <mat-label>{{ label }}</mat-label>
+  <mat-chip-grid
+    #chipGrid
+    class="chip-input__grid"
+    [attr.aria-label]="label"
+    [attr.aria-describedby]="showRequiredError ? errorId : null"
+  >
+    <mat-chip-row
+      *ngFor="let chip of chips; trackBy: trackByChip"
+      class="chip-input__chip"
+      [attr.aria-label]="chip"
+      (removed)="removeChip(chip)"
+    >
+      <span class="chip-input__chip-text">
+        {{ chip }}
+      </span>
+
+      <button
+        type="button"
+        matChipRemove
+        class="chip-input__remove"
+        [attr.aria-label]="'Remove ' + chip"
+      >
+        <span
+          class="chip-input__icon icon-close"
+          aria-hidden="true"
+        ></span>
+      </button>
+    </mat-chip-row>
+
+    <input
+      class="chip-input__field"
+      [id]="inputId"
+      [placeholder]="isFocused ? placeholder : ''"
+      [matChipInputFor]="chipGrid"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="true"
+      [required]="required && chips.length === 0"
+      [attr.aria-label]="label"
+      [attr.aria-required]="required"
+      [attr.aria-invalid]="showRequiredError"
+      [attr.aria-describedby]="showRequiredError ? errorId : null"
+      (matChipInputTokenEnd)="addChip($event)"
+      (keydown.backspace)="onBackspace($event)"
+      (focus)="onFocus()"
+      (blur)="onBlur()"
+    />
+  </mat-chip-grid>
+
+  <mat-error
+    *ngIf="showRequiredError"
+    class="chip-input__error"
+    [id]="errorId"
+  >
+    Required!
+  </mat-error>
+</mat-form-field>
