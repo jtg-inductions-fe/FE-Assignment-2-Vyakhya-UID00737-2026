@@ -16,23 +16,8 @@ export class DropdownComponent {
   @Input() selectedValue = '';
   @Output() selectedValueChange = new EventEmitter<string>();
 
-  isOpen = false;
-
-  get selectedLabel(): string {
-    return (
-      this.options.find(
-        option => option.value === this.selectedValue
-      )?.label ?? 'Select Option'
-    );
-  }
-
-  toggleDropdown(): void {
-    this.isOpen = !this.isOpen;
-  }
-
-  selectOption(option: DropdownOptions): void {
-    this.selectedValue = option.value;
-    this.selectedValueChange.emit(option.value);
-    this.isOpen = false;
+  onSelectionChange(value: string): void {
+    this.selectedValue = value;
+    this.selectedValueChange.emit(value);
   }
 }

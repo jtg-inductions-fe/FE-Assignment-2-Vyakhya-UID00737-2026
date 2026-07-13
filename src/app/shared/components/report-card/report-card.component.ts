@@ -1,11 +1,11 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { DropdownOptions } from '../dropdown/dropdown.component';
 
 export interface ReportCardButton {
-    label: string;
-    icon?: string;
-    variant: 'filled' | 'outlined';
-    value?: string;
+  label: string;
+  icon?: string;
+  variant: 'filled' | 'outlined';
+  value?: string;
 }
 
 @Component({
@@ -13,40 +13,33 @@ export interface ReportCardButton {
   templateUrl: './report-card.component.html',
   styleUrls: ['./report-card.component.scss']
 })
-export class ReportCardComponent {
+
+export class ReportCardComponent implements OnChanges {
   @Input() heading = '';
   @Input() description = '';
   @Input() buttons: ReportCardButton[] = [];
   @Output() selectedOption = new EventEmitter<ReportCardButton>();
+  dropdownOptions: DropdownOptions[] = [];
   selected = '';
 
-  dropdownOptions = [
-    {
-    label:'a',value:'a'
+  ngOnChanges(changes: SimpleChanges): void {
+  if (changes['buttons']) {
+    this.dropdownOptions = this.buttons.map((button, index) => ({
+      label: button.label,
+      value: button.value ?? index.toString()
+    }));
+    if (!this.selected && this.dropdownOptions.length > 0) {
+      this.selected = this.dropdownOptions[0].value;
+    }
   }
-  ,
-  {
-    label:'b',value:'b'
-  }
-]
-
-  // get dropdownOptions(): DropdownOptions[] {
-  //   const a=  this.buttons.map((button, index) => ({
-  //     label: button.label,
-  //     value: button.value ?? index.toString()
-  //   }));
-  //   console.log(a);
-  //   return a;
-  // }
+}
 
   onDropdownChange(value: string): void {
     this.selected = value;
-
     const selectedButton = this.buttons.find(
       (button, index) =>
         (button.value ?? index.toString()) === value
     );
-
     if (selectedButton) {
       this.selectedOption.emit(selectedButton);
     }

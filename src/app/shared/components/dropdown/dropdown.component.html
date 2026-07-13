@@ -1,32 +1,17 @@
-<div class="dropdown">
-  <label class="dropdown__label">
-    {{ label }}
-  </label>
-  <button
-    type="button"
-    class="dropdown__wrapper"
-    [class.dropdown__wrapper--open]="isOpen"
-    (click)="toggleDropdown()"
+<mat-form-field class="dropdown" appearance="outline" floatLabel="always">
+  <mat-label class="dropdown__label"> {{ label }} </mat-label>
+  <mat-select
+    class="dropdown__select"
+    panelClass="dropdown-panel"
+    [value]="selectedValue"
+    (selectionChange)="onSelectionChange($event.value)"
   >
-    <span class="dropdown__selected-value">
-      {{ selectedLabel }}
-    </span>
-    <span class="icon-dropdown dropdown__icon" [class.dropdown__icon--open]="isOpen"></span>
-  </button>
-
-  <ul
-    class="dropdown__menu"
-    [class.dropdown__menu--open]="isOpen"
-  >
-    <li
+    <mat-option
       *ngFor="let option of options"
       class="dropdown__option"
-      [class.dropdown__option--selected]="
-        option.value === selectedValue
-      "
-      (click)="selectOption(option)"
+      [value]="option.value"
     >
       {{ option.label }}
-    </li>
-  </ul>
-</div>
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -19,20 +19,26 @@ export class InputComponent {
   isTouched = false;
 
   get showRequiredError(): boolean {
-      return this.required && this.isTouched && !this.isFocused && !this.value.trim();
+    return (
+      this.required &&
+      this.isTouched &&
+      !this.isFocused &&
+      !this.value.trim()
+    );
   }
 
   onFocus(): void {
-      this.isFocused = true;
+    this.isFocused = true;
   }
 
   onBlur(): void {
-      this.isFocused = false;
-      this.isTouched = true;
+    this.isFocused = false;
+    this.isTouched = true;
   }
 
-  onInput(event: Event): void{
+  onInput(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
+
     this.value = inputElement.value;
     this.valueChange.emit(this.value);
   }
