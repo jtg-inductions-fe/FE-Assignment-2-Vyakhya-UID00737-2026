@@ -1,11 +1,10 @@
 // Contains reusable mixins for media queries, flexbox
 @use './variables';
-@use './functions';
 
 $breakpoints: (
-    'tablet': tablet,
-    'small-desktop': small-desktop,
-    'desktop': desktop
+    'tablet': variables.$tablet,
+    'small-desktop': variables.$small-desktop,
+    'desktop': variables.$desktop
 );
 
 @mixin respond($breakpoint) {

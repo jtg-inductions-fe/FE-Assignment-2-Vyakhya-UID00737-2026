@@ -1,41 +1,36 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './features/auth/login/login.component';
-import { DashboardComponent } from './features/dashboard/dashboard.component';
-import { PageNotFoundComponent } from './features/page-not-found/page-not-found.component';
-import { AddRestrauntComponent } from './features/restraunts/add-restraunt/add-restraunt.component';
-import { EditRestrauntComponent } from './features/restraunts/edit-restraunt/edit-restraunt.component';
-import { ListRestrauntComponent } from './features/restraunts/list-restraunt/list-restraunt.component';
+
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full',
+    pathMatch: 'full'
   },
   {
     path: 'login',
-    component: LoginComponent
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then(
+        module => module.AuthModule
+      )
   },
   {
-    path:'dashboard',
+    path: 'restaurants',
+    loadChildren: () =>
+      import('./modules/restaurant/restaurant.module').then(
+        module => module.RestaurantModule
+      )
+  },
+  {
+    path: 'dashboard',
     component: DashboardComponent
   },
   {
-    path:'restraunts',
-    component: ListRestrauntComponent,
-  },
-  {
-    path:'restraunts/add',
-    component: AddRestrauntComponent,
-  },
-  {
-    path:'restraunts/edit/:id',
-    component: EditRestrauntComponent,
-  },
-  {
-    path:'**',
-    component: PageNotFoundComponent,
+    path: '**',
+    component: PageNotFoundComponent
   }
 ];
 
@@ -43,4 +38,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

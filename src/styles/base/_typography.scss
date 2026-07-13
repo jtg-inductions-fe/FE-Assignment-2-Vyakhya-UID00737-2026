@@ -14,11 +14,11 @@ a {
 }
 
 .btn-icon {
-    font-size: px-to-rem(24);
+    font-size: functions.px-to-rem(24);
 }
 
 .btn-report-icon {
-    font-size: px-to-rem(20);
+    font-size: functions.px-to-rem(20);
 }
 
 .btn-report-text {
@@ -28,40 +28,40 @@ a {
 }
 
 p {
-    font-size: px-to-rem(14);
+    font-size: functions.px-to-rem(14);
     font-weight: 500;
-    line-height: px-to-rem(20);
-    color: secondary-text;
+    line-height: functions.px-to-rem(20);
+    color: variables.$secondary-text;
 }
 
 .p-card{
-    font-size: px-to-rem(12);
+    font-size: functions.px-to-rem(12);
     font-weight: 600;
-    line-height: px-to-rem(18);
+    line-height: functions.px-to-rem(18);
 }
 
 .p-report-card {
-    font-size: px-to-rem(12);
+    font-size: functions.px-to-rem(12);
     font-weight: 500;
-    line-height: px-to-rem(18);
+    line-height: functions.px-to-rem(18);
 }
 
 h1 {
-    font-size: px-to-rem(48);
+    font-size: functions.px-to-rem(48);
     font-weight: 700;
-    line-height: px-to-rem(62);
+    line-height: functions.px-to-rem(62);
 }
 
 h2 {
-    font-size: px-to-rem(35);
+    font-size: functions.px-to-rem(35);
     font-weight: 700;
-    line-height: px-to-rem(40);
+    line-height: functions.px-to-rem(40);
 }
 
 h3 {
-    font-size: px-to-rem(20);
+    font-size: functions.px-to-rem(20);
     font-weight: 700;
-    line-height: px-to-rem(30);
+    line-height: functions.px-to-rem(30);
 }
 
 .card-heading {
@@ -69,11 +69,23 @@ h3 {
 }
 
 h4 {
-    font-size: px-to-rem(16);
+    font-size: functions.px-to-rem(18);
     font-weight: 700;
-    line-height: px-to-rem(24);
+    line-height: functions.px-to-rem(20);
 }
 
 .list-heading {
     font-weight: 600;
+}
+
+h5 {
+    font-size: functions.px-to-rem(14);
+    font-weight: 700;
+    line-height: functions.px-to-rem(21);
+}
+
+h6 {
+    font-size: functions.px-to-rem(12);
+    font-weight: 700;
+    line-height: functions.px-to-rem(18);
 }

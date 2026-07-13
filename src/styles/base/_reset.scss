@@ -1,9 +1,35 @@
-// reseting default browser styings
+// Reset default browser styles
 
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+button,
+input
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+}
+
+img,
+picture {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }

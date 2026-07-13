@@ -1,6 +1,7 @@
 // defining global base stylings for every browser
 
 @use '../abstract/variables';
+@use '../abstract/functions';
 
 html {
     scroll-behavior: smooth;
