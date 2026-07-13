@@ -1,5 +1,6 @@
 @use 'src/styles/abstract/variables.scss';
 @use 'src/styles/abstract/functions.scss';
+@use 'src/styles/abstract/mixin.scss';
 
 .btn {
     display: inline-flex;
@@ -8,7 +9,7 @@
     font-family: inherit;
     cursor: pointer;
     border: none;
-    font-size: functions.px-to-rem(14);
+    font-size: functions.px-to-rem(10);
     font-weight: 600;
     line-height: functions.px-to-rem(21);
     transition: background-color 0.2s ease,
@@ -18,9 +19,9 @@
     &--filled {
         color: variables.$bg-global;
         background-color: variables.$bg-primary;
-        box-shadow: 0 functions.px-to-rem(1) functions.px-to-rem(5) functions.px-to-rem(0) #0000001F,
-                    0 functions.px-to-rem(2) functions.px-to-rem(2) functions.px-to-rem(0) #00000024,
-                    0 functions.px-to-rem(3) functions.px-to-rem(1) functions.px-to-rem(-2) #00000033;
+        box-shadow: 0 functions.px-to-rem(1) functions.px-to-rem(5) functions.px-to-rem(0) variables.$border-secondary,
+                    0 functions.px-to-rem(2) functions.px-to-rem(2) functions.px-to-rem(0) variables.$shadow-primary,
+                    0 functions.px-to-rem(3) functions.px-to-rem(1) functions.px-to-rem(-2) variables.$shadow-secondary;
         &:hover {
             background-color: variables.$hover-primary;
         }
@@ -29,6 +30,7 @@
     &--outlined {
         border: 1px solid variables.$border-primary;
         color: variables.$bg-primary;
+        background-color: variables.$bg-global;
         &:hover {
             color: variables.$hover-primary;
             border-color: variables.$hover-primary;
@@ -72,8 +74,16 @@
 
     &__icon {
         display: inline-flex;
-        font-size: functions.px-to-rem(10);
+        font-size: functions.px-to-rem(12);
         align-items: center;
         justify-content: center;
+    }
+
+    @include mixin.respond('desktop') {
+        font-size: functions.px-to-rem(14);
+
+        &__icon {
+            font-size: functions.px-to-rem(15);
+        }
     }
 }
