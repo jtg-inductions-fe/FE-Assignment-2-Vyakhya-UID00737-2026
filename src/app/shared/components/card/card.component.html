@@ -1,0 +1,13 @@
+<div class="card">
+    <h3 class="card__heading">{{ heading }}</h3>
+    <div class="card__records">
+        <div class="card__record-list" *ngFor="let item of details">
+            <img *ngIf="item.avatar" class="card__avatar" [src]="item.avatar" [alt]="item.name" />
+            <div class="card__info">
+                <h4 class="card__name">{{ item.name }}</h4>
+                <p *ngIf="item.email" class="card__email">{{ item.email }}</p>
+            </div>
+            <h4 class="card__price">{{ item.price }}</h4>
+        </div>
+    </div>
+</div>

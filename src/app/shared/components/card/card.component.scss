@@ -1,0 +1,115 @@
+@use 'src/styles/abstract/variables.scss';
+@use 'src/styles/abstract/functions.scss';
+@use 'src/styles/abstract/mixin.scss';
+
+.card {
+    @include mixin.flex-col-center;
+    width: 100%;
+    font-family: inherit;
+    align-items: flex-start;
+    padding: functions.px-to-rem(14);
+    box-sizing: border-box;
+    border-radius: functions.px-to-rem(10);
+    box-shadow: functions.px-to-rem(0) functions.px-to-rem(1) functions.px-to-rem(10) functions.px-to-rem(0) variables.$border-secondary,
+                functions.px-to-rem(0) functions.px-to-rem(4) functions.px-to-rem(5) functions.px-to-rem(0) variables.$shadow-primary,
+                functions.px-to-rem(0) functions.px-to-rem(2) functions.px-to-rem(4) functions.px-to-rem(-1) variables.$border-secondary;
+
+    &__heading {
+        font-weight: 600;
+        font-size: functions.px-to-rem(20);
+        line-height: functions.px-to-rem(30);
+    }
+
+    &__records {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: functions.px-to-rem(2) functions.px-to-rem(1);
+    }
+
+    &__record-list {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box;
+        gap: functions.px-to-rem(10);
+        padding: functions.px-to-rem(6) 0;
+        border-bottom: functions.px-to-rem(2) solid variables.$border-secondary ;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &__avatar {
+        width: functions.px-to-rem(35);
+        height: functions.px-to-rem(35);
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+        padding: functions.px-to-rem(2) 0;
+    }
+
+    &__name, &__price {
+        font-weight: 600;
+        font-size: functions.px-to-rem(15);
+        line-height: functions.px-to-rem(24);
+    }
+
+    &__email {
+        font-weight: 500;
+        font-size: functions.px-to-rem(11);
+        line-height: functions.px-to-rem(18);
+        color: variables.$secondary-text;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__price {
+        flex-shrink: 0;
+        text-align: right;
+    }
+
+    @include mixin.respond('tablet') {
+        padding: functions.px-to-rem(18);
+        border-radius: functions.px-to-rem(16);
+
+        &__records {
+            padding: functions.px-to-rem(6) functions.px-to-rem(3);
+        }   
+
+        &__record-list {
+            padding: functions.px-to-rem(7) 0;
+        }
+
+        &__info {
+            padding: functions.px-to-rem(3) 0;
+        }
+    }
+
+    @include mixin.respond('small-desktop') {
+        padding: functions.px-to-rem(24);
+
+        &__records {
+            padding: functions.px-to-rem(8) functions.px-to-rem(4);
+        }   
+
+        &__record-list {
+            padding: functions.px-to-rem(10) 0;
+        }
+
+        &__avatar {
+            width: functions.px-to-rem(40);
+            height: functions.px-to-rem(40);
+        }
+
+        &__info {
+            padding: functions.px-to-rem(4) 0;
+        }
+    }
+}

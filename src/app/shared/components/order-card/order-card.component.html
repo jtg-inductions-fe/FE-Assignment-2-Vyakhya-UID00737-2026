@@ -1,0 +1,78 @@
+<div class="order-card">
+    <div class="order-card__header">
+        <h3 class="order-card__heading">{{ heading }}</h3>
+        <p class="order-card__description">{{ description }}</p>
+    </div>
+    <div class="order-card__records">
+        <mat-table [dataSource]="orders" class="order-card__table">
+            <!-- Order-id Column -->
+            <ng-container matColumnDef="order">
+                <mat-header-cell *matHeaderCellDef> ORDER ID </mat-header-cell>
+                <mat-cell *matCellDef="let order" class="order-card__order-id"> {{order.order}} </mat-cell>
+            </ng-container>
+
+            <!-- Restraunt Column -->
+            <ng-container matColumnDef="restraunt">
+                <mat-header-cell *matHeaderCellDef> RESTRAUNT </mat-header-cell>
+                <mat-cell *matCellDef="let order" class="order-card__restraunt"> {{order.restraunt}} </mat-cell>
+            </ng-container>
+
+            <!-- Customer Column -->
+            <ng-container matColumnDef="customer">
+                <mat-header-cell *matHeaderCellDef> CUSTOMER </mat-header-cell>
+                <mat-cell *matCellDef="let order" class="order-card__customer"> {{order.customer}} </mat-cell>
+            </ng-container>
+
+            <!-- Items Column -->
+            <ng-container matColumnDef="items">
+                <mat-header-cell *matHeaderCellDef> ITEMS </mat-header-cell>
+                <mat-cell *matCellDef="let order" class="order-card__items"> {{order.items}} </mat-cell>
+            </ng-container>
+
+            <!-- Amount Column -->
+            <ng-container matColumnDef="amount">
+                <mat-header-cell *matHeaderCellDef> AMOUNT </mat-header-cell>
+                <mat-cell *matCellDef="let order" class="order-card__amount"> {{order.amount}} </mat-cell>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef> STATUS </mat-header-cell>
+                <mat-cell *matCellDef="let order"> 
+                    <span
+                        class="order-card__status"
+                        [class.order-card__status--pending]="
+                        order.status === 'Pending'
+                        "
+                        [class.order-card__status--accepted]="
+                        order.status === 'Accepted'
+                        "
+                        [class.order-card__status--rejected]="
+                        order.status === 'Rejected'
+                        "
+                    >
+                        {{ order.status }}
+                    </span>
+                </mat-cell>
+            </ng-container>
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef> ACTIONS </mat-header-cell>
+                <mat-cell *matCellDef="let order"> 
+                    <div class="order-card__buttons">
+                        <app-button *ngIf="order.status === 'Pending' || order.status === 'Accepted'" label="Reject"
+                                    icon="icon-close" variant="outlined" borderRadius="sm" size="xs" 
+                                    (click)="rejectOrder(order)"></app-button>
+                        <app-button *ngIf="order.status === 'Pending' || order.status === 'Rejected'" label="Accept"
+                                    icon="icon-tick" variant="filled" borderRadius="sm" size="xs" 
+                                    (click)="acceptOrder(order)"></app-button>
+                    </div>
+                </mat-cell>
+            </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns" class="order-card__table-header"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;" class="order-card__table-row"></mat-row>
+        </mat-table>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+@use 'src/styles/abstract/variables.scss';
+@use 'src/styles/abstract/functions.scss';
+@use 'src/styles/abstract/mixin.scss';
+
+.footer-card {
+    @include mixin.flex-col-between;
+    width: 100%;
+    padding: functions.px-to-rem(38) functions.px-to-rem(12);
+    color: variables.$secondary-text;
+    gap: functions.px-to-rem(15);
+    
+    &__description {
+        order: 2;
+        font-size: functions.px-to-rem(12);
+        line-height: functions.px-to-rem(10);
+        font-weight: 500;
+    }
+
+    &__socials {
+        @include mixin.flex-between;
+        gap: functions.px-to-rem(18);
+        font-size: functions.px-to-rem(20);
+    }
+
+    @include mixin.respond('tablet') {
+        gap: functions.px-to-rem(25);
+
+        &__description {
+            order: 2;
+            font-size: functions.px-to-rem(13);
+        }
+
+        &__socials {
+            font-size: functions.px-to-rem(22);
+        }
+    }
+
+    @include mixin.respond('small-desktop') {
+        @include mixin.flex-between;
+        flex-direction: row;
+        height: functions.px-to-rem(100);
+        padding: functions.px-to-rem(30) functions.px-to-rem(25);
+        border-radius: functions.px-to-rem(16);
+        box-shadow: functions.px-to-rem(10) functions.px-to-rem(1) functions.px-to-rem(10) functions.px-to-rem(0) variables.$border-secondary,
+                functions.px-to-rem(0) functions.px-to-rem(4) functions.px-to-rem(5) functions.px-to-rem(0) variables.$shadow-primary,
+                functions.px-to-rem(0) functions.px-to-rem(2) functions.px-to-rem(4) functions.px-to-rem(-1) variables.$shadow-secondary;
+
+        &__description {
+            order: 1;
+            font-size: functions.px-to-rem(15);
+            line-height: functions.px-to-rem(18);
+        }
+
+        &__socials {
+            order: 2;
+            gap: functions.px-to-rem(24);
+            font-size: functions.px-to-rem(20);
+        }
+    }
+
+    @include mixin.respond('desktop') {
+        height: functions.px-to-rem(120);
+        padding: functions.px-to-rem(48) functions.px-to-rem(32);
+
+        &__description {
+            font-size: functions.px-to-rem(16);
+            line-height: functions.px-to-rem(20);
+        }
+
+        &__socials {
+            font-size: functions.px-to-rem(24);
+        }
+    }
+}
