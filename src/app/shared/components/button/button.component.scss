@@ -2,14 +2,20 @@
 @use 'src/styles/abstract/functions.scss';
 @use 'src/styles/abstract/mixin.scss';
 
+:host {
+    display: block;
+    width: 100%;
+}
+
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     font-family: inherit;
     cursor: pointer;
     border: none;
-    font-size: functions.px-to-rem(10);
+    font-size: functions.px-to-rem(12);
     font-weight: 600;
     line-height: functions.px-to-rem(21);
     transition: background-color 0.2s ease,
