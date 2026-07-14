@@ -13,10 +13,7 @@ export class OrderCardComponent {
   columnsValue: columnDetails[] = [];
   displayColumns: string[] = [];
   @Input() set columns(value: columnDetails[]) {
-<<<<<<< HEAD
     this.columnsValue = value;
-=======
->>>>>>> d6b83f7 (VN_A2_01: typography classes added)
     this.displayColumns = value.map(col => col.key);
   }
 
