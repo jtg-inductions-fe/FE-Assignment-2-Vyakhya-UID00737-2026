@@ -38,7 +38,7 @@ const routes: Routes = [
     path: 'dashboard/owner',
     component: DashboardComponent,
     canActivate: [roleGuard],
-    data: { roles: ['admin'] }
+    data: { roles: ['owner'] }
   },
   {
     path: '**',
