@@ -1,0 +1,43 @@
+@use 'src/styles/abstract/mixin.scss';
+@use 'src/styles/abstract/variables.scss';
+@use 'src/styles/abstract/functions.scss';
+
+.login-page-container{
+    @include mixin.flex-center;
+    min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+.login-form {
+    @include mixin.flex-center;
+    width: functions.px-to-rem(400);
+    height: functions.px-to-rem(300);
+    gap: functions.px-to-rem(16);
+    padding: functions.px-to-rem(12);
+    border-radius: functions.px-to-rem(8);
+    border: none;
+    box-shadow: none;
+
+    &__header {
+        text-align: center;
+    }
+
+    &__heading {
+        font-weight: 700;
+        font-size: functions.px-to-rem(20);
+        line-height: functions.px-to-rem(30);
+    }
+
+    &__description {
+        font-weight: 600;
+        font-size: functions.px-to-rem(12);
+        line-height: functions.px-to-rem(18);
+    }
+
+    @include mixin.respond('tablet') {
+        box-shadow: 0 functions.px-to-rem(1) functions.px-to-rem(5) functions.px-to-rem(0) variables.$border-secondary,
+                    0 functions.px-to-rem(2) functions.px-to-rem(2) functions.px-to-rem(0) variables.$shadow-primary,
+                    0 functions.px-to-rem(3) functions.px-to-rem(1) functions.px-to-rem(-2) variables.$shadow-secondary;
+    }
+}
