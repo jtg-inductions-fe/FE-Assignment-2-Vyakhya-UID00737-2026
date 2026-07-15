@@ -6,26 +6,26 @@ import { RestaurantFormComponent } from './restaurant-form/restaurant-form.compo
 const routes: Routes = [
   {
     path: '',
-    component: ListRestaurantComponent
+    component: ListRestaurantComponent,
   },
   {
     path: 'add',
     component: RestaurantFormComponent,
     data: {
-      mode: 'add'
-    }
+      mode: 'add',
+    },
   },
   {
     path: 'edit/:id',
     component: RestaurantFormComponent,
     data: {
-      mode: 'edit'
-    }
-  }
+      mode: 'edit',
+    },
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class RestaurantRoutingModule {}

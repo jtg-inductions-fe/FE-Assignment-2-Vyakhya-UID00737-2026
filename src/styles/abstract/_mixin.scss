@@ -2,45 +2,43 @@
 @use './variables';
 
 $breakpoints: (
-    'tablet': variables.$tablet,
-    'small-desktop': variables.$small-desktop,
-    'desktop': variables.$desktop
+  'tablet': variables.$tablet,
+  'small-desktop': variables.$small-desktop,
+  'desktop': variables.$desktop,
 );
 
 @mixin respond($breakpoint) {
-    @if map-has-key($breakpoints, $breakpoint) {
-        @media(min-width: map-get($breakpoints, $breakpoint)){
-            @content;
-        }
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
     }
-    @else {
-        @warn 'No breakpoint of this size exists';
-    }
+  } @else {
+    @warn 'No breakpoint of this size exists';
+  }
 }
 
-
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin flex-col-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin flex-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @mixin flex-col-between {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }

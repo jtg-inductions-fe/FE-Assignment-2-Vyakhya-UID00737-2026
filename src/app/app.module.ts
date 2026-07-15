@@ -8,17 +8,9 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    PageNotFoundComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-  ],
+  declarations: [AppComponent, DashboardComponent, PageNotFoundComponent],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

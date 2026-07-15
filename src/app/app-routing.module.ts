@@ -8,34 +8,28 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'login',
-    loadChildren: () =>
-      import('./modules/auth/auth.module').then(
-        module => module.AuthModule
-      )
+    loadChildren: () => import('./modules/auth/auth.module').then(module => module.AuthModule),
   },
   {
     path: 'restaurants',
-    loadChildren: () =>
-      import('./modules/restaurant/restaurant.module').then(
-        module => module.RestaurantModule
-      )
+    loadChildren: () => import('./modules/restaurant/restaurant.module').then(module => module.RestaurantModule),
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
   },
   {
     path: '**',
-    component: PageNotFoundComponent
-  }
+    component: PageNotFoundComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

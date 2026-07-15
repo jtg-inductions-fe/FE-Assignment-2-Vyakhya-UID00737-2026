@@ -6,13 +6,7 @@ import { ListRestaurantComponent } from './list-restaurant/list-restaurant.compo
 import { RestaurantFormComponent } from './restaurant-form/restaurant-form.component';
 
 @NgModule({
-  declarations: [
-    ListRestaurantComponent,
-    RestaurantFormComponent
-  ],
-  imports: [
-    CommonModule,
-    RestaurantRoutingModule
-  ]
+  declarations: [ListRestaurantComponent, RestaurantFormComponent],
+  imports: [CommonModule, RestaurantRoutingModule],
 })
 export class RestaurantModule {}

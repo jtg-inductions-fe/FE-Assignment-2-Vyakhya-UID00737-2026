@@ -4,88 +4,88 @@
 @use '../abstract/functions';
 
 a {
-    font-size: functions.px-to-rem(24);    
+  font-size: functions.px-to-rem(24);
 }
 
 .btn-text {
-    font-size: functions.px-to-rem(16);
-    line-height: functions.px-to-rem(24);
-    font-weight: 500;
+  font-size: functions.px-to-rem(16);
+  line-height: functions.px-to-rem(24);
+  font-weight: 500;
 }
 
 .btn-icon {
-    font-size: functions.px-to-rem(24);
+  font-size: functions.px-to-rem(24);
 }
 
 .btn-report-icon {
-    font-size: functions.px-to-rem(20);
+  font-size: functions.px-to-rem(20);
 }
 
 .btn-report-text {
-    font-size: functions.px-to-rem(14);
-    line-height: functions.px-to-rem(21);
-    font-weight: 600;
+  font-size: functions.px-to-rem(14);
+  line-height: functions.px-to-rem(21);
+  font-weight: 600;
 }
 
 p {
-    font-size: functions.px-to-rem(14);
-    font-weight: 500;
-    line-height: functions.px-to-rem(20);
-    color: variables.$secondary-text;
+  font-size: functions.px-to-rem(14);
+  font-weight: 500;
+  line-height: functions.px-to-rem(20);
+  color: variables.$secondary-text;
 }
 
-.p-card{
-    font-size: functions.px-to-rem(12);
-    font-weight: 600;
-    line-height: functions.px-to-rem(18);
+.p-card {
+  font-size: functions.px-to-rem(12);
+  font-weight: 600;
+  line-height: functions.px-to-rem(18);
 }
 
 .p-report-card {
-    font-size: functions.px-to-rem(12);
-    font-weight: 500;
-    line-height: functions.px-to-rem(18);
+  font-size: functions.px-to-rem(12);
+  font-weight: 500;
+  line-height: functions.px-to-rem(18);
 }
 
 h1 {
-    font-size: functions.px-to-rem(48);
-    font-weight: 700;
-    line-height: functions.px-to-rem(62);
+  font-size: functions.px-to-rem(48);
+  font-weight: 700;
+  line-height: functions.px-to-rem(62);
 }
 
 h2 {
-    font-size: functions.px-to-rem(35);
-    font-weight: 700;
-    line-height: functions.px-to-rem(40);
+  font-size: functions.px-to-rem(35);
+  font-weight: 700;
+  line-height: functions.px-to-rem(40);
 }
 
 h3 {
-    font-size: functions.px-to-rem(20);
-    font-weight: 700;
-    line-height: functions.px-to-rem(30);
+  font-size: functions.px-to-rem(20);
+  font-weight: 700;
+  line-height: functions.px-to-rem(30);
 }
 
 .card-heading {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 h4 {
-    font-size: functions.px-to-rem(18);
-    font-weight: 700;
-    line-height: functions.px-to-rem(20);
+  font-size: functions.px-to-rem(18);
+  font-weight: 700;
+  line-height: functions.px-to-rem(20);
 }
 
 .list-heading {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 h5 {
-    font-size: functions.px-to-rem(14);
-    font-weight: 700;
-    line-height: functions.px-to-rem(21);
+  font-size: functions.px-to-rem(14);
+  font-weight: 700;
+  line-height: functions.px-to-rem(21);
 }
 
 h6 {
-    font-size: functions.px-to-rem(12);
-    font-weight: 700;
-    line-height: functions.px-to-rem(18);
+  font-size: functions.px-to-rem(12);
+  font-weight: 700;
+  line-height: functions.px-to-rem(18);
 }
