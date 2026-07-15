@@ -1,0 +1,25 @@
+<div class="header">
+  <a href="#" class="header__logo">
+    <img class="header__logo-img" src="assets/icons/logo.svg" alt="website-logo" />
+  </a>
+
+  <ng-container *ngIf="authService.isLoggedIn()">
+    <button class="header__profile" (click)="onClick()" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+      <img class="header__profile-img" src="assets/images/Avatar1.svg" alt="user-profile-img" />
+    </button>
+
+    <ng-template
+      cdkConnectedOverlay
+      [cdkConnectedOverlayOrigin]="trigger"
+      [cdkConnectedOverlayOpen]="isOpen"
+      [cdkConnectedOverlayHasBackdrop]="true"
+      cdkConnectedOverlayBackdropClass="cdk-overlay-transparent-backdrop"
+      (backdropClick)="isOpen = false">
+      <div class="user-information" *ngIf="data">
+        <h4>{{ data.role === 'admin' ? 'Admin' : 'Owner' }}</h4>
+        <p>{{ data.email }}</p>
+        <app-button label="LOGOUT" variant="filled" type="submit" size="sm" (click)="onLogout()"></app-button>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

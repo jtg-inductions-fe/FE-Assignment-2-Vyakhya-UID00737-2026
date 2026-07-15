@@ -1,0 +1,49 @@
+@use 'src/styles/abstract/mixin.scss';
+@use 'src/styles/abstract/variables.scss';
+@use 'src/styles/abstract/functions.scss';
+
+.header {
+  @include mixin.flex-container(flex, space-between, center, row);
+  width: 100%;
+  height: functions.px-to-rem(68);
+  padding: 0 functions.px-to-rem(16);
+  position: relative;
+  border-bottom: functions.px-to-rem(1) solid variables.$secondary-text;
+
+  &__logo {
+    width: functions.px-to-rem(35);
+    height: functions.px-to-rem(35);
+  }
+
+  &__profile {
+    width: functions.px-to-rem(40);
+    height: functions.px-to-rem(40);
+  }
+}
+
+.user-information {
+  @include mixin.flex-container(flex, center, flex-start, column);
+  @include mixin.shadow(
+    0,
+    1,
+    5,
+    0,
+    variables.$border-secondary,
+    0,
+    2,
+    2,
+    0,
+    variables.$shadow-primary,
+    0,
+    3,
+    1,
+    -2,
+    variables.$shadow-secondary
+  );
+  gap: functions.px-to-rem(8);
+  border: functions.px-to-rem(1) solid variables.$border-secondary;
+  padding: functions.px-to-rem(8);
+  border-radius: functions.px-to-rem(4);
+  z-index: 1;
+  background-color: variables.$white;
+}
