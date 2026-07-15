@@ -1,39 +1,41 @@
 @use '@angular/material' as mat;
+@use 'src/styles/abstract/variables.scss';
+
 @include mat.core();
 
 // Primary color of website
 $primary-palette: (
-  100: #d1fae5,
-  500: #0e9f6e,
-  700: #087f5b,
+  100: variables.$primary-100,
+  500: variables.$primary-500,
+  700: variables.$primary-700,
   contrast: (
-    100: #000000de,
-    500: #ffffff,
-    700: #ffffff,
+    100: variables.$primary-text,
+    500: variables.$white,
+    700: variables.$white,
   ),
 );
 
 // Accent color of website
 $accent-palette: (
-  100: #fef3c7,
-  500: #d97706,
-  700: #92400e,
+  100: variables.$accent-100,
+  500: variables.$accent-500,
+  700: variables.$accent-700,
   contrast: (
-    100: #000000de,
-    500: #ffffff,
-    700: #ffffff,
+    100: variables.$primary-text,
+    500: variables.$white,
+    700: variables.$white,
   ),
 );
 
 // Warning palette of website
 $warn-palette: (
-  100: #fde8e8,
-  500: #e02424,
-  700: #9b1c1c,
+  100: variables.$warn-100,
+  500: variables.$warn-500,
+  700: variables.$warn-700,
   contrast: (
-    100: #000000de,
-    500: #ffffff,
-    700: #ffffff,
+    100: variables.$primary-text,
+    500: variables.$white,
+    700: variables.$white,
   ),
 );
 

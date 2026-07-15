@@ -10,9 +10,9 @@ html {
 body {
   font-family: variables.$global-font;
   max-width: variables.$max-screen-width;
-  height: 100%;
+  min-height: 100vh;
   color: variables.$primary-text;
-  background-color: variables.$bg-global;
+  background-color: variables.$white;
   margin: 0 auto;
 }
 
@@ -22,10 +22,13 @@ img {
   display: block;
 }
 
+p {
+  color: variables.$secondary-text;
+}
+
 a {
   text-decoration: none;
   cursor: pointer;
-  font-size: functions.px-to-rem(24);
 }
 
 button {
