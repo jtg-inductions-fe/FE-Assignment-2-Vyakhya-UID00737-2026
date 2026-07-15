@@ -12,7 +12,6 @@ export class AuthGuard {
     public router: Router,
   ) {}
 
-<<<<<<< HEAD
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.authService.isLoggedIn()) {
       const role = this.authService.getUserRole();
@@ -22,22 +21,6 @@ export class AuthGuard {
         this.router.navigate([ownerDashboard]);
       }
       return false;
-=======
-    if(authService.isLoggedIn()) {
-        const role = authService.getUserRole();
-        if(role === 'admin') {
-<<<<<<< HEAD
-            router.navigate(['/dashboard/admin']);
-        }else if(role === 'owner') {
-            router.navigate(['/dashboard/owner']);
-=======
-            router.navigate(['/dashboard/owner']);
-        }else if(role === 'owner') {
-            router.navigate(['dashboard/owner']);
->>>>>>> 7f11f97 (VN_A2_02: set up auth routing along with the user roles for all pages on websites)
-        }
-        return false;
->>>>>>> 388cb2d (VN_A2_02: set up auth routing along with the user roles for all pages on websites)
     }
     return true;
   }
