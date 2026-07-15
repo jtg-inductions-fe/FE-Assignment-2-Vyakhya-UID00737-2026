@@ -1,12 +1,12 @@
 // defining stylings for text, icons in classes to use them directly
-
+@use 'sass:map';
 @use '../abstract/variables';
 @use '../abstract/functions';
 
 .btn-text {
   font-size: functions.px-to-rem(16);
   line-height: functions.px-to-rem(24);
-  font-weight: 500;
+  font-weight: map.get(variables.$font-weight, 'light');
 }
 
 .btn-icon {
@@ -20,25 +20,25 @@
 .btn-report-text {
   font-size: functions.px-to-rem(14);
   line-height: functions.px-to-rem(21);
-  font-weight: 600;
+  font-weight: map.get(variables.$font-weight, 'regular');
 }
 
 .p-card {
   font-size: functions.px-to-rem(12);
-  font-weight: 600;
+  font-weight: map.get(variables.$font-weight, 'regular');
   line-height: functions.px-to-rem(18);
 }
 
 .p-report-card {
   font-size: functions.px-to-rem(12);
-  font-weight: 500;
+  font-weight: map.get(variables.$font-weight, 'light');
   line-height: functions.px-to-rem(18);
 }
 
 .card-heading {
-  font-weight: 600;
+  font-weight: map.get(variables.$font-weight, 'regular');
 }
 
 .list-heading {
-  font-weight: 600;
+  font-weight: map.get(variables.$font-weight, 'regular');
 }

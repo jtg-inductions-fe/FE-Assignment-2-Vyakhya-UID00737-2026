@@ -1,14 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-export interface DropdownOptions {
-  label: string;
-  value: string;
-}
+import { DropdownOptions } from '../../models/dropdown.models';
 
 @Component({
   selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss']
+  styleUrls: ['./dropdown.component.scss'],
 })
 export class DropdownComponent {
   @Input() label = 'Select Option';

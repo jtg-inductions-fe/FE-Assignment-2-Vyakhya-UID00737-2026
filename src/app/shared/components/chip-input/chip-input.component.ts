@@ -1,36 +1,42 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ENTER } from '@angular/cdk/keycodes';
+import { FormControl } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 
 @Component({
   selector: 'app-chip-input',
   templateUrl: './chip-input.component.html',
-  styleUrls: ['./chip-input.component.scss']
+  styleUrls: ['./chip-input.component.scss'],
 })
-
 export class ChipInputComponent {
-  @Input() label = '';
-  @Input() placeholder = '';
-  @Input() inputId = 'chip-input';
+  @Input({ required: true }) label!: string;
+  @Input({ required: true }) placeholder!: string;
+  @Input({ required: true }) inputId!: string;
+  @Input({ required: true }) control!: FormControl<string[] | null>;
   @Input() required = false;
-  @Input() chips: string[] = [];
   @Output() chipsChange = new EventEmitter<string[]>();
+  @Input() onError: Record<string, string> = {};
   readonly separatorKeysCodes: number[] = [ENTER];
 
   isFocused = false;
-  isTouched = false;
 
   get errorId(): string {
     return `${this.inputId}-error`;
   }
 
-  get showRequiredError(): boolean {
-    return (
-      this.required &&
-      this.isTouched &&
-      !this.isFocused &&
-      this.chips.length === 0
-    );
+  get showError(): boolean {
+    return this.control.invalid && (this.control.touched || this.control.dirty);
+  }
+
+  get errorMessage(): string {
+    const error = this.control.errors;
+    if (!error) return '';
+    const errorKey = Object.keys(error)[0];
+    return this.onError[errorKey] ?? 'Invalid value!';
+  }
+
+  get chips(): string[] {
+    return this.control.value ?? [];
   }
 
   addChip(event: MatChipInputEvent): void {
@@ -39,29 +45,29 @@ export class ChipInputComponent {
       event.chipInput?.clear();
       return;
     }
-    const alreadyExists = this.chips.some(
-      chip => chip.toLowerCase() === value.toLowerCase()
-    );
+    const alreadyExists = this.chips.some(chip => chip.toLowerCase() === value.toLowerCase());
+
     if (!alreadyExists) {
-      this.chips = [...this.chips, value];
-      this.chipsChange.emit(this.chips);
+      const updatedChips = [...this.chips, value];
+      this.control.setValue(updatedChips);
+      this.control.markAsDirty();
+      this.control.updateValueAndValidity();
+      this.chipsChange.emit(updatedChips);
     }
     event.chipInput?.clear();
   }
 
   removeChip(chip: string): void {
-    this.chips = this.chips.filter(
-      currentChip => currentChip !== chip
-    );
-    this.chipsChange.emit(this.chips);
+    const updatedChips = this.chips.filter(currentChip => currentChip !== chip);
+    this.control.setValue(updatedChips);
+    this.control.markAsDirty();
+    this.control.updateValueAndValidity();
+    this.chipsChange.emit(updatedChips);
   }
 
   onBackspace(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
-    if (
-      inputElement.value.length === 0 &&
-      this.chips.length > 0
-    ) {
+    if (inputElement.value.length === 0 && this.chips.length > 0) {
       const lastChip = this.chips[this.chips.length - 1];
       this.removeChip(lastChip);
     }
@@ -73,7 +79,8 @@ export class ChipInputComponent {
 
   onBlur(): void {
     this.isFocused = false;
-    this.isTouched = true;
+    this.control.markAsTouched();
+    this.control.updateValueAndValidity();
   }
 
   trackByChip(index: number, chip: string): string {

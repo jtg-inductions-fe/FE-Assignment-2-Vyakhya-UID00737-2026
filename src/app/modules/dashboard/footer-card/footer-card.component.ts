@@ -1,15 +1,12 @@
 import { Component, Input } from '@angular/core';
-
-export interface SocialIcons {
-  icon: string;
-}
+import { SocialIcons } from '../../../shared/models/footer.models';
 
 @Component({
   selector: 'app-footer-card',
   templateUrl: './footer-card.component.html',
-  styleUrls: ['./footer-card.component.scss']
+  styleUrls: ['./footer-card.component.scss'],
 })
 export class FooterCardComponent {
-  @Input() description='';
+  @Input() description = '';
   @Input() icons: SocialIcons[] = [];
 }

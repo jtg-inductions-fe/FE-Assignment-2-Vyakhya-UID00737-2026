@@ -1,16 +1,14 @@
-<mat-form-field class="form-input" appearance="outline" [class.form-input--error]="showRequiredError">
-    <mat-label>{{ label }}</mat-label>
-    <input
-        matInput
-        class="form-input__field"
-        [id]="inputId"
-        [type]="type"
-        [placeholder]="placeholder"
-        [value]="value"
-        [required]="required"
-        (focus)="onFocus()"
-        (blur)="onBlur()"
-        (input)="onInput($event)"
-    />
-    <mat-error class="form-input__error" *ngIf="showRequiredError">Required!</mat-error>
+<mat-form-field class="form-input" appearance="outline" [class.form-input--error]="showError">
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    class="form-input__field"
+    [id]="inputId"
+    [type]="type"
+    [placeholder]="placeholder"
+    [formControl]="control" />
+
+  <mat-error class="form-input__error" *ngIf="showError">
+    {{ errorMessage }}
+  </mat-error>
 </mat-form-field>

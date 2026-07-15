@@ -1,40 +1,40 @@
+@use 'sass:map';
 @use 'src/styles/abstract/variables.scss';
 @use 'src/styles/abstract/functions.scss';
 @use 'src/styles/abstract/mixin.scss';
 
 .stat-card {
-    @include mixin.flex-between;
-    width: 100%;
-    height: functions.px-to-rem(60);
-    font-family: inherit;
-    border: 1px solid variables.$border-secondary;
-    border-radius: functions.px-to-rem(12);
-    padding: functions.px-to-rem(10);
-    box-sizing: border-box;
+  @include mixin.flex-container(flex, space-between, center);
+  width: 100%;
+  height: functions.px-to-rem(60);
+  border: 1px solid variables.$border-secondary;
+  border-radius: map.get(variables.$border-radius, 'md-3');
+  padding: functions.px-to-rem(10);
+  box-sizing: border-box;
 
-    &__info {
-        @include mixin.flex-col-center;
-        align-items: flex-start;
-    }
+  &__info {
+    @include mixin.flex-container(flex, center, center, column);
+    align-items: flex-start;
+  }
 
-    &__heading {
-        font-weight: 600;
-        font-size: functions.px-to-rem(14);
-        line-height: functions.px-to-rem(18);
-        color: variables.$secondary-text;
-    }
+  &__heading {
+    font-weight: map.get(variables.$font-weight, 'regular');
+    font-size: functions.px-to-rem(14);
+    line-height: functions.px-to-rem(18);
+    color: variables.$secondary-text;
+  }
 
-    &__count {
-        font-size: functions.px-to-rem(20);
-        line-height: functions.px-to-rem(30);
-        font-weight: 700;
-    }
+  &__count {
+    font-size: functions.px-to-rem(20);
+    line-height: functions.px-to-rem(30);
+    font-weight: map.get(variables.$font-weight, 'bold');
+  }
 
-    &__icon {
-        font-size: functions.px-to-rem(45);
-    }
+  &__icon {
+    font-size: functions.px-to-rem(45);
+  }
 
-    @include mixin.respond('tablet') {
-        height: functions.px-to-rem(72);
-    }
+  @include mixin.respond('tablet') {
+    height: functions.px-to-rem(72);
+  }
 }

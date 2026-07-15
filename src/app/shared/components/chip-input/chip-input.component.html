@@ -1,35 +1,21 @@
-<mat-form-field
-  class="chip-input"
-  appearance="outline"
-  [class.chip-input--error]="showRequiredError"
->
+<mat-form-field class="chip-input" appearance="outline" [class.chip-input--error]="showError">
   <mat-label>{{ label }}</mat-label>
   <mat-chip-grid
     #chipGrid
     class="chip-input__grid"
     [attr.aria-label]="label"
-    [attr.aria-describedby]="showRequiredError ? errorId : null"
-  >
+    [attr.aria-describedby]="showError ? errorId : null">
     <mat-chip-row
       *ngFor="let chip of chips; trackBy: trackByChip"
       class="chip-input__chip"
       [attr.aria-label]="chip"
-      (removed)="removeChip(chip)"
-    >
+      (removed)="removeChip(chip)">
       <span class="chip-input__chip-text">
         {{ chip }}
       </span>
 
-      <button
-        type="button"
-        matChipRemove
-        class="chip-input__remove"
-        [attr.aria-label]="'Remove ' + chip"
-      >
-        <span
-          class="chip-input__icon icon-close"
-          aria-hidden="true"
-        ></span>
+      <button type="button" matChipRemove class="chip-input__remove" [attr.aria-label]="'Remove ' + chip">
+        <span class="chip-input__icon icon-close" aria-hidden="true"></span>
       </button>
     </mat-chip-row>
 
@@ -43,20 +29,15 @@
       [required]="required && chips.length === 0"
       [attr.aria-label]="label"
       [attr.aria-required]="required"
-      [attr.aria-invalid]="showRequiredError"
-      [attr.aria-describedby]="showRequiredError ? errorId : null"
+      [attr.aria-invalid]="showError"
+      [attr.aria-describedby]="showError ? errorId : null"
       (matChipInputTokenEnd)="addChip($event)"
       (keydown.backspace)="onBackspace($event)"
       (focus)="onFocus()"
-      (blur)="onBlur()"
-    />
+      (blur)="onBlur()" />
   </mat-chip-grid>
 
-  <mat-error
-    *ngIf="showRequiredError"
-    class="chip-input__error"
-    [id]="errorId"
-  >
-    Required!
+  <mat-error *ngIf="showError" class="chip-input__error" [id]="errorId">
+    {{ errorMessage }}
   </mat-error>
 </mat-form-field>

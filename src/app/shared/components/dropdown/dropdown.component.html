@@ -4,13 +4,8 @@
     class="dropdown__select"
     panelClass="dropdown-panel"
     [value]="selectedValue"
-    (selectionChange)="onSelectionChange($event.value)"
-  >
-    <mat-option
-      *ngFor="let option of options"
-      class="dropdown__option"
-      [value]="option.value"
-    >
+    (selectionChange)="onSelectionChange($event.value)">
+    <mat-option *ngFor="let option of options" class="dropdown__option" [value]="option.value">
       {{ option.label }}
     </mat-option>
   </mat-select>

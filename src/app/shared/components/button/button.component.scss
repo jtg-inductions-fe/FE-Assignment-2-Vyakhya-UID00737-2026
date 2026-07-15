@@ -1,95 +1,102 @@
+@use 'sass:map';
 @use 'src/styles/abstract/variables.scss';
 @use 'src/styles/abstract/functions.scss';
 @use 'src/styles/abstract/mixin.scss';
 
 :host {
-    display: block;
-    width: 100%;
+  display: block;
+  width: 100%;
 }
 
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    font-family: inherit;
-    cursor: pointer;
-    border: none;
+  @include mixin.flex-container(flex-inline, center, center);
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  font-size: functions.px-to-rem(12);
+  font-weight: map.get(variables.$font-weight, 'regular');
+  line-height: functions.px-to-rem(21);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border 0.2s ease;
+
+  &--filled {
+    @include mixin.shadow(
+      0,
+      1,
+      5,
+      0,
+      variables.$border-secondary,
+      0,
+      2,
+      2,
+      0,
+      variables.$shadow-primary,
+      0,
+      3,
+      1,
+      -2,
+      variables.$shadow-secondary
+    );
+    color: variables.$white;
+    background-color: variables.$bg-primary;
+    &:hover {
+      background-color: variables.$hover-primary;
+    }
+  }
+
+  &--outlined {
+    border: 1px solid variables.$border-primary;
+    color: variables.$bg-primary;
+    background-color: variables.$white;
+    &:hover {
+      color: variables.$hover-primary;
+      border-color: variables.$hover-primary;
+    }
+  }
+
+  // different padding styles to buttons
+  &--sm {
+    padding: functions.px-to-rem(5) functions.px-to-rem(15);
+  }
+
+  &--md {
+    padding: functions.px-to-rem(6) functions.px-to-rem(16);
+  }
+
+  &--lg {
+    padding: functions.px-to-rem(9) functions.px-to-rem(17);
+  }
+
+  // different radius properties to button
+  &--radius-sm {
+    border-radius: map.get(variables.$border-radius, sm);
+  }
+
+  &--radius-md {
+    border-radius: map.get(variables.$border-radius, 'md-1');
+  }
+
+  &--radius-lg {
+    border-radius: map.get(variables.$border-radius, 'md-3');
+  }
+
+  // providing gap only if icon exists in the button
+  &--with-icon {
+    gap: functions.px-to-rem(6);
+  }
+
+  &__icon {
+    @include mixin.flex-container(flex-inline, center, center);
     font-size: functions.px-to-rem(12);
-    font-weight: 600;
-    line-height: functions.px-to-rem(21);
-    transition: background-color 0.2s ease,
-                color 0.2s ease,
-                border 0.2s ease;
+  }
 
-    &--filled {
-        color: variables.$bg-global;
-        background-color: variables.$bg-primary;
-        box-shadow: 0 functions.px-to-rem(1) functions.px-to-rem(5) functions.px-to-rem(0) variables.$border-secondary,
-                    0 functions.px-to-rem(2) functions.px-to-rem(2) functions.px-to-rem(0) variables.$shadow-primary,
-                    0 functions.px-to-rem(3) functions.px-to-rem(1) functions.px-to-rem(-2) variables.$shadow-secondary;
-        &:hover {
-            background-color: variables.$hover-primary;
-        }
-    }
-
-    &--outlined {
-        border: 1px solid variables.$border-primary;
-        color: variables.$bg-primary;
-        background-color: variables.$bg-global;
-        &:hover {
-            color: variables.$hover-primary;
-            border-color: variables.$hover-primary;
-        }
-    }
-
-    // different padding styles to buttons
-    &--xs {
-        padding: functions.px-to-rem(4) functions.px-to-rem(12);
-    }
-
-    &--sm {
-        padding: functions.px-to-rem(5) functions.px-to-rem(15);
-    }
-
-    &--md {
-        padding: functions.px-to-rem(6) functions.px-to-rem(16);
-    }
-
-    &--lg {
-        padding: functions.px-to-rem(9) functions.px-to-rem(17);
-    }
-
-    // different radius properties to button
-    &--radius-sm {
-        border-radius: functions.px-to-rem(4);
-    }
-
-    &--radius-md {
-        border-radius: functions.px-to-rem(8);
-    }
-
-    &--radius-lg {
-        border-radius: functions.px-to-rem(12);
-    }
-
-    // providing gap only if icon exists in the button
-    &--with-icon {
-        gap: functions.px-to-rem(6);
-    }
+  @include mixin.respond('desktop') {
+    font-size: functions.px-to-rem(14);
 
     &__icon {
-        display: inline-flex;
-        font-size: functions.px-to-rem(12);
-        align-items: center;
-        justify-content: center;
+      font-size: functions.px-to-rem(15);
     }
-
-    @include mixin.respond('desktop') {
-        font-size: functions.px-to-rem(14);
-
-        &__icon {
-            font-size: functions.px-to-rem(15);
-        }
-    }
+  }
 }

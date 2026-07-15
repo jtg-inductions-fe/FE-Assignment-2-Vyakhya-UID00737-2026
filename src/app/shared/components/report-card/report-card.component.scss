@@ -1,70 +1,69 @@
+@use 'sass:map';
 @use 'src/styles/abstract/variables.scss';
 @use 'src/styles/abstract/functions.scss';
 @use 'src/styles/abstract/mixin.scss';
 
 .report-card {
-    @include mixin.flex-between;
-    width: 100%;
+  @include mixin.flex-container(flex, space-between, center);
+  width: 100%;
+  align-items: flex-start;
+  gap: functions.px-to-rem(5);
+  border: 1px solid variables.$border-secondary;
+  border-radius: map.get(variables.$border-radius, 'md-3');
+  padding: functions.px-to-rem(10);
+  box-sizing: border-box;
+
+  &__info {
+    @include mixin.flex-container(flex, center, flex-start, column);
     align-items: flex-start;
-    font-family: inherit;
-    gap: functions.px-to-rem(5);
-    border: 1px solid variables.$border-secondary;
-    border-radius: functions.px-to-rem(12);
-    padding: functions.px-to-rem(10);
-    box-sizing: border-box;
+  }
 
+  &__heading {
+    font-weight: map.get(variables.$font-weight, 'bold');
+    font-size: functions.px-to-rem(15);
+    line-height: functions.px-to-rem(22);
+  }
+
+  &__description {
+    font-weight: map.get(variables.$font-weight, 'light');
+    font-size: functions.px-to-rem(13);
+    line-height: functions.px-to-rem(18);
+    color: variables.$secondary-text;
+  }
+
+  &__dropdown {
+    margin-top: functions.px-to-rem(8);
+    display: block;
+  }
+
+  &__buttons {
+    display: none;
+  }
+
+  @include mixin.respond('small-desktop') {
+    height: functions.px-to-rem(86);
+    align-items: center;
     &__info {
-        @include mixin.flex-col-center;
-        align-items: flex-start;
-    }
-
-    &__heading {
-        font-weight: 700;
-        font-size: functions.px-to-rem(15);
-        line-height: functions.px-to-rem(22);
-    }
-
-    &__description{
-        font-weight: 500;
-        font-size: functions.px-to-rem(13);
-        line-height: functions.px-to-rem(18);
-        color: variables.$secondary-text;
+      max-width: functions.px-to-rem(390);
     }
 
     &__dropdown {
-        margin-top: functions.px-to-rem(8);
-        display: block;
+      display: none;
     }
 
     &__buttons {
-        display: none;
+      @include mixin.flex-container(flex, space-between, row);
+      gap: functions.px-to-rem(10);
     }
 
-    @include mixin.respond('small-desktop') {
-        height: functions.px-to-rem(86);
-        align-items: center;
-        &__info {
-            max-width: functions.px-to-rem(390);
-        }
-
-        &__dropdown {
-            display: none
-        }
-
-        &__buttons {
-            @include mixin.flex-between;
-            flex-direction: row;
-            gap: functions.px-to-rem(10);
-        }
-
-        &__heading {
-            font-size: functions.px-to-rem(16);
-            line-height: functions.px-to-rem(24);
-        }
-
-        &__description{
-            font-size: functions.px-to-rem(14);
-            line-height: functions.px-to-rem(20);
-        }
+    &__heading {
+      font-size: functions.px-to-rem(16);
+      line-height: functions.px-to-rem(24);
     }
+
+    &__description {
+      font-size: functions.px-to-rem(14);
+      line-height: functions.px-to-rem(20);
+    }
+  }
 }

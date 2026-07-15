@@ -9,8 +9,7 @@
       label="Select Action"
       [options]="dropdownOptions"
       [selectedValue]="selected"
-      (selectedValueChange)="onDropdownChange($event)"
-    ></app-dropdown>
+      (selectedValueChange)="onDropdownChange($event)"></app-dropdown>
   </div>
 
   <div class="report-card__buttons">
@@ -19,7 +18,6 @@
       [label]="button.label"
       [icon]="button.icon ?? ''"
       [variant]="button.variant"
-      type="button"
-    ></app-button>
+      type="button"></app-button>
   </div>
 </div>

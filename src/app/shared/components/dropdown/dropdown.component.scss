@@ -1,10 +1,10 @@
+@use 'sass:map';
 @use 'src/styles/abstract/variables';
 @use 'src/styles/abstract/functions';
 @use 'src/styles/abstract/mixin';
 
 .dropdown {
   width: 100%;
-  font-family: inherit;
 
   --mdc-outlined-text-field-outline-color: #{variables.$secondary-text};
   --mdc-outlined-text-field-hover-outline-color: #{variables.$primary-text};
@@ -17,26 +17,24 @@
 
   &__label {
     color: variables.$secondary-text;
-    font-family: inherit;
     font-size: functions.px-to-rem(16);
-    font-weight: 500;
+    font-weight: map.get(variables.$font-weight, 'light');
   }
 
   &__select {
     width: 100%;
     color: variables.$primary-text;
-    font-family: inherit;
     font-size: functions.px-to-rem(15);
-    font-weight: 500;
+    font-weight: map.get(variables.$font-weight, 'light');
     line-height: functions.px-to-rem(20);
   }
 
   &__option {
     padding: functions.px-to-rem(4) functions.px-to-rem(6);
     font-size: functions.px-to-rem(12);
-    font-weight: 600;
+    font-weight: map.get(variables.$font-weight, 'regular');
     color: variables.$primary-text;
-    background-color: variables.$bg-global;
+    background-color: variables.$white;
     cursor: pointer;
     transition: background-color 0.2s ease;
     &:hover {
@@ -49,7 +47,7 @@
     .mat-mdc-text-field-wrapper {
       height: functions.px-to-rem(40);
       padding: 0 functions.px-to-rem(12);
-      background-color: variables.$bg-global;
+      background-color: variables.$white;
     }
 
     .mat-mdc-form-field-flex {
@@ -78,9 +76,8 @@
 
     .mat-mdc-select-value-text {
       color: variables.$primary-text;
-      font-family: inherit;
       font-size: functions.px-to-rem(14);
-      font-weight: 500;
+      font-weight: map.get(variables.$font-weight, 'light');
     }
 
     .mat-mdc-select-arrow-wrapper {
@@ -99,17 +96,16 @@
     }
 
     .mdc-notched-outline__leading {
-      border-radius: functions.px-to-rem(4);
+      border-radius: map.get(variables.$border-radius, sm);
     }
 
     .mdc-notched-outline__trailing {
-      border-radius: functions.px-to-rem(4);
+      border-radius: map.get(variables.$border-radius, 'sm');
     }
 
     .mdc-floating-label {
-      font-family: inherit;
       font-size: functions.px-to-rem(12);
-      font-weight: 500;
+      font-weight: map.get(variables.$font-weight, 'light');
     }
   }
 

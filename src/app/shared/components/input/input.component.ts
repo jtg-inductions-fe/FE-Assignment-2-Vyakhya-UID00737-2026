@@ -1,45 +1,28 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
+  styleUrls: ['./input.component.scss'],
 })
 export class InputComponent {
-  @Input() label = '';
+  @Input({ required: true }) label!: string;
+  @Input({ required: true }) control!: FormControl;
   @Input() placeholder = '';
-  @Input() text = '';
-  @Input() inputId = '';
-  @Input() value = '';
+  @Input({ required: true }) inputId!: string;
   @Input() type: 'text' | 'email' | 'password' = 'text';
-  @Input() required = false;
-  @Output() valueChange = new EventEmitter<string>();
+  @Input() onError: Record<string, string> = {};
 
-  isFocused = false;
-  isTouched = false;
-
-  get showRequiredError(): boolean {
-    return (
-      this.required &&
-      this.isTouched &&
-      !this.isFocused &&
-      !this.value.trim()
-    );
+  get showError(): boolean {
+    return this.control.invalid && (this.control.touched || this.control.dirty);
   }
 
-  onFocus(): void {
-    this.isFocused = true;
-  }
+  get errorMessage(): string {
+    const error = this.control.errors;
+    if (!error) return '';
+    const errorKey = Object.keys(error)[0];
 
-  onBlur(): void {
-    this.isFocused = false;
-    this.isTouched = true;
-  }
-
-  onInput(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-
-    this.value = inputElement.value;
-    this.valueChange.emit(this.value);
+    return this.onError[errorKey] ?? 'Invalid value!';
   }
 }
