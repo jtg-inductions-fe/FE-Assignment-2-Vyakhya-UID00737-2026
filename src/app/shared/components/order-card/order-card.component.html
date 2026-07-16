@@ -17,9 +17,11 @@
           <ng-container *ngIf="col.type === 'status'">
             <span
               class="order-card__status header"
-              [class.order-card__status]="getCellValue(order, col) === 'Accepted' || 
-              getCellValue(order, col) === 'Rejected' || 
-              getCellValue(order, col) === 'Pending'">
+              [class.order-card__status]="
+                getCellValue(order, col) === 'Accepted' ||
+                getCellValue(order, col) === 'Rejected' ||
+                getCellValue(order, col) === 'Pending'
+              ">
               {{ getCellValue(order, col) }}
             </span>
           </ng-container>

@@ -25,14 +25,4 @@ export class InputComponent {
 
     return this.onError[errorKey] ?? 'Invalid value!';
   }
-<<<<<<< HEAD
-=======
-
-  onInput(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-
-    this.value = inputElement.value;
-    this.valueChange.emit(this.value);
-  }
->>>>>>> acc4ceb (VN_A2_01: dropdown component added)
 }

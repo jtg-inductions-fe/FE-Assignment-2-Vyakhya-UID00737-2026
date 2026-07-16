@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import { roleGuard } from './core/guards/role.guard';
-import { authGuard } from './core/guards/auth.guard';
+import { PageNotFoundComponent } from '@modules/page-not-found/page-not-found.component';
+import { RoleGuard } from '@core/guards/role.guard';
+import { AuthGuard } from '@core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,32 +12,18 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    canActivate: [authGuard],
-    loadChildren: () =>
-      import('./modules/auth/auth.module').then(
-        module => module.AuthModule
-      )
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./modules/auth/auth.module').then(module => module.AuthModule),
   },
   {
     path: 'restaurants',
-    canActivate: [roleGuard],
+    canActivate: [RoleGuard],
     data: { roles: ['admin'] },
-    loadChildren: () =>
-      import('./modules/restaurant/restaurant.module').then(
-        module => module.RestaurantModule
-      )
+    loadChildren: () => import('./modules/restaurant/restaurant.module').then(module => module.RestaurantModule),
   },
   {
-    path: 'dashboard/admin',
-    component: DashboardComponent,
-    canActivate: [roleGuard],
-    data: { roles: ['admin'] }
-  },
-  {
-    path: 'dashboard/owner',
-    component: DashboardComponent,
-    canActivate: [roleGuard],
-    data: { roles: ['owner'] }
+    path: 'dashboard',
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(module => module.DashboardModule),
   },
   {
     path: '**',

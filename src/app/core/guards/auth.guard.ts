@@ -1,19 +1,27 @@
-import { inject } from "@angular/core";
-import { Router, CanActivateFn } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+import { AuthService } from '@core/services/auth.service';
+import { adminDashboard, ownerDashboard } from '@shared/constants/path.constants';
 
-export const authGuard: CanActivateFn = (route, state) => {
-    const authService = inject(AuthService);
-    const router = inject(Router);
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthGuard {
+  constructor(
+    public authService: AuthService,
+    public router: Router,
+  ) {}
 
-    if(authService.isLoggedIn()) {
-        const role = authService.getUserRole();
-        if(role === 'admin') {
-            router.navigate(['/dashboard/admin']);
-        }else if(role === 'owner') {
-            router.navigate(['/dashboard/owner']);
-        }
-        return false;
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    if (this.authService.isLoggedIn()) {
+      const role = this.authService.getUserRole();
+      if (role === 'admin') {
+        this.router.navigate([adminDashboard]);
+      } else if (role === 'owner') {
+        this.router.navigate([ownerDashboard]);
+      }
+      return false;
     }
     return true;
-};
+  }
+}

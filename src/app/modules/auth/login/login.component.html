@@ -1,28 +1,32 @@
 <div class="login-page-container">
-    <mat-card class="login-form">
-        <mat-card-header class="login-form__header">
-        <mat-card-title class="login-form__heading">Restaurant Portal</mat-card-title>
-        <mat-card-subtitle class="login-form__description" ><p>Log in to manage orders, menus, and stats.</p></mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <form (ngSubmit)="onSubmit()" novalidate>
-                <app-input type="email" label="Email Address" placeholder="Email Address"
-                        inputId="email" [required]="true" 
-                        [(value)]="email"></app-input>
-                <app-input type="password" label="Password" placeholder="Password"
-                            inputId="password" [required]="true"
-                            [(value)]="password" ></app-input>
-                <div class="login-form__error" *ngIf="error">
-                    {{ error }}
-                </div>
-                <app-button
-                label="LOGIN"
-                variant="filled"
-                type="submit"
-                size="md"
-                >    
-                </app-button>
-            </form>
-        </mat-card-content>
-    </mat-card>
+  <mat-card class="login-form">
+    <mat-card-header class="login-form__header">
+      <mat-card-title class="login-form__heading badge">Restaurant Portal</mat-card-title>
+      <mat-card-subtitle class="login-form__description p-card"
+        ><p>Log in to manage orders, menus, and stats.</p></mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" novalidate>
+        <app-input
+          type="email"
+          label="Email Address"
+          placeholder="Email Address"
+          inputId="email"
+          [control]="emailControl"
+          [onError]="emailErrors"></app-input>
+        <app-input
+          type="password"
+          label="Password"
+          placeholder="Password"
+          inputId="password"
+          [control]="passwordControl"
+          [onError]="passwordErrors"></app-input>
+        <div class="login-form__error option-text" *ngIf="error">
+          {{ error }}
+        </div>
+        <app-button label="LOGIN" variant="filled" type="submit" size="md" borderRadius="md"> </app-button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
