@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
 import { EMAIL_ERROR, PASSWORD_ERROR } from '@shared/constants/error.constants';
 import { AuthService } from '@core/services/auth.service';
 import { adminDashboard, ownerDashboard } from '@shared/constants/path.constants';
+=======
+import { EMAIL_ERROR, PASSWORD_ERROR } from 'src/app/shared/constants/error.constants';
+import { AuthService } from '../../../core/services/auth.service';
+>>>>>>> 956341a (VN_A2_02: rebased branch)
 
 @Component({
   selector: 'app-login',
