@@ -1,0 +1,44 @@
+// defining stylings for text, icons in classes to use them directly
+
+@use '../abstract/variables';
+@use '../abstract/functions';
+
+.btn-text {
+  font-size: functions.px-to-rem(16);
+  line-height: functions.px-to-rem(24);
+  font-weight: 500;
+}
+
+.btn-icon {
+  font-size: functions.px-to-rem(24);
+}
+
+.btn-report-icon {
+  font-size: functions.px-to-rem(20);
+}
+
+.btn-report-text {
+  font-size: functions.px-to-rem(14);
+  line-height: functions.px-to-rem(21);
+  font-weight: 600;
+}
+
+.p-card {
+  font-size: functions.px-to-rem(12);
+  font-weight: 600;
+  line-height: functions.px-to-rem(18);
+}
+
+.p-report-card {
+  font-size: functions.px-to-rem(12);
+  font-weight: 500;
+  line-height: functions.px-to-rem(18);
+}
+
+.card-heading {
+  font-weight: 600;
+}
+
+.list-heading {
+  font-weight: 600;
+}

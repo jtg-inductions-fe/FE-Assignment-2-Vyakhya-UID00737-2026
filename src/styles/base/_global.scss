@@ -1,0 +1,36 @@
+// defining global base stylings for every browser
+
+@use '../abstract/variables';
+@use '../abstract/functions';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: variables.$global-font;
+  max-width: variables.$max-screen-width;
+  min-height: 100vh;
+  color: variables.$primary-text;
+  background-color: variables.$white;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+p {
+  color: variables.$secondary-text;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}

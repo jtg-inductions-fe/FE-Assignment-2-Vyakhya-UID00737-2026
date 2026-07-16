@@ -1,0 +1,32 @@
+// this contains the naming convention of fonts, colors, breakpoints used in website
+
+// breakpoints
+$max-screen-width: 1600px;
+$tablet: 321px;
+$small-desktop: 769px;
+$desktop: 1025px;
+
+// fonts family
+$global-font: 'Inter', sans-serif;
+
+// colors
+$primary-text: #000000de;
+$secondary-text: #00000099;
+$tertiary-text: #d97706;
+$pointer-text: #e02424;
+$bg-primary: #0e9f6e;
+$bg-secondary: #fef3c7;
+$bg-tertiary: #fde8e8;
+$border-primary: #0e9f6e80;
+
+// color-pallete
+$primary-100: #d1fae5;
+$primary-500: #0e9f6e;
+$primary-700: #087f5b;
+$accent-100: #fef3c7;
+$accent-500: #d97706;
+$accent-700: #92400e;
+$warn-100: #fde8e8;
+$warn-500: #e02424;
+$warn-700: #9b1c1c;
+$white: #ffffff;

@@ -1,0 +1,63 @@
+@use '@angular/material' as mat;
+@use 'src/styles/abstract/variables.scss';
+
+@include mat.core();
+
+// Primary color of website
+$primary-palette: (
+  100: variables.$primary-100,
+  500: variables.$primary-500,
+  700: variables.$primary-700,
+  contrast: (
+    100: variables.$primary-text,
+    500: variables.$white,
+    700: variables.$white,
+  ),
+);
+
+// Accent color of website
+$accent-palette: (
+  100: variables.$accent-100,
+  500: variables.$accent-500,
+  700: variables.$accent-700,
+  contrast: (
+    100: variables.$primary-text,
+    500: variables.$white,
+    700: variables.$white,
+  ),
+);
+
+// Warning palette of website
+$warn-palette: (
+  100: variables.$warn-100,
+  500: variables.$warn-500,
+  700: variables.$warn-700,
+  contrast: (
+    100: variables.$primary-text,
+    500: variables.$white,
+    700: variables.$white,
+  ),
+);
+
+// defining palette and typographies to be used
+$app-primary: mat.define-palette($primary-palette, 500, 100, 700);
+$app-accent: mat.define-palette($accent-palette, 500, 100, 700);
+$app-warn: mat.define-palette($warn-palette, 500, 100, 700);
+$app-typography: mat.define-typography-config(
+  $font-family: 'Inter, sans-serif',
+);
+
+// setting the custom theme and typography
+$app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $app-primary,
+      accent: $app-accent,
+      warn: $app-warn,
+    ),
+    typography: $app-typography,
+  )
+);
+
+// including the theme in website by default
+@include mat.all-component-themes($app-theme);

@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/abstract/font';
+@use './styles/abstract/functions';
+@use './styles/abstract/variables';
+@use './styles/base/global';
+@use './styles/base/reset';
+@use './styles/base/typography';
+@use './styles/theme/custom-theme';
