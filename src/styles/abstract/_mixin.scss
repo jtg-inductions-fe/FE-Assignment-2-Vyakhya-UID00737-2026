@@ -18,7 +18,7 @@ $breakpoints: (
   }
 }
 
-@mixin flex-container($display: flex, $justify: center, $align: center, $direction: row) {
+@mixin flex-container($display: flex, $justify: flex-start, $align: stretch, $direction: row) {
   display: $display;
   justify-content: $justify;
   align-items: $align;
@@ -45,5 +45,5 @@ $breakpoints: (
   box-shadow:
     functions.px-to-rem($x1) functions.px-to-rem($y1) functions.px-to-rem($blur1) functions.px-to-rem($spread1) $color1,
     functions.px-to-rem($x2) functions.px-to-rem($y2) functions.px-to-rem($blur2) functions.px-to-rem($spread2) $color2,
-    functions.px-to-rem($x3) functions.px-to-rem($y1) functions.px-to-rem($blur3) functions.px-to-rem($spread3) $color3;
+    functions.px-to-rem($x3) functions.px-to-rem($y3) functions.px-to-rem($blur3) functions.px-to-rem($spread3) $color3;
 }

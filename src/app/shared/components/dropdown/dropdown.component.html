@@ -1,11 +1,11 @@
 <mat-form-field class="dropdown" appearance="outline" floatLabel="always">
-  <mat-label class="dropdown__label"> {{ label }} </mat-label>
+  <mat-label class="dropdown__label label"> {{ label }} </mat-label>
   <mat-select
-    class="dropdown__select"
+    class="dropdown__select select-text"
     panelClass="dropdown-panel"
     [value]="selectedValue"
     (selectionChange)="onSelectionChange($event.value)">
-    <mat-option *ngFor="let option of options" class="dropdown__option" [value]="option.value">
+    <mat-option *ngFor="let option of options" class="dropdown__option option-text" [value]="option.value">
       {{ option.label }}
     </mat-option>
   </mat-select>

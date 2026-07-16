@@ -1,5 +1,5 @@
 <button
-  class="btn"
+  class="btn btn-text"
   [class.btn--filled]="variant === 'filled'"
   [class.btn--outlined]="variant === 'outlined'"
   [class.btn--with-icon]="icon"
@@ -11,9 +11,8 @@
   [class.btn--radius-md]="borderRadius === 'md'"
   [class.btn--radius-lg]="borderRadius === 'lg'"
   (click)="onClick()">
-  <span *ngIf="icon" class="btn__icon" [ngClass]="icon" aria-hidden="true"></span>
+  <span *ngIf="icon" class="btn__icon btn-icon" [ngClass]="icon" aria-hidden="true"></span>
   <span class="btn__label">
     {{ label }}
   </span>
 </button>
-<!-- <mat-button></mat-button> -->

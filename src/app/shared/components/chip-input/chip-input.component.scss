@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use 'src/styles/abstract/variables.scss';
-@use 'src/styles/abstract/functions.scss';
-@use 'src/styles/abstract/mixin.scss';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/mixin';
 
 .chip-input {
   width: 100%;
@@ -20,17 +20,12 @@
   &__chip {
     margin: 0;
     height: functions.px-to-rem(24);
-    font-size: functions.px-to-rem(10);
-    font-weight: map.get(variables.$font-weight, 'light');
     --mdc-chip-elevated-container-color: #{variables.$bg-primary};
     --mdc-chip-label-text-color: #{variables.$white};
   }
 
   &__chip-text {
     color: variables.$white;
-    font-size: functions.px-to-rem(13);
-    font-weight: map.get(variables.$font-weight, 'light');
-    line-height: functions.px-to-rem(20);
   }
 
   &__icon {
@@ -39,7 +34,6 @@
     height: functions.px-to-rem(16);
     background-color: variables.$white;
     border-radius: map.get(variables.$border-radius, 'circular');
-    font-size: functions.px-to-rem(8);
   }
 
   &__remove {
@@ -55,9 +49,6 @@
     flex: 1;
     color: variables.$primary-text;
     background-color: transparent;
-    font-size: functions.px-to-rem(8);
-    font-weight: map.get(variables.$font-weight, 'light');
-    line-height: functions.px-to-rem(18);
 
     &::placeholder {
       color: variables.$secondary-text;
@@ -71,9 +62,6 @@
 
   &__error {
     color: variables.$warn;
-    font-size: functions.px-to-rem(12);
-    font-weight: map.get(variables.$font-weight, 'light');
-    line-height: functions.px-to-rem(16);
   }
 
   &--error {

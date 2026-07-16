@@ -21,6 +21,7 @@ export interface ReportCardButton {
 
 export type columnType = 'text' | 'status' | 'actions';
 export interface columnDetails {
+  key: string;
   heading: string;
   type: columnType;
   width: string;

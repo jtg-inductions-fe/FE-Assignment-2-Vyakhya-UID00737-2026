@@ -17,22 +17,15 @@
 
   &__label {
     color: variables.$secondary-text;
-    font-size: functions.px-to-rem(16);
-    font-weight: map.get(variables.$font-weight, 'light');
   }
 
   &__select {
     width: 100%;
     color: variables.$primary-text;
-    font-size: functions.px-to-rem(15);
-    font-weight: map.get(variables.$font-weight, 'light');
-    line-height: functions.px-to-rem(20);
   }
 
   &__option {
     padding: functions.px-to-rem(4) functions.px-to-rem(6);
-    font-size: functions.px-to-rem(12);
-    font-weight: map.get(variables.$font-weight, 'regular');
     color: variables.$primary-text;
     background-color: variables.$white;
     cursor: pointer;
@@ -56,8 +49,7 @@
     }
 
     .mat-mdc-form-field-infix {
-      display: flex;
-      align-items: center;
+      @include mixin.flex-container($display: flex, $align: center);
       width: auto;
       min-height: functions.px-to-rem(40);
       padding: 0;
@@ -69,8 +61,7 @@
     }
 
     .mat-mdc-select-value {
-      display: flex;
-      align-items: center;
+      @include mixin.flex-container($display: flex, $align: center);
       color: variables.$primary-text;
     }
 

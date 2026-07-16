@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use 'src/styles/abstract/mixin.scss';
-@use 'src/styles/abstract/variables.scss';
-@use 'src/styles/abstract/functions.scss';
+@use 'src/styles/abstract/mixin';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
 
 .order-card {
   @include mixin.flex-container(flex, center, flex-start, column);
@@ -28,23 +28,15 @@
   box-sizing: border-box;
 
   &__header {
-    display: flex;
-    flex-direction: column;
+    @include mixin.flex-container($display: flex, $direction: column);
     margin-bottom: functions.px-to-rem(12);
   }
 
   &__heading {
-    font-weight: map.get(variables.$font-weight, 'regular');
-    font-size: functions.px-to-rem(20);
-    line-height: functions.px-to-rem(30);
     margin: 0;
   }
 
   &__description {
-    font-weight: map.get(variables.$font-weight, 'light');
-    font-size: functions.px-to-rem(14);
-    line-height: functions.px-to-rem(20);
-    color: variables.$secondary-text;
     margin: functions.px-to-rem(4) 0 0 0;
   }
 
@@ -62,26 +54,13 @@
 
   &__table-header {
     color: variables.$secondary-text;
-    font-size: functions.px-to-rem(13);
-    line-height: functions.px-to-rem(18);
-    font-weight: map.get(variables.$font-weight, 'bold');
-  }
-
-  &__text-cell {
-    font-weight: map.get(variables.$font-weight, 'regular');
-    font-size: functions.px-to-rem(13);
-    line-height: functions.px-to-rem(18);
   }
 
   &__status {
     background-color: variables.$bg-secondary;
-    color: variables.$tertiary-text;
-    font-weight: map.get(variables.$font-weight, 'bold');
-    font-size: functions.px-to-rem(13);
-    line-height: functions.px-to-rem(18);
-    padding: functions.px-to-rem(4) functions.px-to-rem(8);
-    border-radius: map.get(variables.$border-radius, 'lg');
-    display: inline-block;
+        color: variables.$tertiary-text;
+        padding: 0 functions.px-to-rem(8);
+        border-radius: functions.px-to-rem(16);
   }
 
   &__buttons {
@@ -90,17 +69,25 @@
   }
 
   @include mixin.respond('small-desktop') {
-    padding: functions.px-to-rem(16);
+    padding: functions.px-to-rem(12);
     border-radius: map.get(variables.$border-radius, 'md-2');
   }
 }
 
-::ng-deep {
+:host ::ng-deep {
+
+  .mat-row {
+    width: 100%;
+  }
   .mat-header-cell,
   .mat-cell {
+    @include mixin.flex-container($display: flex, $align: center);
     padding: 0 functions.px-to-rem(8);
     box-sizing: border-box;
-    display: flex;
-    align-items: center;
+  }
+
+  .mat-column-actions {
+    min-width: functions.px-to-rem(200);
+    white-space: nowrap;
   }
 }

@@ -2,13 +2,13 @@
   <mat-label>{{ label }}</mat-label>
   <input
     matInput
-    class="form-input__field"
+    class="form-input__field input-field-primary"
     [id]="inputId"
     [type]="type"
     [placeholder]="placeholder"
     [formControl]="control" />
 
-  <mat-error class="form-input__error" *ngIf="showError">
+  <mat-error class="form-input__error p-report-card" *ngIf="showError">
     {{ errorMessage }}
   </mat-error>
 </mat-form-field>

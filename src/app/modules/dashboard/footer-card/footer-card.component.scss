@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use 'src/styles/abstract/variables.scss';
-@use 'src/styles/abstract/functions.scss';
-@use 'src/styles/abstract/mixin.scss';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/mixin';
 
 .footer-card {
   @include mixin.flex-container(flex, space-between, center, column);
@@ -12,15 +12,11 @@
 
   &__description {
     order: 2;
-    font-size: functions.px-to-rem(12);
-    line-height: functions.px-to-rem(10);
-    font-weight: map.get(variables.$font-weight, 'light');
   }
 
   &__socials {
     @include mixin.flex-container(flex, space-between, center);
     gap: functions.px-to-rem(18);
-    font-size: functions.px-to-rem(20);
   }
 
   @include mixin.respond('tablet') {
@@ -28,11 +24,6 @@
 
     &__description {
       order: 2;
-      font-size: functions.px-to-rem(13);
-    }
-
-    &__socials {
-      font-size: functions.px-to-rem(22);
     }
   }
 
@@ -61,28 +52,16 @@
 
     &__description {
       order: 1;
-      font-size: functions.px-to-rem(15);
-      line-height: functions.px-to-rem(18);
     }
 
     &__socials {
       order: 2;
       gap: functions.px-to-rem(24);
-      font-size: functions.px-to-rem(20);
     }
   }
 
   @include mixin.respond('desktop') {
     height: functions.px-to-rem(120);
     padding: functions.px-to-rem(48) functions.px-to-rem(32);
-
-    &__description {
-      font-size: functions.px-to-rem(16);
-      line-height: functions.px-to-rem(20);
-    }
-
-    &__socials {
-      font-size: functions.px-to-rem(24);
-    }
   }
 }

@@ -1,5 +1,6 @@
-@use 'src/styles/abstract/variables.scss';
-@use 'src/styles/abstract/functions.scss';
+@use 'sass:map';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
 
 .form-input {
   width: 100%;
@@ -9,19 +10,10 @@
   --mdc-outlined-text-field-focus-label-text-color: #{variables.$secondary-text};
 
   &__field {
-    font-size: functions.px-to-rem(14);
-    font-weight: map.get(variables.$font-weight, 'light');
-    line-height: functions.px-to-rem(20);
     color: variables.$primary-text;
     &::placeholder {
       color: variables.$secondary-text;
     }
-  }
-
-  &__error {
-    font-size: functions.px-to-rem(12);
-    font-weight: map.get(variables.$font-weight, 'light');
-    line-height: functions.px-to-rem(16);
   }
 
   &--error {

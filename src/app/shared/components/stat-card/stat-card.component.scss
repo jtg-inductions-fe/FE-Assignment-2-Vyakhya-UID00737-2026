@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use 'src/styles/abstract/variables.scss';
-@use 'src/styles/abstract/functions.scss';
-@use 'src/styles/abstract/mixin.scss';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/mixin';
 
 .stat-card {
   @include mixin.flex-container(flex, space-between, center);
@@ -18,20 +18,7 @@
   }
 
   &__heading {
-    font-weight: map.get(variables.$font-weight, 'regular');
-    font-size: functions.px-to-rem(14);
-    line-height: functions.px-to-rem(18);
     color: variables.$secondary-text;
-  }
-
-  &__count {
-    font-size: functions.px-to-rem(20);
-    line-height: functions.px-to-rem(30);
-    font-weight: map.get(variables.$font-weight, 'bold');
-  }
-
-  &__icon {
-    font-size: functions.px-to-rem(45);
   }
 
   @include mixin.respond('tablet') {

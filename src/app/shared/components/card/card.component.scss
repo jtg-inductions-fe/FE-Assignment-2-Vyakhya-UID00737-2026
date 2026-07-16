@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use 'src/styles/abstract/variables.scss';
-@use 'src/styles/abstract/functions.scss';
-@use 'src/styles/abstract/mixin.scss';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/mixin';
 
 .card {
   @include mixin.flex-container(flex, center, center, column);
@@ -29,15 +29,13 @@
   border-radius: map.get(variables.$border-radius, 'md-2');
 
   &__records {
-    display: flex;
-    flex-direction: column;
+    @include mixin.flex-container($direction: column);
     width: 100%;
     padding: functions.px-to-rem(2) functions.px-to-rem(1);
   }
 
   &__record-list {
-    display: flex;
-    align-items: center;
+    @include mixin.flex-container(flex);
     width: 100%;
     box-sizing: border-box;
     gap: functions.px-to-rem(10);
@@ -56,24 +54,13 @@
   }
 
   &__info {
-    display: flex;
-    flex-direction: column;
+    @include mixin.flex-container($display: flex, $direction: column);
     flex: 1;
     min-width: 0;
     padding: functions.px-to-rem(2) 0;
   }
 
-  &__name,
-  &__price {
-    font-weight: map.get(variables.$font-weight, 'regular');
-    font-size: functions.px-to-rem(15);
-    line-height: functions.px-to-rem(24);
-  }
-
   &__email {
-    font-weight: map.get(variables.$font-weight, 'light');
-    font-size: functions.px-to-rem(11);
-    line-height: functions.px-to-rem(18);
     color: variables.$secondary-text;
     overflow: hidden;
   }

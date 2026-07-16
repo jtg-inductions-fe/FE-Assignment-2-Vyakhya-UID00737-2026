@@ -7,20 +7,20 @@
     <mat-table [dataSource]="orders" class="order-card__table">
       <!-- displaying each column dynamically -->
       <ng-container *ngFor="let col of columns; let colIdx = index" [matColumnDef]="displayColumns[colIdx]">
-        <mat-header-cell *matHeaderCellDef> {{ col.heading }} </mat-header-cell>
-        <mat-cell *matCellDef="let order">
+        <mat-header-cell *matHeaderCellDef [style.width]="col.width"> {{ col.heading }} </mat-header-cell>
+        <mat-cell *matCellDef="let order" [style.width]="col.width">
           <!-- for displaying text type details -->
           <ng-container *ngIf="col.type === 'text'">
-            <span class="order-card__text-cell">{{ getCellValue(order, colIdx) }}</span>
+            <span class="order-card__text-cell text">{{ getCellValue(order, col) }}</span>
           </ng-container>
           <!-- for displaying status of each order -->
           <ng-container *ngIf="col.type === 'status'">
             <span
-              class="order-card__status"
-              [class.order-card__status--pending]="getCellValue(order, colIdx) === 'Pending'"
-              [class.order-card__status--accepted]="getCellValue(order, colIdx) === 'Accepted'"
-              [class.order-card__status--rejected]="getCellValue(order, colIdx) === 'Rejected'">
-              {{ getCellValue(order, colIdx) }}
+              class="order-card__status header"
+              [class.order-card__status]="getCellValue(order, col) === 'Accepted' || 
+              getCellValue(order, col) === 'Rejected' || 
+              getCellValue(order, col) === 'Pending'">
+              {{ getCellValue(order, col) }}
             </span>
           </ng-container>
           <!-- for displaying action buttons -->
@@ -47,7 +47,7 @@
         </mat-cell>
       </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayColumns" class="order-card__table-header"></mat-header-row>
+      <mat-header-row *matHeaderRowDef="displayColumns" class="order-card__table-header header"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayColumns" class="order-card__table-row"></mat-row>
     </mat-table>
   </div>

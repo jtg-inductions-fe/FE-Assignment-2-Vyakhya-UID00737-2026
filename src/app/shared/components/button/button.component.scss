@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use 'src/styles/abstract/variables.scss';
-@use 'src/styles/abstract/functions.scss';
-@use 'src/styles/abstract/mixin.scss';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/mixin';
 
 :host {
   display: block;
@@ -13,9 +13,6 @@
   width: 100%;
   cursor: pointer;
   border: none;
-  font-size: functions.px-to-rem(12);
-  font-weight: map.get(variables.$font-weight, 'regular');
-  line-height: functions.px-to-rem(21);
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
@@ -71,7 +68,7 @@
 
   // different radius properties to button
   &--radius-sm {
-    border-radius: map.get(variables.$border-radius, sm);
+    border-radius: map.get(variables.$border-radius, 'sm');
   }
 
   &--radius-md {
@@ -89,14 +86,5 @@
 
   &__icon {
     @include mixin.flex-container(flex-inline, center, center);
-    font-size: functions.px-to-rem(12);
-  }
-
-  @include mixin.respond('desktop') {
-    font-size: functions.px-to-rem(14);
-
-    &__icon {
-      font-size: functions.px-to-rem(15);
-    }
   }
 }

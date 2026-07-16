@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -11,7 +11,6 @@ import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { ChipInputComponent } from './components/chip-input/chip-input.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
-import { FooterCardComponent } from '../modules/dashboard/footer-card/footer-card.component';
 import { InputComponent } from './components/input/input.component';
 import { OrderCardComponent } from './components/order-card/order-card.component';
 import { ReportCardComponent } from './components/report-card/report-card.component';
@@ -23,7 +22,6 @@ import { StatCardComponent } from './components/stat-card/stat-card.component';
     CardComponent,
     ChipInputComponent,
     DropdownComponent,
-    FooterCardComponent,
     InputComponent,
     OrderCardComponent,
     ReportCardComponent,
@@ -40,12 +38,10 @@ import { StatCardComponent } from './components/stat-card/stat-card.component';
     ReactiveFormsModule,
   ],
   exports: [
-    CommonModule,
     ButtonComponent,
     CardComponent,
     ChipInputComponent,
     DropdownComponent,
-    FooterCardComponent,
     InputComponent,
     OrderCardComponent,
     ReportCardComponent,
