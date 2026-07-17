@@ -1,0 +1,105 @@
+@use 'sass:map';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/mixin';
+
+.chip-input {
+  width: 100%;
+  --mdc-outlined-text-field-outline-color: #{variables.$secondary-text};
+  --mdc-outlined-text-field-hover-outline-color: #{variables.$secondary-text};
+  --mdc-outlined-text-field-focus-outline-color: #{variables.$secondary-text};
+  --mdc-outlined-text-field-label-text-color: #{variables.$secondary-text};
+  --mdc-outlined-text-field-focus-label-text-color: #{variables.$secondary-text};
+
+  &__grid {
+    @include mixin.flex-container(flex, center, center);
+    width: 100%;
+    gap: functions.px-to-rem(5);
+  }
+
+  &__chip {
+    margin: 0;
+    height: functions.px-to-rem(24);
+    --mdc-chip-elevated-container-color: #{variables.$bg-primary};
+    --mdc-chip-label-text-color: #{variables.$white};
+  }
+
+  &__chip-text {
+    color: variables.$white;
+  }
+
+  &__icon {
+    @include mixin.flex-container(flex-inline, center, center);
+    width: functions.px-to-rem(16);
+    height: functions.px-to-rem(16);
+    background-color: variables.$white;
+    border-radius: map.get(variables.$border-radius, 'circular');
+  }
+
+  &__remove {
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: functions.px-to-rem(2) solid variables.$primary-text;
+      outline-offset: functions.px-to-rem(2);
+    }
+  }
+
+  &__field {
+    flex: 1;
+    color: variables.$primary-text;
+    background-color: transparent;
+
+    &::placeholder {
+      color: variables.$secondary-text;
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__error {
+    color: variables.$warn;
+  }
+
+  &--error {
+    --mdc-outlined-text-field-outline-color: #{variables.$warn};
+    --mdc-outlined-text-field-hover-outline-color: #{variables.$warn};
+    --mdc-outlined-text-field-focus-outline-color: #{variables.$warn};
+    --mdc-outlined-text-field-label-text-color: #{variables.$warn};
+    --mdc-outlined-text-field-focus-label-text-color: #{variables.$warn};
+  }
+}
+
+:host ::ng-deep {
+  .chip-input {
+    .mat-mdc-text-field-wrapper {
+      height: functions.px-to-rem(50);
+      background-color: variables.$white;
+      padding: functions.px-to-rem(6);
+    }
+
+    .mat-mdc-form-field-infix {
+      padding: functions.px-to-rem(5) 0;
+    }
+
+    .mat-mdc-chip-set {
+      width: 100%;
+    }
+
+    .mat-mdc-chip-set .mdc-evolution-chip-set__chips {
+      align-items: center;
+      flex-wrap: wrap;
+      gap: functions.px-to-rem(5);
+    }
+
+    .mdc-floating-label {
+      font-size: functions.px-to-rem(15);
+      font-weight: map.get(variables.$font-weight, 'light');
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

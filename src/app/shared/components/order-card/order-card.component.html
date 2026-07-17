@@ -1,0 +1,54 @@
+<div class="order-card">
+  <div class="order-card__header">
+    <h3 class="order-card__heading">{{ heading }}</h3>
+    <p class="order-card__description">{{ description }}</p>
+  </div>
+  <div class="order-card__records">
+    <mat-table [dataSource]="orders" class="order-card__table">
+      <!-- displaying each column dynamically -->
+      <ng-container *ngFor="let col of columns; let colIdx = index" [matColumnDef]="displayColumns[colIdx]">
+        <mat-header-cell *matHeaderCellDef [style.width]="col.width"> {{ col.heading }} </mat-header-cell>
+        <mat-cell *matCellDef="let order" [style.width]="col.width">
+          <!-- for displaying text type details -->
+          <ng-container *ngIf="col.type === 'text'">
+            <span class="order-card__text-cell text">{{ getCellValue(order, col) }}</span>
+          </ng-container>
+          <!-- for displaying status of each order -->
+          <ng-container *ngIf="col.type === 'status'">
+            <span
+              class="order-card__status header"
+              [class.order-card__status]="getCellValue(order, col) === 'Accepted' || 
+              getCellValue(order, col) === 'Rejected' || 
+              getCellValue(order, col) === 'Pending'">
+              {{ getCellValue(order, col) }}
+            </span>
+          </ng-container>
+          <!-- for displaying action buttons -->
+          <ng-container *ngIf="col.type === 'actions'">
+            <div class="order-card__buttons">
+              <app-button
+                *ngIf="order.status === 'Pending' || order.status === 'Accepted'"
+                label="Reject"
+                icon="icon-close"
+                variant="outlined"
+                borderRadius="sm"
+                size="sm"
+                (click)="rejectOrder(order)"></app-button>
+              <app-button
+                *ngIf="order.status === 'Pending' || order.status === 'Rejected'"
+                label="Accept"
+                icon="icon-tick"
+                variant="filled"
+                borderRadius="sm"
+                size="sm"
+                (click)="acceptOrder(order)"></app-button>
+            </div>
+          </ng-container>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayColumns" class="order-card__table-header header"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayColumns" class="order-card__table-row"></mat-row>
+    </mat-table>
+  </div>
+</div>

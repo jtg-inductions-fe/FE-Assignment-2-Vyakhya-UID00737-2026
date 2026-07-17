@@ -1,0 +1,110 @@
+@use 'sass:map';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/mixin';
+
+.card {
+  @include mixin.flex-container(flex, center, center, column);
+  @include mixin.shadow(
+    0,
+    1,
+    10,
+    0,
+    variables.$border-secondary,
+    0,
+    4,
+    5,
+    0,
+    variables.$shadow-primary,
+    0,
+    2,
+    4,
+    -1,
+    variables.$shadow-secondary
+  );
+  width: 100%;
+  align-items: flex-start;
+  padding: functions.px-to-rem(14);
+  box-sizing: border-box;
+  border-radius: map.get(variables.$border-radius, 'md-2');
+
+  &__records {
+    @include mixin.flex-container($direction: column);
+    width: 100%;
+    padding: functions.px-to-rem(2) functions.px-to-rem(1);
+  }
+
+  &__record-list {
+    @include mixin.flex-container(flex);
+    width: 100%;
+    box-sizing: border-box;
+    gap: functions.px-to-rem(10);
+    padding: functions.px-to-rem(6) 0;
+    border-bottom: functions.px-to-rem(2) solid variables.$border-secondary;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__avatar {
+    width: functions.px-to-rem(35);
+    height: functions.px-to-rem(35);
+    border-radius: map.get(variables.$border-radius, 'circular');
+    object-fit: cover;
+  }
+
+  &__info {
+    @include mixin.flex-container($display: flex, $direction: column);
+    flex: 1;
+    min-width: 0;
+    padding: functions.px-to-rem(2) 0;
+  }
+
+  &__email {
+    color: variables.$secondary-text;
+    overflow: hidden;
+  }
+
+  &__price {
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  @include mixin.respond('tablet') {
+    padding: functions.px-to-rem(18);
+    border-radius: map.get(variables.$border-radius, 'lg');
+
+    &__records {
+      padding: functions.px-to-rem(6) functions.px-to-rem(3);
+    }
+
+    &__record-list {
+      padding: functions.px-to-rem(7) 0;
+    }
+
+    &__info {
+      padding: functions.px-to-rem(3) 0;
+    }
+  }
+
+  @include mixin.respond('small-desktop') {
+    padding: functions.px-to-rem(24);
+
+    &__records {
+      padding: functions.px-to-rem(8) functions.px-to-rem(4);
+    }
+
+    &__record-list {
+      padding: functions.px-to-rem(10) 0;
+    }
+
+    &__avatar {
+      width: functions.px-to-rem(40);
+      height: functions.px-to-rem(40);
+    }
+
+    &__info {
+      padding: functions.px-to-rem(4) 0;
+    }
+  }
+}

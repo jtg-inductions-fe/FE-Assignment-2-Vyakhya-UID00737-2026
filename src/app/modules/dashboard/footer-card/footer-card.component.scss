@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/mixin';
+
+.footer-card {
+  @include mixin.flex-container(flex, space-between, center, column);
+  width: 100%;
+  padding: functions.px-to-rem(38) functions.px-to-rem(12);
+  color: variables.$secondary-text;
+  gap: functions.px-to-rem(15);
+
+  &__description {
+    order: 2;
+  }
+
+  &__socials {
+    @include mixin.flex-container(flex, space-between, center);
+    gap: functions.px-to-rem(18);
+  }
+
+  @include mixin.respond('tablet') {
+    gap: functions.px-to-rem(25);
+
+    &__description {
+      order: 2;
+    }
+  }
+
+  @include mixin.respond('small-desktop') {
+    @include mixin.flex-container(flex, space-between, center, row);
+    @include mixin.shadow(
+      10,
+      1,
+      10,
+      0,
+      variables.$border-secondary,
+      0,
+      4,
+      5,
+      0,
+      variables.$shadow-primary,
+      0,
+      2,
+      4,
+      -1,
+      variables.$shadow-secondary
+    );
+    height: functions.px-to-rem(100);
+    padding: functions.px-to-rem(30) functions.px-to-rem(25);
+    border-radius: map.get(variables.$border-radius, 'lg');
+
+    &__description {
+      order: 1;
+    }
+
+    &__socials {
+      order: 2;
+      gap: functions.px-to-rem(24);
+    }
+  }
+
+  @include mixin.respond('desktop') {
+    height: functions.px-to-rem(120);
+    padding: functions.px-to-rem(48) functions.px-to-rem(32);
+  }
+}

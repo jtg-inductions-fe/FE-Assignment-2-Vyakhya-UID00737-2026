@@ -1,16 +1,25 @@
 // defining stylings for text, icons in classes to use them directly
-
+@use 'sass:map';
 @use '../abstract/variables';
 @use '../abstract/functions';
+@use '../abstract/mixin';
 
 .btn-text {
-  font-size: functions.px-to-rem(16);
-  line-height: functions.px-to-rem(24);
-  font-weight: 500;
+  font-size: functions.px-to-rem(12);
+  line-height: functions.px-to-rem(21);
+  font-weight: map.get(variables.$font-weight, 'regular');
+
+  @include mixin.respond('desktop') {
+    font-size: functions.px-to-rem(14);
+  }
 }
 
 .btn-icon {
-  font-size: functions.px-to-rem(24);
+  font-size: functions.px-to-rem(12);
+
+  @include mixin.respond('desktop') {
+    font-size: functions.px-to-rem(15);
+  }
 }
 
 .btn-report-icon {
@@ -20,25 +29,158 @@
 .btn-report-text {
   font-size: functions.px-to-rem(14);
   line-height: functions.px-to-rem(21);
-  font-weight: 600;
+  font-weight: map.get(variables.$font-weight, 'regular');
+}
+
+.social-icon {
+  font-size: functions.px-to-rem(20);
+
+  @include mixin.respond('tablet') {
+    font-size: functions.px-to-rem(22);
+  }
+
+  @include mixin.respond('small-desktop') {
+    font-size: functions.px-to-rem(20);
+  }
+
+  @include mixin.respond('small-desktop') {
+    font-size: functions.px-to-rem(24);
+  }
 }
 
 .p-card {
   font-size: functions.px-to-rem(12);
-  font-weight: 600;
+  font-weight: map.get(variables.$font-weight, 'regular');
   line-height: functions.px-to-rem(18);
 }
 
 .p-report-card {
   font-size: functions.px-to-rem(12);
-  font-weight: 500;
+  font-weight: map.get(variables.$font-weight, 'light');
   line-height: functions.px-to-rem(18);
 }
 
+.p-card-main {
+  font-size: functions.px-to-rem(15);
+  font-weight: map.get(variables.$font-weight, 'regular');
+  line-height: functions.px-to-rem(24);
+}
+
+.chip {
+  font-size: functions.px-to-rem(10);
+  font-weight: map.get(variables.$font-weight, 'light');
+}
+
+.chip-text {
+  font-size: functions.px-to-rem(13);
+  font-weight: map.get(variables.$font-weight, 'light');
+  line-height: functions.px-to-rem(20);
+}
+
+.header {
+  font-size: functions.px-to-rem(13);
+  line-height: functions.px-to-rem(18);
+  font-weight: map.get(variables.$font-weight, 'bold');
+}
+
+.header-primary {
+  font-weight: map.get(variables.$font-weight, 'bold');
+  font-size: functions.px-to-rem(15);
+  line-height: functions.px-to-rem(22);
+  @include mixin.respond('small-desktop') {
+    font-size: functions.px-to-rem(16);
+    line-height: functions.px-to-rem(24);
+  }
+}
+
+.header-secondary {
+  font-weight: map.get(variables.$font-weight, 'regular');
+  font-size: functions.px-to-rem(14);
+  line-height: functions.px-to-rem(18);
+}
+
+.text {
+  font-weight: map.get(variables.$font-weight, 'regular');
+  font-size: functions.px-to-rem(13);
+  line-height: functions.px-to-rem(18);
+}
+
+.text-primary {
+  font-weight: map.get(variables.$font-weight, 'light');
+  font-size: functions.px-to-rem(13);
+  line-height: functions.px-to-rem(18);
+  @include mixin.respond('small-desktop') {
+    font-size: functions.px-to-rem(14);
+    line-height: functions.px-to-rem(20);
+  }
+}
+
+.chip-icon {
+  font-size: functions.px-to-rem(8);
+}
+
+.input-field {
+  font-size: functions.px-to-rem(8);
+  font-weight: map.get(variables.$font-weight, 'light');
+  line-height: functions.px-to-rem(18);
+}
+
+.input-field-primary {
+  font-size: functions.px-to-rem(14);
+  font-weight: map.get(variables.$font-weight, 'light');
+  line-height: functions.px-to-rem(20);
+}
+
+.p-footer-card {
+  font-size: functions.px-to-rem(12);
+  line-height: functions.px-to-rem(10);
+  font-weight: map.get(variables.$font-weight, 'light');
+
+  @include mixin.respond('tablet') {
+    font-size: functions.px-to-rem(13);
+  }
+
+  @include mixin.respond('small-desktop') {
+    font-size: functions.px-to-rem(15);
+    line-height: functions.px-to-rem(18);
+  }
+
+  @include mixin.respond('small-desktop') {
+    font-size: functions.px-to-rem(16);
+    line-height: functions.px-to-rem(20);
+  }
+}
+
+.label {
+  font-size: functions.px-to-rem(16);
+  font-weight: map.get(variables.$font-weight, 'light');
+}
+
+.select-text {
+  font-size: functions.px-to-rem(15);
+  font-weight: map.get(variables.$font-weight, 'light');
+  line-height: functions.px-to-rem(20);
+}
+
+.option-text {
+  font-size: functions.px-to-rem(12);
+  font-weight: map.get(variables.$font-weight, 'regular');
+}
+
 .card-heading {
-  font-weight: 600;
+  font-weight: map.get(variables.$font-weight, 'regular');
+}
+
+.badge {
+  font-size: functions.px-to-rem(20);
+  line-height: functions.px-to-rem(30);
+  font-weight: map.get(variables.$font-weight, 'bold');
+}
+
+.icon-text {
+  font-size: functions.px-to-rem(45);
 }
 
 .list-heading {
-  font-weight: 600;
+  font-weight: map.get(variables.$font-weight, 'regular');
 }

@@ -1,4 +1,6 @@
 // Reset default browser styles
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/variables';
 
 *,
 *::before,

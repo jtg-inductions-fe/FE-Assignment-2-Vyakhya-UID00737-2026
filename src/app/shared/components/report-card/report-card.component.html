@@ -1,0 +1,24 @@
+<div class="report-card">
+  <div class="report-card__info">
+    <h4 class="report-card__heading header-primary">{{ heading }}</h4>
+    <p class="report-card__description text-primary">{{ description }}</p>
+  </div>
+
+  <div class="report-card__dropdown">
+    <app-dropdown
+      label="Select Action"
+      [options]="dropdownOptions"
+      [selectedValue]="selected"
+      (selectedValueChange)="onDropdownChange($event)"></app-dropdown>
+  </div>
+
+  <div class="report-card__buttons">
+    <app-button
+      *ngFor="let button of buttons"
+      [label]="button.label"
+      [icon]="button.icon ?? ''"
+      [variant]="button.variant"
+      (click)="onButtonClick(button)"
+      type="button"></app-button>
+  </div>
+</div>
