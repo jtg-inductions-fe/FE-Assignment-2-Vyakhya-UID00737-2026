@@ -1,5 +1,16 @@
 <div class="header">
-  <a routerLink="/" class="header__logo">
+  <!-- showing menu icon on mobile view-->
+  <app-button
+    *ngIf="sidebarService.isMobile && authService.isLoggedIn()"
+    variant="image"
+    type="button"
+    aria-label="Menu-icon"
+    imageSrc="assets/images/menu.svg"
+    size="img-sm"
+    (buttonClick)="toggleMenu()"></app-button>
+
+  <!-- showing website logo on desktop -->
+  <a *ngIf="!sidebarService.isMobile || !authService.isLoggedIn()" routerLink="/" class="header__logo">
     <img class="header__logo-img" src="assets/icons/logo.svg" alt="website-logo" />
   </a>
 

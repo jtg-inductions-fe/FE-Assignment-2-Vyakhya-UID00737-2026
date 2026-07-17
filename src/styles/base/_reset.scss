@@ -37,6 +37,7 @@ table {
 }
 
 a {
+  color: variables.$primary-text;
   font-size: functions.px-to-rem(24);
 }
 
