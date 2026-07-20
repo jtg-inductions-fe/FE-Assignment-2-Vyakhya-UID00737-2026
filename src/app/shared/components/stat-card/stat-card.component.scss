@@ -10,7 +10,6 @@
   box-sizing: border-box;
   overflow-x: auto;
 }
-
 .stat-card {
   @include mixin.flex-container(flex, space-between, center);
   padding: functions.px-to-rem(10);
