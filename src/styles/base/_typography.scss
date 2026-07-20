@@ -186,13 +186,10 @@
   font-weight: map.get(variables.$font-weight, 'regular');
 }
 
-<<<<<<< HEAD
 .names-text {
   font-weight: map.get(variables.$font-weight, 'bold');
 }
 
-=======
->>>>>>> b7c7309 (VN_A2_05: added dashboard for admin and owner)
 .heading {
   font-size: functions.px-to-rem(40);
   line-height: functions.px-to-rem(45);
