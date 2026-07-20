@@ -3,6 +3,7 @@ import { AuthService } from '@core/services/auth.service';
 import { SidebarService } from '@core/services/sidebar.service';
 import { SidebarOptions } from '@shared/models/sidebar.models';
 import { SIDEBAR_CONTENT, COMMON_SIDEBAR_OPTIONS } from '@shared/constants/sidebar.constants';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-layout',
@@ -10,16 +11,37 @@ import { SIDEBAR_CONTENT, COMMON_SIDEBAR_OPTIONS } from '@shared/constants/sideb
   styleUrls: ['./layout.component.scss'],
 })
 export class LayoutComponent {
+  private subscription = new Subscription();
   common_sidebar_options: SidebarOptions[] = COMMON_SIDEBAR_OPTIONS;
   dashboardRoute = this.authService.getUserRole() === 'admin' ? '/dashboard/admin' : '/dashboard/owner';
+  isSidebarOpen = false;
+  isUserLoggedIn = false;
+  isMobileView = false;
 
   constructor(
-    public sidebar: SidebarService,
+    private sidebar: SidebarService,
     private authService: AuthService,
   ) {}
 
-  isLoggedIn = this.authService.isLoggedIn();
-  isMobile = this.sidebar.isMobile;
+  ngOnInit(): void {
+    this.subscription.add(
+      this.sidebar.isOpen$.subscribe(isOpen => {
+        this.isSidebarOpen = isOpen;
+      }),
+    );
+
+    this.subscription.add(
+      this.authService.currentUser$.subscribe(user => {
+        this.isUserLoggedIn = !!user;
+      }),
+    );
+
+    this.subscription.add(
+      this.sidebar.isMobile$.subscribe(isMobile => {
+        this.isMobileView = isMobile;
+      }),
+    );
+  }
 
   get role(): 'admin' | 'owner' | null {
     return this.authService.getUserRole();
@@ -31,8 +53,12 @@ export class LayoutComponent {
   }
 
   closeSidebar(): void {
-    if (this.sidebar.isMobile) {
+    if (this.isMobileView) {
       this.sidebar.close();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

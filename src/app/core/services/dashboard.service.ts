@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { CardDetails, ColumnDetails, OrderData, ReportCardButton, StatCardData } from '@shared/models/card.models';
 import { SocialIcons } from '@shared/models/footer.models';
@@ -11,9 +11,9 @@ import { DropdownOptions } from '@shared/models/dropdown.models';
 export class DashboardService {
   dataPath = 'assets/data/dashboard.json';
 
-  constructor(public http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
-  private handleError(error: any) {
+  private handleError(error: HttpErrorResponse) {
     return throwError(() => error);
   }
 

@@ -1,7 +1,7 @@
 <div class="header">
   <!-- showing menu icon on mobile view-->
   <app-button
-    *ngIf="sidebarService.isMobile && authService.isLoggedIn()"
+    *ngIf="isMobileView && isUserLoggedIn"
     variant="image"
     type="button"
     aria-label="Menu-icon"
@@ -10,11 +10,11 @@
     (buttonClick)="toggleMenu()"></app-button>
 
   <!-- showing website logo on desktop -->
-  <a *ngIf="!sidebarService.isMobile || !authService.isLoggedIn()" routerLink="/" class="header__logo">
+  <a *ngIf="!isMobileView || !isUserLoggedIn" routerLink="/" class="header__logo">
     <img class="header__logo-img" src="assets/icons/logo.svg" alt="website-logo" />
   </a>
 
-  <ng-container *ngIf="isLoggedIn">
+  <ng-container *ngIf="isUserLoggedIn">
     <button class="header__profile" (click)="onClick()" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
       <img class="header__profile-img" src="assets/images/Avatar1.svg" alt="user-profile-img" />
     </button>

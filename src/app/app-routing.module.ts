@@ -23,6 +23,8 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
+    canActivate: [RoleGuard],
+    data: { roles: ['admin', 'owner'] },
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(module => module.DashboardModule),
   },
   {

@@ -27,6 +27,10 @@
     gap: functions.px-to-rem(10);
   }
 
+  &__active-orders {
+    padding-bottom: functions.px-to-rem(10);
+  }
+
   @include mixin.respond('small-desktop') {
     &__header {
       @include mixin.flex-container(flex, space-between, flex-start, row);

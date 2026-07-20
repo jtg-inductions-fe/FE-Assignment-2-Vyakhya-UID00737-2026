@@ -5,6 +5,7 @@ import { map, Observable } from 'rxjs';
 import { CardDetails, ColumnDetails, OrderData, ReportCardButton, StatCardData } from '@shared/models/card.models';
 import { SocialIcons } from '@shared/models/footer.models';
 import { DropdownOptions } from '@shared/models/dropdown.models';
+import { UserData } from '@shared/models/userdata.models';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ import { DropdownOptions } from '@shared/models/dropdown.models';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  currentUser$!: Observable<UserData | null>;
   statDetails$!: Observable<StatCardData[]>;
   customerDetails$!: Observable<CardDetails[]>;
   dishDetails$!: Observable<CardDetails[]>;
@@ -24,8 +26,8 @@ export class DashboardComponent implements OnInit {
   selectedRestaurant = 'view all restaurant';
 
   constructor(
-    public authService: AuthService,
-    public dashboardService: DashboardService,
+    private authService: AuthService,
+    private dashboardService: DashboardService,
   ) {}
 
   get role(): 'admin' | 'owner' | null {
@@ -35,6 +37,7 @@ export class DashboardComponent implements OnInit {
   todayDate = new Date().getFullYear();
 
   ngOnInit(): void {
+    this.currentUser$ = this.authService.currentUser$;
     const role = this.role;
 
     this.statDetails$ = this.dashboardService

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router, CanActivateFn, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -7,11 +7,11 @@ import { AuthService } from '../services/auth.service';
 })
 export class RoleGuard {
   constructor(
-    public authService: AuthService,
-    public router: Router,
+    private authService: AuthService,
+    private router: Router,
   ) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  canActivate(route: ActivatedRouteSnapshot) {
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/login']);
       return false;

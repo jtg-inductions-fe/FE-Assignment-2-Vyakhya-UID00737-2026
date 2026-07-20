@@ -4,7 +4,7 @@
       <h1 class="heading">Overview Dashboard</h1>
       <p class="text-primary">System administrator overview panel. Impersonate owners or view aggregate metrics.</p>
     </div>
-    <div class="dashboard__restaurants" *ngIf="(authService.currentUser$ | async)?.role === 'admin'">
+    <div class="dashboard__restaurants" *ngIf="(currentUser$ | async)?.role === 'admin'">
       <app-dropdown
         label="View Dashboard As"
         [options]="(restaurantDetails$ | async) || []"
@@ -29,7 +29,7 @@
       <app-card heading="Top Selling Dishes" [details]="(dishDetails$ | async) || []"></app-card>
     </div>
   </div>
-  <div class="dashboard__active-orders" *ngIf="(authService.currentUser$ | async)?.role === 'owner'">
+  <div class="dashboard__active-orders" *ngIf="(currentUser$ | async)?.role === 'owner'">
     <app-order-card
       heading="Active Orders"
       description="Manage pending and accepted orders directly from your dashboard."
