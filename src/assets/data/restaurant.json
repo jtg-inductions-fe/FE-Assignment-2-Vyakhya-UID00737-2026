@@ -1,0 +1,22 @@
+{
+  "restaurantDetails": [
+    {
+      "id": "1",
+      "restaurantName": "Pizza Palace",
+      "address": "123 Pepperoni Rd, Naples",
+      "owners": ["owner1@restaurant.com", "pizza_guy@gmail.com"]
+    },
+    {
+      "id": "2",
+      "restaurantName": "Burger Bistro",
+      "address": "456 Patty Ave, Austin",
+      "owners": ["owner2@restaurant.com", "burger_queen@gmail.com"]
+    },
+    {
+      "id": "3",
+      "restaurantName": "Sushi Zen",
+      "address": "789 Wasabi Way, Kyoto",
+      "owners": ["owner3@restaurant.com", "sushi_master@gmail.com"]
+    }
+  ]
+}

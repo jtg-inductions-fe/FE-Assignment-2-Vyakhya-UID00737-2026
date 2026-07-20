@@ -24,7 +24,7 @@ export interface ReportCardButton {
   label: string;
   icon?: string;
   variant: 'filled' | 'outlined';
-  value?: string;
+  value: string;
 }
 
 export type columnType = 'text' | 'status' | 'actions';

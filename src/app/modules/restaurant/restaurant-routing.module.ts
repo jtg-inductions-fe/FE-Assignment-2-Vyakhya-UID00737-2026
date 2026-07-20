@@ -5,7 +5,7 @@ import { RestaurantFormComponent } from '@modules/restaurant/restaurant-form/res
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'list',
     component: ListRestaurantComponent,
   },
   {

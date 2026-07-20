@@ -80,8 +80,8 @@
 
 .header {
   font-size: functions.px-to-rem(13);
-  line-height: functions.px-to-rem(18);
-  font-weight: map.get(variables.$font-weight, 'bold');
+  line-height: functions.px-to-rem(18) !important;
+  font-weight: map.get(variables.$font-weight, 'bold') !important;
 }
 
 .header-primary {
@@ -184,6 +184,10 @@
 
 .list-heading {
   font-weight: map.get(variables.$font-weight, 'regular');
+}
+
+.names-text {
+  font-weight: map.get(variables.$font-weight, 'bold');
 }
 
 .heading {

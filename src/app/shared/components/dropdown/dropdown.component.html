@@ -3,7 +3,7 @@
   <mat-select
     class="dropdown__select select-text"
     panelClass="dropdown-panel"
-    [(value)]="selectedValue"
+    [value]="selectedValue"
     (selectionChange)="onSelectionChange($event.value)">
     <mat-option *ngFor="let option of options" class="dropdown__option option-text" [value]="option.value">
       {{ option.label }}

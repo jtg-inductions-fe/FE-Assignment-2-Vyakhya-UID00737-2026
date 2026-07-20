@@ -17,9 +17,9 @@ export class ReportCardComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['buttons']) {
-      this.dropdownOptions = this.buttons.map((button, index) => ({
+      this.dropdownOptions = this.buttons.map(button => ({
         label: button.label,
-        value: button.value ?? index.toString(),
+        value: button.value,
       }));
       if (!this.selected && this.dropdownOptions.length > 0) {
         this.selected = this.dropdownOptions[0].value;
@@ -29,7 +29,7 @@ export class ReportCardComponent implements OnChanges {
 
   onDropdownChange(value: string): void {
     this.selected = value;
-    const selectedButton = this.buttons.find((button, index) => (button.value ?? index.toString()) === value);
+    const selectedButton = this.buttons.find(button => button.value === value);
     if (selectedButton) {
       this.selectedOption.emit(selectedButton);
     }
