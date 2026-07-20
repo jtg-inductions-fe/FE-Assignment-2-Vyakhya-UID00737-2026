@@ -32,12 +32,13 @@
   }
 
   @include mixin.respond('small-desktop') {
-    height: functions.px-to-rem(86);
     align-items: center;
     &__info {
       max-width: functions.px-to-rem(390);
     }
+  }
 
+  @include mixin.respond('desktop') {
     &__dropdown {
       display: none;
     }

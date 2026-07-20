@@ -7,6 +7,6 @@ import { SocialIcons } from '../../../shared/models/footer.models';
   styleUrls: ['./footer-card.component.scss'],
 })
 export class FooterCardComponent {
-  @Input() description = '';
+  @Input() description = ``;
   @Input() icons: SocialIcons[] = [];
 }

@@ -6,23 +6,12 @@
 .card {
   @include mixin.flex-container(flex, center, center, column);
   @include mixin.shadow(
-    0,
-    1,
-    10,
-    0,
-    variables.$border-secondary,
-    0,
-    4,
-    5,
-    0,
-    variables.$shadow-primary,
-    0,
-    2,
-    4,
-    -1,
-    variables.$shadow-secondary
+    (0 functions.px-to-rem(1) functions.px-to-rem(10) 0 variables.$border-secondary),
+    (0 functions.px-to-rem(4) functions.px-to-rem(5) 0 variables.$shadow-primary),
+    (0 functions.px-to-rem(2) functions.px-to-rem(4) functions.px-to-rem(-1) variables.$shadow-secondary)
   );
   width: 100%;
+  height: 100%;
   align-items: flex-start;
   padding: functions.px-to-rem(14);
   box-sizing: border-box;
@@ -32,6 +21,7 @@
     @include mixin.flex-container($direction: column);
     width: 100%;
     padding: functions.px-to-rem(2) functions.px-to-rem(1);
+    overflow-y: auto;
   }
 
   &__record-list {
@@ -60,18 +50,19 @@
     padding: functions.px-to-rem(2) 0;
   }
 
-  &__email {
+  &__subname {
     color: variables.$secondary-text;
     overflow: hidden;
   }
 
-  &__price {
+  &__count {
     flex-shrink: 0;
     text-align: right;
   }
 
   @include mixin.respond('tablet') {
     padding: functions.px-to-rem(18);
+    justify-content: flex-start;
     border-radius: map.get(variables.$border-radius, 'lg');
 
     &__records {
@@ -107,4 +98,8 @@
       padding: functions.px-to-rem(4) 0;
     }
   }
+}
+
+.mat-mdc-card-header {
+  padding: 0;
 }

@@ -34,6 +34,7 @@
 
 .social-icon {
   font-size: functions.px-to-rem(20);
+  color: variables.$secondary-text;
 
   @include mixin.respond('tablet') {
     font-size: functions.px-to-rem(22);
@@ -94,9 +95,9 @@
 }
 
 .header-secondary {
-  font-weight: map.get(variables.$font-weight, 'regular');
-  font-size: functions.px-to-rem(14);
-  line-height: functions.px-to-rem(18);
+  font-weight: map.get(variables.$font-weight, 'light');
+  font-size: functions.px-to-rem(13);
+  line-height: functions.px-to-rem(15);
 }
 
 .text {
@@ -183,4 +184,13 @@
 
 .list-heading {
   font-weight: map.get(variables.$font-weight, 'regular');
+}
+
+.heading {
+  font-size: functions.px-to-rem(40);
+  line-height: functions.px-to-rem(45);
+  @include mixin.respond('small-desktop') {
+    font-size: functions.px-to-rem(45);
+    line-height: functions.px-to-rem(50);
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { OrderStatus, OrderStatusChange, columnDetails } from '../../models/card.models';
+import { OrderStatus, OrderStatusChange, ColumnDetails } from '../../models/card.models';
 
 @Component({
   selector: 'app-order-card',
@@ -10,20 +10,20 @@ export class OrderCardComponent {
   @Input() heading = '';
   @Input() description = '';
   @Input() orders: Record<string, any>[] = [];
-  columnsValue: columnDetails[] = [];
+  columnsValue: ColumnDetails[] = [];
   displayColumns: string[] = [];
-  @Input() set columns(value: columnDetails[]) {
+  @Input() set columns(value: ColumnDetails[]) {
     this.columnsValue = value;
     this.displayColumns = value.map(col => col.key);
   }
 
-  get columns(): columnDetails[] {
+  get columns(): ColumnDetails[] {
     return this.columnsValue;
   }
 
   @Output() statusChange = new EventEmitter<OrderStatusChange>();
 
-  getCellValue(row: any, column: columnDetails): any {
+  getCellValue(row: any, column: ColumnDetails): any {
     return row[column.key];
   }
 

@@ -6,21 +6,9 @@
 .order-card {
   @include mixin.flex-container(flex, center, flex-start, column);
   @include mixin.shadow(
-    0,
-    1,
-    10,
-    0,
-    variables.$border-secondary,
-    0,
-    4,
-    5,
-    0,
-    variables.$shadow-primary,
-    0,
-    2,
-    4,
-    -1,
-    variables.$shadow-secondary
+    (functions.px-to-rem(0) functions.px-to-rem(1) functions.px-to-rem(10) 0 variables.$border-secondary),
+    (0 functions.px-to-rem(4) functions.px-to-rem(5) 0 variables.$shadow-primary),
+    (0 functions.px-to-rem(2) functions.px-to-rem(4) functions.px-to-rem(-1) variables.$shadow-secondary)
   );
   width: 100%;
   padding: functions.px-to-rem(16);
@@ -49,7 +37,7 @@
 
   &__table {
     width: 100%;
-    min-width: functions.px-to-rem(800);
+    min-width: functions.px-to-rem(1100);
   }
 
   &__table-header {

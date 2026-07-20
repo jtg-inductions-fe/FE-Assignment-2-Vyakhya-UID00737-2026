@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { StatCardData } from '@shared/models/card.models';
 
 @Component({
   selector: 'app-stat-card',
@@ -6,7 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./stat-card.component.scss'],
 })
 export class StatCardComponent {
-  @Input() heading = '';
-  @Input() count: string | number = 0;
-  @Input() icon = '';
+  @Input() cards: StatCardData[] = [];
 }

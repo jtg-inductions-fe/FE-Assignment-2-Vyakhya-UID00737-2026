@@ -1,9 +1,14 @@
-<div class="stat-card">
-  <div class="stat-card__info">
-    <p class="stat-card__heading header-secondary">{{ heading }}</p>
-    <h3 class="stat-card__count badge">{{ count }}</h3>
-  </div>
-  <div class="stat-card__icon icon-text">
-    <ng-content select="[card-icon]"></ng-content>
+<div class="stat-card-container">
+  <div *ngFor="let data of cards" class="stat-card">
+    <div class="stat-card__info">
+      <p class="stat-card__heading header-secondary">{{ data.heading }}</p>
+      <h3 class="stat-card__count badge">{{ data.count }}</h3>
+    </div>
+    <div class="stat-card__icon icon-text">
+      <span class="{{ data.icon }}">
+        <span class="path1"></span>
+        <span class="path2"></span>
+      </span>
+    </div>
   </div>
 </div>

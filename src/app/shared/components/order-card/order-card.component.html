@@ -6,9 +6,9 @@
   <div class="order-card__records">
     <mat-table [dataSource]="orders" class="order-card__table">
       <!-- displaying each column dynamically -->
-      <ng-container *ngFor="let col of columns; let colIdx = index" [matColumnDef]="displayColumns[colIdx]">
-        <mat-header-cell *matHeaderCellDef [style.width]="col.width"> {{ col.heading }} </mat-header-cell>
-        <mat-cell *matCellDef="let order" [style.width]="col.width">
+      <ng-container *ngFor="let col of columns" [matColumnDef]="col.key">
+        <mat-header-cell *matHeaderCellDef> {{ col.heading }} </mat-header-cell>
+        <mat-cell *matCellDef="let order">
           <!-- for displaying text type details -->
           <ng-container *ngIf="col.type === 'text'">
             <span class="order-card__text-cell text">{{ getCellValue(order, col) }}</span>
