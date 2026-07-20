@@ -27,7 +27,7 @@ export class ListRestaurantComponent implements OnInit {
     this.router.navigate([addRestaurant]);
   }
 
-  onEditClick(id: string): void {
+  onEditClick(id: number): void {
     this.router.navigate([editRestaurant, id]);
   }
 }
