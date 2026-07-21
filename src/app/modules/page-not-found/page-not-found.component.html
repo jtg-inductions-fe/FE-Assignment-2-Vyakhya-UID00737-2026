@@ -1,1 +1,18 @@
-<p>page-not-found works!</p>
+<div class="unknown-page">
+  <div class="unknown-page__img">
+    <img src="assets/images/404.png" alt="404-Page Not Found" />
+  </div>
+  <div class="unknown-page__label">
+    <h1 class="not-found-heading">Page not found</h1>
+    <p class="label">
+      Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.
+    </p>
+    <app-button
+      class="unknown-page__btn"
+      label="Go back home"
+      size="lg"
+      borderRadius="lg"
+      type="submit"
+      (buttonClick)="onBackClick()"></app-button>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import { RestaurantList } from '@shared/models/restaurant.models';
 export class RestaurantService {
   dataPath = 'assets/data/restaurant.json';
   restaurantSubject = new BehaviorSubject<RestaurantList[]>([]);
+  private isDataLoaded = false;
 
   constructor(private readonly http: HttpClient) {}
 
@@ -18,8 +19,9 @@ export class RestaurantService {
   }
 
   getRestaurantData(): Observable<RestaurantList[]> {
-    if (this.restaurantSubject.value.length === 0) {
+    if (!this.isDataLoaded) {
       this.loadData();
+      this.isDataLoaded = true;
     }
 
     return this.restaurantSubject.asObservable();

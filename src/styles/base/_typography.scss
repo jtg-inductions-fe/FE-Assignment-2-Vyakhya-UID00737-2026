@@ -157,6 +157,17 @@
   font-weight: map.get(variables.$font-weight, 'light');
 }
 
+.not-found-heading {
+  font-size: functions.px-to-rem(30);
+  font-weight: map.get(variables.$font-weight, 'bold');
+  line-height: functions.px-to-rem(50);
+  @include mixin.respond('small-desktop') {
+    font-size: functions.px-to-rem(48);
+    font-weight: map.get(variables.$font-weight, 'bold');
+    line-height: functions.px-to-rem(62);
+  }
+}
+
 .select-text {
   font-size: functions.px-to-rem(15);
   font-weight: map.get(variables.$font-weight, 'light');

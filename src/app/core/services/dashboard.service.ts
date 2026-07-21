@@ -5,9 +5,7 @@ import { CardDetails, ColumnDetails, OrderData, ReportCardButton, StatCardData }
 import { SocialIcons } from '@shared/models/footer.models';
 import { DropdownOptions } from '@shared/models/dropdown.models';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class DashboardService {
   dataPath = 'assets/data/dashboard.json';
 

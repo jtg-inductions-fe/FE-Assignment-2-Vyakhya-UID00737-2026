@@ -5,7 +5,7 @@
 
 .login-page-container {
   @include mixin.flex-container(flex, center, center);
-  min-height: calc(100vh - functions.px-to-rem(69));
+  min-height: calc(100vh - functions.px-to-rem(70));
   box-sizing: border-box;
 }
 
