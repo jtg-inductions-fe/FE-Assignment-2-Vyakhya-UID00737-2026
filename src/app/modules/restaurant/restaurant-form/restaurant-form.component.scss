@@ -14,6 +14,7 @@
   }
 
   &__header {
+    @include mixin.flex-container(flex, center, flex-start, column);
     gap: functions.px-to-rem(8);
   }
 

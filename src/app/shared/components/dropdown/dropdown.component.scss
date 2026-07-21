@@ -8,7 +8,7 @@
   margin-top: functions.px-to-rem(12);
 
   --mdc-outlined-text-field-outline-color: #{variables.$secondary-text};
-  --mdc-outlined-text-field-hover-outline-color: #{variables.$primary-text};
+  --mdc-outlined-text-field-hover-outline-color: #{variables.$secondary-text};
   --mdc-outlined-text-field-focus-outline-color: #{variables.$secondary-text};
   --mdc-outlined-text-field-label-text-color: #{variables.$secondary-text};
   --mdc-outlined-text-field-focus-label-text-color: #{variables.$secondary-text};
@@ -35,6 +35,10 @@
       color: variables.$hover-primary;
       background-color: variables.$bg-primary;
     }
+  }
+
+  @include mixin.respond('small-desktop') {
+    width: functions.px-to-rem(250);
   }
 
   ::ng-deep {

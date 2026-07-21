@@ -4,10 +4,9 @@
 @use 'src/styles/abstract/mixin';
 
 .report-card {
-  @include mixin.flex-container(flex, space-between, center);
+  @include mixin.flex-container(flex, space-between, center, column);
   width: 100%;
   align-items: flex-start;
-  gap: functions.px-to-rem(5);
   border: 1px solid variables.$border-secondary;
   border-radius: map.get(variables.$border-radius, 'md-3');
   padding: functions.px-to-rem(10);
@@ -32,7 +31,8 @@
   }
 
   @include mixin.respond('small-desktop') {
-    align-items: center;
+    @include mixin.flex-container(flex, space-between, center, row);
+    gap: functions.px-to-rem(5);
     &__info {
       max-width: functions.px-to-rem(390);
     }

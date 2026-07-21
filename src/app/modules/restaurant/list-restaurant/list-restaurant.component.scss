@@ -12,7 +12,7 @@
     @include mixin.flex-container(flex, space-between, flex-start, column);
     gap: functions.px-to-rem(10);
     width: 100%;
-    padding-bottom: functions.px-to-rem(20);
+    padding-bottom: functions.px-to-rem(10);
   }
 
   &__add-btn {
@@ -54,6 +54,11 @@
   @include mixin.respond('small-desktop') {
     &__header {
       @include mixin.flex-container(flex, space-between, center, row);
+    }
+
+    &__heading {
+      @include mixin.flex-container(flex, center, flex-start, column);
+      gap: functions.px-to-rem(7);
     }
   }
   .mat-mdc-cell {
