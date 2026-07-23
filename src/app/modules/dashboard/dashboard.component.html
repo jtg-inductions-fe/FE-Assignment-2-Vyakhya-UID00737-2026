@@ -1,1 +1,48 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <div class="dashboard__header">
+    <div class="dashboard__heading">
+      <h1 class="heading">Overview Dashboard</h1>
+      <p class="text-primary">System administrator overview panel. Impersonate owners or view aggregate metrics.</p>
+    </div>
+    <div class="dashboard__restaurants" *ngIf="(authService.currentUser$ | async)?.role === 'admin'">
+      <app-dropdown
+        label="View Dashboard As"
+        [options]="(restaurantDetails$ | async) || []"
+        [selectedValue]="selectedRestaurant"
+        (selectedValueChange)="onRestaurantChange($event)"></app-dropdown>
+    </div>
+  </div>
+  <div class="dashboard__stat-data">
+    <app-stat-card [cards]="(statDetails$ | async) || []"></app-stat-card>
+  </div>
+  <div class="dashboard__report-generator">
+    <app-report-card
+      heading="Report Generator"
+      description="Generate performance reports for the selected restaurant context."
+      [buttons]="(buttonDetails$ | async) || []"></app-report-card>
+  </div>
+  <div class="dashboard__top-details">
+    <div class="dashboard__top-customers">
+      <app-card heading="Top Customers" [details]="(customerDetails$ | async) || []"> </app-card>
+    </div>
+    <div class="dashboard__top-dishes">
+      <app-card heading="Top Selling Dishes" [details]="(dishDetails$ | async) || []"></app-card>
+    </div>
+  </div>
+  <div class="dashboard__active-orders" *ngIf="(authService.currentUser$ | async)?.role === 'owner'">
+    <app-order-card
+      heading="Active Orders"
+      description="Manage pending and accepted orders directly from your dashboard."
+      [columns]="(orderColumns$ | async) || []"
+      [orders]="(activeOrderDetails$ | async) || []"></app-order-card>
+  </div>
+  <app-footer-card
+    description="©
+    {{ todayDate }}
+    Themesberg,
+    LLC.
+    All
+    rights
+    reserved."
+    [icons]="(iconDetails$ | async) || []"></app-footer-card>
+</div>

@@ -12,7 +12,7 @@
   [class.btn--radius-md]="borderRadius === 'md'"
   [class.btn--radius-lg]="borderRadius === 'lg'"
   (click)="onClick()">
-  <img [src]="imageSrc" alt="image" />
+  <img *ngIf="imageSrc" [src]="imageSrc" alt="image" />
   <span *ngIf="icon" class="btn__icon btn-icon" [ngClass]="icon" aria-hidden="true"></span>
   <span *ngIf="label" class="btn__label">
     {{ label }}

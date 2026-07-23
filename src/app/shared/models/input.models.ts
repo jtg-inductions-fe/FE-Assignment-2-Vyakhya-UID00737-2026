@@ -1,3 +1,3 @@
-export interface inputError {
+export interface InputError {
   [key: string]: string;
 }

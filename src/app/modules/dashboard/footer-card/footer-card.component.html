@@ -1,6 +1,8 @@
 <div class="footer-card">
   <p class="footer-card__description p-footer-card">{{ description }}</p>
-  <div class="footer-card__socials social-icon">
-    <span *ngFor="let item of icons" [class]="item.icon"></span>
+  <div class="footer-card__socials">
+    <a *ngFor="let item of icons" [href]="item.url" target="_blank" rel="noopener noreferrer" class="social-icon">
+      <span [class]="item.icon"></span>
+    </a>
   </div>
 </div>

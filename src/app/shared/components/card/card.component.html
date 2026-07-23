@@ -7,9 +7,9 @@
       <img *ngIf="item.avatar" class="card__avatar" [src]="item.avatar" [alt]="item.name" />
       <div class="card__info">
         <h4 class="card__name p-card-main">{{ item.name }}</h4>
-        <p *ngIf="item.email" class="card__email p-card">{{ item.email }}</p>
+        <p *ngIf="item.subName" class="card__subname p-card">{{ item.subName }}</p>
       </div>
-      <h4 class="card__price p-card-main">{{ item.price }}</h4>
+      <h4 class="card__count p-card-main">{{ item.count }}</h4>
     </div>
   </mat-card-content>
 </mat-card>

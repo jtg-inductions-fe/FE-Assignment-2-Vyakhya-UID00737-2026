@@ -1,8 +1,16 @@
 export interface CardDetails {
   name: string;
-  price: string | number;
+  count: string | number;
   avatar?: string;
-  email?: string;
+  subName?: string;
+  show: ('admin' | 'owner')[];
+}
+
+export interface StatCardData {
+  heading: string;
+  count: string | number;
+  icon: string;
+  show: ('admin' | 'owner')[];
 }
 
 export type OrderStatus = 'Pending' | 'Accepted' | 'Rejected';
@@ -20,9 +28,17 @@ export interface ReportCardButton {
 }
 
 export type columnType = 'text' | 'status' | 'actions';
-export interface columnDetails {
+export interface ColumnDetails {
   key: string;
   heading: string;
   type: columnType;
-  width: string;
+}
+
+export interface OrderData {
+  orderId: string;
+  restaurantName: string;
+  customerName: string;
+  itemsOrdered: string;
+  totalAmount: string;
+  status: string;
 }

@@ -1,0 +1,245 @@
+{
+  "statData": [
+    {
+      "heading": "Total Revenue",
+      "count": "$200.50",
+      "icon": "icon-dollar",
+      "show": ["admin", "owner"]
+    },
+    {
+      "heading": "Total Orders",
+      "count": "10",
+      "icon": "icon-market",
+      "show": ["admin", "owner"]
+    },
+    {
+      "heading": "Complete Orders",
+      "count": "5",
+      "icon": "icon-ordered",
+      "show": ["admin", "owner"]
+    },
+    {
+      "heading": "Active Restaurants",
+      "count": "3",
+      "icon": "icon-dish",
+      "show": ["admin"]
+    },
+    {
+      "heading": "Restaurant Owners",
+      "count": "2",
+      "icon": "icon-dish",
+      "show": ["owner"]
+    }
+  ],
+  "cardButtonData": [
+    {
+      "label": "Top 10 Ordered Items",
+      "icon": "icon-graph",
+      "variant": "outlined"
+    },
+    {
+      "label": "Frequently Bought Together",
+      "icon": "icon-wheel",
+      "variant": "filled"
+    }
+  ],
+  "customersData": [
+    {
+      "name": "Albert Wright",
+      "count": "$60",
+      "avatar": "assets/images/Avatar1.svg",
+      "subName": "albertwright@demo.com",
+      "show": ["admin", "owner"]
+    },
+    {
+      "name": "Karen Nelson",
+      "count": "$58",
+      "avatar": "assets/images/Avatar2.svg",
+      "subName": "karennelson@demo.com",
+      "show": ["admin"]
+    },
+    {
+      "name": "Dave Miller",
+      "count": "$48",
+      "avatar": "assets/images/Avatar3.svg",
+      "subName": "davemiller@demo.com",
+      "show": ["admin", "owner"]
+    },
+    {
+      "name": "Lana Byrd",
+      "count": "$42",
+      "avatar": "assets/images/Avatar4.svg",
+      "subName": "lanabyrd@demo.com",
+      "show": ["admin"]
+    },
+    {
+      "name": "Neil Sims",
+      "count": "$36",
+      "avatar": "assets/images/Avatar5.svg",
+      "subName": "neilsims@demo.com",
+      "show": ["admin", "owner"]
+    },
+    {
+      "name": "Bonnie Green",
+      "count": "$28",
+      "avatar": "assets/images/Avatar2.svg",
+      "subName": "bonniegreen@demo.com",
+      "show": ["owner"]
+    },
+    {
+      "name": "Alice Johnson",
+      "count": "$23",
+      "avatar": "assets/images/Avatar4.svg",
+      "subName": "alicejohnson@demo.com",
+      "show": ["owner"]
+    }
+  ],
+  "dishData": [
+    {
+      "name": "Soda",
+      "count": "4 orders",
+      "subName": "Pizza Palace",
+      "show": ["admin"]
+    },
+    {
+      "name": "Margherita Pizza",
+      "count": "3 orders",
+      "subName": "Pizza Palace",
+      "show": ["admin"]
+    },
+    {
+      "name": "Truffle Pasta",
+      "count": "3 orders",
+      "subName": "Pizza Palace",
+      "show": ["admin"]
+    },
+    {
+      "name": "Garlic Bread",
+      "count": "2 orders",
+      "subName": "Pizza Palace",
+      "show": ["admin"]
+    },
+    {
+      "name": "Cheeseburger",
+      "count": "2 orders",
+      "subName": "Burger Bistro",
+      "show": ["admin"]
+    },
+    {
+      "name": "Soda",
+      "count": "4 orders",
+      "show": ["owner"]
+    },
+    {
+      "name": "Margherita Pizza",
+      "count": "3 orders",
+      "show": ["owner"]
+    },
+    {
+      "name": "Truffle Pasta",
+      "count": "3 orders",
+      "show": ["owner"]
+    },
+    {
+      "name": "Garlic Bread",
+      "count": "2 orders",
+      "show": ["owner"]
+    },
+    {
+      "name": "Pepproni Pizza",
+      "count": "2 orders",
+      "show": ["owner"]
+    }
+  ],
+  "orderColumns": [
+    {
+      "key": "orderId",
+      "heading": "ORDER ID",
+      "type": "text"
+    },
+    {
+      "key": "restaurantName",
+      "heading": "RESTAURANT",
+      "type": "text"
+    },
+    {
+      "key": "customerName",
+      "heading": "CUSTOMER",
+      "type": "text"
+    },
+    {
+      "key": "itemsOrdered",
+      "heading": "ITEMS",
+      "type": "text"
+    },
+    {
+      "key": "totalAmount",
+      "heading": "AMOUNT",
+      "type": "text"
+    },
+    {
+      "key": "status",
+      "heading": "STATUS",
+      "type": "status"
+    },
+    {
+      "key": "actions",
+      "heading": "ACTIONS",
+      "type": "actions"
+    }
+  ],
+  "activeOrdersData": [
+    {
+      "orderId": "#ORD1002",
+      "restaurantName": "Pizza",
+      "customerName": "Bonnie",
+      "itemsOrdered": "Truffle Pasta, Soda",
+      "totalAmount": "$28.00",
+      "status": "Pending"
+    },
+    {
+      "orderId": "#ORD1007",
+      "restaurantName": "Pizza",
+      "customerName": "Dave",
+      "itemsOrdered": "Margherita Pizza, Pepperoni Pizza",
+      "totalAmount": "$48.00",
+      "status": "Pending"
+    }
+  ],
+  "socialIcon": [
+    {
+      "icon": "icon-facebook",
+      "url": "https://facebook.com"
+    },
+    {
+      "icon": "icon-twitter",
+      "url": "https://twitter.com"
+    },
+    {
+      "icon": "icon-github",
+      "url": "https://github.com"
+    },
+    {
+      "icon": "icon-socials",
+      "url": "https://instagram.com"
+    }
+  ],
+  "restaurantData": [
+    {
+      "label": "View All Restaurants",
+      "value": "view all restaurant"
+    },
+    {
+      "label": "Pizza Palace",
+      "value": "pizza palace"
+    },
+    {
+      "label": "Burger Bistro",
+      "value": "burger bistro"
+    },
+    {
+      "label": "Fun Food",
+      "value": "fun food"
+    }
+  ]
+}

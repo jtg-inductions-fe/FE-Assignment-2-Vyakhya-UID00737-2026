@@ -5,6 +5,7 @@
 
 .dropdown {
   width: 100%;
+  margin-top: functions.px-to-rem(12);
 
   --mdc-outlined-text-field-outline-color: #{variables.$secondary-text};
   --mdc-outlined-text-field-hover-outline-color: #{variables.$primary-text};
@@ -50,7 +51,6 @@
 
     .mat-mdc-form-field-infix {
       @include mixin.flex-container($display: flex, $align: center);
-      width: auto;
       min-height: functions.px-to-rem(40);
       padding: 0;
     }
@@ -98,9 +98,5 @@
       font-size: functions.px-to-rem(12);
       font-weight: map.get(variables.$font-weight, 'light');
     }
-  }
-
-  @include mixin.respond('small-desktop') {
-    width: functions.px-to-rem(250);
   }
 }

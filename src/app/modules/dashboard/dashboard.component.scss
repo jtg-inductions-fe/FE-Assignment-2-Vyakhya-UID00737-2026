@@ -1,0 +1,46 @@
+@use 'sass:map';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/mixin';
+
+.dashboard {
+  width: 100%;
+  height: 100%;
+  padding: functions.px-to-rem(16);
+
+  &__header {
+    @include mixin.flex-container(flex, space-between, flex-start, column);
+    gap: functions.px-to-rem(20);
+  }
+
+  &__heading {
+    @include mixin.flex-container(flex, space-between, flex-start, column);
+  }
+
+  &__stat-data {
+    padding: functions.px-to-rem(10) 0;
+  }
+
+  &__top-details {
+    @include mixin.grid-container(grid);
+    padding: functions.px-to-rem(10) 0;
+    gap: functions.px-to-rem(10);
+  }
+
+  @include mixin.respond('small-desktop') {
+    &__header {
+      @include mixin.flex-container(flex, space-between, flex-start, row);
+    }
+  }
+
+  @include mixin.respond('desktop') {
+    &__stat-data {
+      padding: functions.px-to-rem(8) 0;
+    }
+    &__top-details {
+      @include mixin.grid-container(grid, 0, 2);
+      padding: functions.px-to-rem(10) 0;
+      gap: functions.px-to-rem(10);
+    }
+  }
+}

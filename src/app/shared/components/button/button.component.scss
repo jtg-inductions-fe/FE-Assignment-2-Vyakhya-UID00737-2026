@@ -13,6 +13,7 @@
   width: 100%;
   cursor: pointer;
   border: none;
+  white-space: nowrap;
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
@@ -20,22 +21,11 @@
 
   &--filled {
     @include mixin.shadow(
-      0,
-      1,
-      5,
-      0,
-      variables.$border-secondary,
-      0,
-      2,
-      2,
-      0,
-      variables.$shadow-primary,
-      0,
-      3,
-      1,
-      -2,
-      variables.$shadow-secondary
+      (0 functions.px-to-rem(1) functions.px-to-rem(5) 0 variables.$border-secondary),
+      (0 functions.px-to-rem(2) functions.px-to-rem(2) 0 variables.$shadow-primary),
+      (0 functions.px-to-rem(3) functions.px-to-rem(1) functions.px-to-rem(-2) variables.$shadow-secondary)
     );
+
     color: variables.$white;
     background-color: variables.$bg-primary;
     &:hover {
