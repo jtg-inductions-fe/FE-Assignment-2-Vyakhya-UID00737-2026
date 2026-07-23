@@ -35,12 +35,14 @@
     {
       "label": "Top 10 Ordered Items",
       "icon": "icon-graph",
-      "variant": "outlined"
+      "variant": "outlined",
+      "value": "order-button"
     },
     {
       "label": "Frequently Bought Together",
       "icon": "icon-wheel",
-      "variant": "filled"
+      "variant": "filled",
+      "value": "buy-button"
     }
   ],
   "customersData": [

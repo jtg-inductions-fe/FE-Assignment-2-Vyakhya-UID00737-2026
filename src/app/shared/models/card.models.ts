@@ -24,7 +24,7 @@ export interface ReportCardButton {
   label: string;
   icon?: string;
   variant: 'filled' | 'outlined';
-  value?: string;
+  value: string;
 }
 
 export type columnType = 'text' | 'status' | 'actions';
@@ -32,6 +32,15 @@ export interface ColumnDetails {
   key: string;
   heading: string;
   type: columnType;
+}
+
+export interface OrderData {
+  orderId: string;
+  restaurantName: string;
+  customerName: string;
+  itemsOrdered: string;
+  totalAmount: string;
+  status: string;
 }
 
 export interface OrderData {

@@ -1,0 +1,66 @@
+@use 'sass:map';
+@use 'src/styles/abstract/mixin';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/variables';
+
+.restaurant-list {
+  @include mixin.flex-container(flex, center, flex-start, column);
+  width: 100%;
+  padding: functions.px-to-rem(16);
+
+  &__header {
+    @include mixin.flex-container(flex, space-between, flex-start, column);
+    gap: functions.px-to-rem(10);
+    width: 100%;
+    padding-bottom: functions.px-to-rem(20);
+  }
+
+  &__add-btn {
+    width: functions.px-to-rem(170);
+  }
+
+  &__table {
+    @include mixin.shadow(
+      (0 functions.px-to-rem(1) functions.px-to-rem(10) 0 variables.$border-secondary),
+      (0 functions.px-to-rem(4) functions.px-to-rem(5) 0 variables.$shadow-primary),
+      (0 functions.px-to-rem(2) functions.px-to-rem(4) functions.px-to-rem(-1) variables.$shadow-secondary)
+    );
+    width: 100%;
+    overflow-x: auto;
+    border-radius: functions.px-to-rem(16);
+
+    .mat-mdc-table {
+      width: 100%;
+      min-width: functions.px-to-rem(1150);
+    }
+  }
+
+  &__table-header {
+    color: variables.$secondary-text;
+  }
+
+  &__actions {
+    width: functions.px-to-rem(30);
+  }
+
+  &__chips {
+    ::ng-deep {
+      .mdc-evolution-chip__text-label {
+        font-weight: map.get(variables.$font-weight, 'regular');
+      }
+    }
+  }
+
+  @include mixin.respond('small-desktop') {
+    &__header {
+      @include mixin.flex-container(flex, space-between, center, row);
+    }
+  }
+  .mat-mdc-cell {
+    height: functions.px-to-rem(60);
+  }
+
+  .mat-column-actions {
+    width: functions.px-to-rem(70);
+  }
+}
