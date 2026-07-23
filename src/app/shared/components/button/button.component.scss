@@ -53,7 +53,16 @@
     }
   }
 
+  &--image {
+    width: functions.px-to-rem(35);
+    height: functions.px-to-rem(35);
+  }
+
   // different padding styles to buttons
+  &--img-sm {
+    padding: 0;
+  }
+
   &--sm {
     padding: functions.px-to-rem(5) functions.px-to-rem(15);
   }

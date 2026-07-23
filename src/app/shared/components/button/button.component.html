@@ -2,6 +2,7 @@
   class="btn btn-text"
   [class.btn--filled]="variant === 'filled'"
   [class.btn--outlined]="variant === 'outlined'"
+  [class.btn--image]="variant === 'image'"
   [class.btn--with-icon]="icon"
   [attr.type]="type"
   [class.btn--sm]="size === 'sm'"
@@ -11,8 +12,9 @@
   [class.btn--radius-md]="borderRadius === 'md'"
   [class.btn--radius-lg]="borderRadius === 'lg'"
   (click)="onClick()">
+  <img [src]="imageSrc" alt="image" />
   <span *ngIf="icon" class="btn__icon btn-icon" [ngClass]="icon" aria-hidden="true"></span>
-  <span class="btn__label">
+  <span *ngIf="label" class="btn__label">
     {{ label }}
   </span>
 </button>

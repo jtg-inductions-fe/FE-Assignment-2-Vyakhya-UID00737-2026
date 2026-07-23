@@ -8,6 +8,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { RouterLink, ɵEmptyOutletComponent } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { ButtonComponent } from '@shared/components/button/button.component';
 import { CardComponent } from '@shared/components/card/card.component';
 import { ChipInputComponent } from '@shared/components/chip-input/chip-input.component';
@@ -18,6 +22,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { ReportCardComponent } from '@shared/components/report-card/report-card.component';
 import { StatCardComponent } from '@shared/components/stat-card/stat-card.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +35,7 @@ import { StatCardComponent } from '@shared/components/stat-card/stat-card.compon
     ReportCardComponent,
     StatCardComponent,
     HeaderComponent,
+    LayoutComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +48,11 @@ import { StatCardComponent } from '@shared/components/stat-card/stat-card.compon
     ReactiveFormsModule,
     OverlayModule,
     ToastrModule.forRoot(),
+    MatSidenavModule,
+    MatExpansionModule,
+    RouterLink,
+    RouterOutlet,
+    ɵEmptyOutletComponent,
   ],
   exports: [
     ButtonComponent,
@@ -53,6 +64,7 @@ import { StatCardComponent } from '@shared/components/stat-card/stat-card.compon
     ReportCardComponent,
     StatCardComponent,
     HeaderComponent,
+    LayoutComponent,
   ],
 })
 export class SharedModule {}

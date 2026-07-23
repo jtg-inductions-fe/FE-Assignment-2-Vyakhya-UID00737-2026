@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '@core/services/auth.service';
 import { UserData } from '@shared/models/userdata.models';
+import { SidebarService } from '@core/services/sidebar.service';
 import { Subscription } from 'rxjs';
 import { loginPage } from '@shared/constants/path.constants';
 
@@ -17,10 +18,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   authSubscription!: Subscription;
 
   constructor(
-    private authService: AuthService,
+    public sidebarService: SidebarService,
+    public authService: AuthService,
     private router: Router,
     private toast: ToastrService,
   ) {}
+
+  toggleMenu() {
+    if (this.sidebarService.isMobile) {
+      this.sidebarService.toggle();
+    }
+  }
 
   ngOnInit(): void {
     this.authSubscription = this.authService.currentUser$.subscribe({

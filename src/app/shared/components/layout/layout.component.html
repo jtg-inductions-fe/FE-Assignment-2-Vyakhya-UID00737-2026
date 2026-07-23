@@ -1,0 +1,86 @@
+<div class="layout">
+  <app-header></app-header>
+  <mat-drawer-container class="layout__sidebar" autosize>
+    <mat-drawer
+      class="layout__drawer"
+      [mode]="isMobile ? 'over' : 'side'"
+      [opened]="sidebar.isOpen$ | async"
+      *ngIf="isLoggedIn">
+      <div class="layout__wrapper">
+        <div class="layout__top-options">
+          <!-- Sidebar top options -->
+          <div class="layout__top">
+            <ng-container *ngFor="let option of sidebar_options">
+              <ng-container *ngIf="option.type === 'link'">
+                <a [routerLink]="option.route ? option.route : dashboardRoute" class="layout__link">
+                  <span class="layout__icon btn-report-icon" [ngClass]="option.icon"></span>
+                  <h5 class="p-card-main">{{ option.label }}</h5>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="option.type === 'accordion'">
+                <mat-expansion-panel class="layout__accordion">
+                  <mat-expansion-panel-header class="layout__accordion-header">
+                    <mat-panel-title class="layout__accordion-title">
+                      <span class="layout__icon btn-report-icon" [ngClass]="option.icon"></span>
+                      <h5 class="p-card-main">{{ option.label }}</h5>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="layout__accordion-content">
+                    <div *ngFor="let child of option.children">
+                      <a [routerLink]="child.route ? child.route : dashboardRoute" class="layout__sub-link">
+                        <span class="layout__icon btn-report-icon" [ngClass]="child.icon"></span>
+                        <h5 class="p-card-main">{{ child.label }}</h5>
+                      </a>
+                    </div>
+                  </div>
+                </mat-expansion-panel>
+              </ng-container>
+            </ng-container>
+          </div>
+
+          <!-- Sidebar bottom options that are common for both users -->
+          <div class="layout__bottom">
+            <ng-container *ngFor="let option of common_sidebar_options">
+              <ng-container *ngIf="option.type === 'link'">
+                <a [routerLink]="option.route ? option.route : dashboardRoute" class="layout__link">
+                  <span class="layout__icon btn-report-icon" [ngClass]="option.icon"></span>
+                  <h5 class="p-card-main">{{ option.label }}</h5>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="option.type === 'accordion'">
+                <mat-expansion-panel class="layout__accordion">
+                  <mat-expansion-panel-header class="layout__accordion-header">
+                    <mat-panel-title class="layout__accordion-title">
+                      <span class="layout__icon btn-report-icon" [ngClass]="option.icon"></span>
+                      <h5 class="p-card-main">{{ option.label }}</h5>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div class="layout__accordion-content">
+                    <div *ngFor="let child of option.children" class="layout__sub-link">
+                      <a [routerLink]="child.route ? child.route : dashboardRoute" class="layout__link">
+                        <span class="layout__icon btn-report-icon" [ngClass]="child.icon"></span>
+                        <h5 class="p-card-main">{{ child.label }}</h5>
+                      </a>
+                    </div>
+                  </div>
+                </mat-expansion-panel>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+
+        <!-- Sidebar footer links -->
+        <div class="layout__footer-options social-icon">
+          <a><span class="icon-links layout__social-link"></span></a>
+          <a><span class="icon-globe layout__social-link"></span></a>
+          <a><span class="icon-settings layout__social-link"></span></a>
+        </div>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content class="layout__content">
+      <main class="layout__main">
+        <router-outlet></router-outlet>
+      </main>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
