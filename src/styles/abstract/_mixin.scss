@@ -25,25 +25,6 @@ $breakpoints: (
   flex-direction: $direction;
 }
 
-@mixin shadow(
-  $x1: 0,
-  $y1: 0,
-  $blur1: 0,
-  $spread1: 0,
-  $color1,
-  $x2: 0,
-  $y2: 0,
-  $blur2: 0,
-  $spread2: 0,
-  $color2,
-  $x3: 0,
-  $y3: 0,
-  $blur3: 0,
-  $spread3: 0,
-  $color3
-) {
-  box-shadow:
-    functions.px-to-rem($x1) functions.px-to-rem($y1) functions.px-to-rem($blur1) functions.px-to-rem($spread1) $color1,
-    functions.px-to-rem($x2) functions.px-to-rem($y2) functions.px-to-rem($blur2) functions.px-to-rem($spread2) $color2,
-    functions.px-to-rem($x3) functions.px-to-rem($y3) functions.px-to-rem($blur3) functions.px-to-rem($spread3) $color3;
+@mixin shadow($shadows...) {
+  box-shadow: $shadows;
 }

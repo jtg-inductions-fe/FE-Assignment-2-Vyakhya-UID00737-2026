@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use 'src/styles/abstract/mixin.scss';
-@use 'src/styles/abstract/variables.scss';
-@use 'src/styles/abstract/functions.scss';
+@use 'src/styles/abstract/mixin';
+@use 'src/styles/abstract/variables';
+@use 'src/styles/abstract/functions';
 
 .login-page-container {
   @include mixin.flex-container(flex, center, center);

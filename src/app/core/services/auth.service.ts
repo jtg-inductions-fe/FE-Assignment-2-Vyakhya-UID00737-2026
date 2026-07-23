@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserData } from '@shared/models/userdata.models';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,17 @@ export class AuthService {
     { email: 'admin@gmail.com', password: 'admin123', role: 'admin' as const },
     { email: 'owner@gmail.com', password: 'owner123', role: 'owner' as const },
   ];
+
+  private userSubject = new BehaviorSubject<UserData | null>(this.getInitialData());
+  currentUser$: Observable<UserData | null> = this.userSubject.asObservable();
+
+  getInitialData(): UserData | null {
+    try {
+      return JSON.parse(localStorage.getItem('userData') || 'null');
+    } catch {
+      return null;
+    }
+  }
 
   login(email: string, password: string): UserData | null {
     const user = this.users.find(user => user.email === email && user.password === password);
@@ -20,26 +32,23 @@ export class AuthService {
         token: `${user.email}-token`,
       };
       localStorage.setItem('userData', JSON.stringify(data));
+      this.userSubject.next(data);
       return data;
     }
     return null;
   }
 
   getUserRole(): 'admin' | 'owner' | null {
-    const data = localStorage.getItem('userData');
-    if (!data) return null;
-    try {
-      return (JSON.parse(data) as UserData).role;
-    } catch {
-      return null;
-    }
+    const user = this.userSubject.value;
+    return user ? user.role : null;
   }
 
   isLoggedIn(): boolean {
-    return localStorage.getItem('userData') !== null;
+    return this.userSubject.value !== null;
   }
 
   logout() {
     localStorage.removeItem('userData');
+    this.userSubject.next(null);
   }
 }

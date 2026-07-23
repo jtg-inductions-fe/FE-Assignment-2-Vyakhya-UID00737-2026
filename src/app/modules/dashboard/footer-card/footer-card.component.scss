@@ -25,6 +25,10 @@
     &__description {
       order: 2;
     }
+
+    &__socials {
+      font-size: functions.px-to-rem(22);
+    }
   }
 
   @include mixin.respond('small-desktop') {
