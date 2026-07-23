@@ -58,9 +58,9 @@
 
   &__status {
     background-color: variables.$bg-secondary;
-        color: variables.$tertiary-text;
-        padding: 0 functions.px-to-rem(8);
-        border-radius: functions.px-to-rem(16);
+    color: variables.$tertiary-text;
+    padding: 0 functions.px-to-rem(8);
+    border-radius: functions.px-to-rem(16);
   }
 
   &__buttons {
@@ -75,7 +75,6 @@
 }
 
 :host ::ng-deep {
-
   .mat-row {
     width: 100%;
   }

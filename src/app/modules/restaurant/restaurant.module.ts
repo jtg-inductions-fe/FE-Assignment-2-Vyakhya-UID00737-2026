@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RestaurantRoutingModule } from './restaurant-routing.module';
-import { ListRestaurantComponent } from './list-restaurant/list-restaurant.component';
-import { RestaurantFormComponent } from './restaurant-form/restaurant-form.component';
+import { RestaurantRoutingModule } from '@modules/restaurant/restaurant-routing.module';
+import { ListRestaurantComponent } from '@modules/restaurant/list-restaurant/list-restaurant.component';
+import { RestaurantFormComponent } from '@modules/restaurant/restaurant-form/restaurant-form.component';
 
 @NgModule({
   declarations: [ListRestaurantComponent, RestaurantFormComponent],

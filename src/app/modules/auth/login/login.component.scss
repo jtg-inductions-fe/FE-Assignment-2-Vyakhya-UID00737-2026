@@ -1,0 +1,38 @@
+@use 'sass:map';
+@use 'src/styles/abstract/mixin.scss';
+@use 'src/styles/abstract/variables.scss';
+@use 'src/styles/abstract/functions.scss';
+
+.login-page-container {
+  @include mixin.flex-container(flex, center, center);
+  min-height: calc(100vh - 68px);
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.login-form {
+  @include mixin.flex-container(flex, center, center, column);
+  width: functions.px-to-rem(400);
+  height: functions.px-to-rem(300);
+  gap: functions.px-to-rem(16);
+  padding: functions.px-to-rem(12);
+  border-radius: map.get(variables.$border-radius, 'md-1');
+  border: none;
+  box-shadow: none;
+
+  &__header {
+    text-align: center;
+  }
+
+  &__error {
+    color: variables.$warn;
+    padding-bottom: functions.px-to-rem(10);
+  }
+
+  @include mixin.respond('tablet') {
+    box-shadow:
+      0 functions.px-to-rem(1) functions.px-to-rem(5) functions.px-to-rem(0) variables.$border-secondary,
+      0 functions.px-to-rem(2) functions.px-to-rem(2) functions.px-to-rem(0) variables.$shadow-primary,
+      0 functions.px-to-rem(3) functions.px-to-rem(1) functions.px-to-rem(-2) variables.$shadow-secondary;
+  }
+}

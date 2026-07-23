@@ -172,9 +172,9 @@
 }
 
 .badge {
-  font-size: functions.px-to-rem(20);
-  line-height: functions.px-to-rem(30);
-  font-weight: map.get(variables.$font-weight, 'bold');
+  font-size: functions.px-to-rem(20) !important;
+  line-height: functions.px-to-rem(30) !important;
+  font-weight: map.get(variables.$font-weight, 'bold') !important;
 }
 
 .icon-text {
