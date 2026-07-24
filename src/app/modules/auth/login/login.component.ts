@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, Form } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EMAIL_ERROR, PASSWORD_ERROR } from '@shared/constants/error.constants';
 import { AuthService } from '@core/services/auth.service';

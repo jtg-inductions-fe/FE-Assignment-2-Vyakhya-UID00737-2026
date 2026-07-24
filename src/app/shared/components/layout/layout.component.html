@@ -3,9 +3,9 @@
   <mat-drawer-container class="layout__sidebar" autosize>
     <mat-drawer
       class="layout__drawer"
-      [mode]="isMobile ? 'over' : 'side'"
-      [opened]="sidebar.isOpen$ | async"
-      *ngIf="isLoggedIn">
+      [mode]="isMobileView ? 'over' : 'side'"
+      [opened]="isSidebarOpen"
+      *ngIf="isUserLoggedIn">
       <div class="layout__wrapper">
         <div class="layout__top-options">
           <!-- Sidebar top options -->

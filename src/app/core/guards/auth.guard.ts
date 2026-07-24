@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
 import { adminDashboard, ownerDashboard } from '@shared/constants/path.constants';
 
@@ -8,11 +8,11 @@ import { adminDashboard, ownerDashboard } from '@shared/constants/path.constants
 })
 export class AuthGuard {
   constructor(
-    public authService: AuthService,
-    public router: Router,
+    private authService: AuthService,
+    private router: Router,
   ) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
       const role = this.authService.getUserRole();
       if (role === 'admin') {

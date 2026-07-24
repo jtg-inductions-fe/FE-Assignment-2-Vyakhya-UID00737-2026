@@ -14,6 +14,7 @@ export class ChipInputComponent {
   @Input({ required: true }) inputId!: string;
   @Input({ required: true }) control!: FormControl<string[] | null>;
   @Input() required = false;
+  @Input() description = '';
   @Output() chipsChange = new EventEmitter<string[]>();
   @Input() onError: Record<string, string> = {};
   readonly separatorKeysCodes: number[] = [ENTER];

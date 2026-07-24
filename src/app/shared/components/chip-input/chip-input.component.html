@@ -1,4 +1,4 @@
-<mat-form-field class="chip-input" appearance="outline" [class.chip-input--error]="showError">
+<mat-form-field class="chip-input" appearance="outline" [class.chip-input--error]="showError" subscriptSizing="dynamic">
   <mat-label>{{ label }}</mat-label>
   <mat-chip-grid
     #chipGrid
@@ -37,6 +37,10 @@
       (focus)="onFocus()"
       (blur)="onBlur()" />
   </mat-chip-grid>
+
+  <mat-hint class="chip-input__description">
+    <p>{{ description }}</p>
+  </mat-hint>
 
   <mat-error *ngIf="showError" class="chip-input__error p-report-card" [id]="errorId">
     {{ errorMessage }}

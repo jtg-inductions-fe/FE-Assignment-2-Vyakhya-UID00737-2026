@@ -29,7 +29,7 @@
   }
 
   &__icon {
-    @include mixin.flex-container(flex-inline, center, center);
+    @include mixin.flex-container(flex, center, center);
     width: functions.px-to-rem(16);
     height: functions.px-to-rem(16);
     background-color: variables.$white;
@@ -101,5 +101,15 @@
       top: 50%;
       transform: translateY(-50%);
     }
+  }
+
+  .mat-mdc-form-field-bottom-align {
+    &::before {
+      display: none;
+    }
+  }
+
+  .mat-mdc-form-field-hint-wrapper {
+    padding: 0 !important;
   }
 }

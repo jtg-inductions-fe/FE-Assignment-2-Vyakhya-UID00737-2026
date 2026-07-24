@@ -42,12 +42,3 @@ export interface OrderData {
   totalAmount: string;
   status: string;
 }
-
-export interface OrderData {
-  orderId: string;
-  restaurantName: string;
-  customerName: string;
-  itemsOrdered: string;
-  totalAmount: string;
-  status: string;
-}

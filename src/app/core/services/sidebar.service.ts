@@ -8,17 +8,19 @@ import { sidebar_width } from '@shared/constants/sidebar.constants';
   providedIn: 'root',
 })
 export class SidebarService {
-  sidebar = new BehaviorSubject<boolean>(true);
+  private sidebar = new BehaviorSubject<boolean>(true);
   isOpen$ = this.sidebar.asObservable();
-  isMobile = false;
+  private mobile = new BehaviorSubject<boolean>(false);
+  isMobile$ = this.mobile.asObservable();
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver
       .observe(`(max-width: ${sidebar_width})`)
       .pipe(takeUntilDestroyed())
       .subscribe(res => {
-        this.isMobile = res.matches;
-        this.sidebar.next(!this.isMobile);
+        const isMobile = res.matches;
+        this.mobile.next(isMobile);
+        this.sidebar.next(!isMobile);
       });
   }
 

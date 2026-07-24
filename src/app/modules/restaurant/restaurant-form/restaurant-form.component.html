@@ -1,1 +1,81 @@
-<p>restaurant-form works!</p>
+<div class="form-restaurant">
+  <div class="form-restaurant__header-container">
+    <app-button
+      class="form-restaurant__back-btn"
+      label="BACK"
+      icon="icon-previous"
+      variant="outlined"
+      size="sm"
+      (buttonClick)="onBackClick()"></app-button>
+    <div class="form-restaurant__header">
+      <h1 class="heading">{{ !currentPage ? 'Add Restaurant' : 'Edit Restaurant' }}</h1>
+      <p class="text-primary">
+        {{
+          !currentPage
+            ? 'Add a new partner restaurant to the portal.'
+            : 'Update the restaurant name, address, and owners.'
+        }}
+      </p>
+    </div>
+  </div>
+  <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()" class="form-card">
+    <app-input
+      label="Restaurant Name"
+      [control]="restaurantNameControl"
+      placeholder="e.g, Pizza Palace"
+      inputId="restaurantName"
+      type="text"
+      [onError]="
+        restaurantNameControl.touched && restaurantNameControl.hasError('required')
+          ? { required: formErrors.restaurantName }
+          : {}
+      "></app-input>
+
+    <app-input
+      label="Address"
+      [control]="addressControl"
+      placeholder="e.g., 123 Pepperoni Rd, Naples"
+      inputId="address"
+      type="text"
+      [onError]="
+        addressControl.touched && addressControl.hasError('required') ? { required: formErrors.address } : {}
+      "></app-input>
+
+    <div class="chip-input-field">
+      <app-chip-input
+        label="Owners (emails)"
+        placeholder="Type owner email and press Enter"
+        inputId="owner-email"
+        description="Add emails of users who own/manage this restaurant."
+        [control]="emailControl"
+        [required]="true"
+        [onError]="
+          emailControl.touched && emailControl.hasError('required')
+            ? { required: formErrors.email }
+            : emailControl.touched && emailControl.hasError('email')
+              ? { email: emailErrors.email }
+              : {}
+        ">
+      </app-chip-input>
+    </div>
+    <div class="form-restaurant__button-container">
+      <mat-card-actions class="form-restaurant__buttons">
+        <app-button
+          class="form-restaurant__cancel-btn"
+          label="CANCEL"
+          variant="outlined"
+          borderRadius="sm"
+          type="button"
+          (buttonClick)="onBackClick()"></app-button>
+        <app-button
+          class="form-restaurant__save-btn"
+          [label]="currentPage ? 'SAVE CHANGES' : 'CREATE RESTAURANT'"
+          variant="filled"
+          borderRadius="sm"
+          icon="icon-file"
+          type="submit"
+          (buttonClick)="onSubmit()"></app-button>
+      </mat-card-actions>
+    </div>
+  </form>
+</div>
