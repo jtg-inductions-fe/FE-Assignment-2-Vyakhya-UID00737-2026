@@ -65,6 +65,10 @@
     padding: 0 functions.px-to-rem(32) 0 functions.px-to-rem(16);
   }
 
+  &__content {
+    background-color: variables.$white;
+  }
+
   &__footer-options {
     @include mixin.flex-container(flex, center, center, row);
     gap: functions.px-to-rem(24);

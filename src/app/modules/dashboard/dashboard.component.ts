@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@core/services/auth.service';
 import { DashboardService } from '@core/services/dashboard.service';
-import { map, Observable } from 'rxjs';
+import { forkJoin, finalize, shareReplay, map, Observable } from 'rxjs';
 import { CardDetails, ColumnDetails, OrderData, ReportCardButton, StatCardData } from '@shared/models/card.models';
 import { SocialIcons } from '@shared/models/footer.models';
 import { DropdownOptions } from '@shared/models/dropdown.models';
@@ -24,6 +24,8 @@ export class DashboardComponent implements OnInit {
   restaurantDetails$!: Observable<DropdownOptions[]>;
 
   selectedRestaurant = 'view all restaurant';
+  isLoading = true;
+  error = '';
 
   constructor(
     private authService: AuthService,
@@ -40,23 +42,43 @@ export class DashboardComponent implements OnInit {
     this.currentUser$ = this.authService.currentUser$;
     const role = this.role;
 
-    this.statDetails$ = this.dashboardService
-      .getStatData()
-      .pipe(map(items => items.filter(opt => (role ? opt.show.includes(role) : false))));
+    this.statDetails$ = this.dashboardService.getStatData().pipe(
+      map(items => items.filter(opt => (role ? opt.show.includes(role) : false))),
+      shareReplay(1),
+    );
 
-    this.customerDetails$ = this.dashboardService
-      .getCustomerDetails()
-      .pipe(map(items => items.filter(opt => (role ? opt.show.includes(role) : false))));
+    this.customerDetails$ = this.dashboardService.getCustomerDetails().pipe(
+      map(items => items.filter(opt => (role ? opt.show.includes(role) : false))),
+      shareReplay(1),
+    );
 
-    this.dishDetails$ = this.dashboardService
-      .getDishDetails()
-      .pipe(map(items => items.filter(opt => (role ? opt.show.includes(role) : false))));
+    this.dishDetails$ = this.dashboardService.getDishDetails().pipe(
+      map(items => items.filter(opt => (role ? opt.show.includes(role) : false))),
+      shareReplay(1),
+    );
 
-    this.orderColumns$ = this.dashboardService.getColumnDetails();
-    this.buttonDetails$ = this.dashboardService.getButtonDetails();
-    this.activeOrderDetails$ = this.dashboardService.getActiveOrderDetails();
-    this.iconDetails$ = this.dashboardService.getIcons();
-    this.restaurantDetails$ = this.dashboardService.getRestaurantDetails();
+    this.orderColumns$ = this.dashboardService.getColumnDetails().pipe(shareReplay(1));
+    this.buttonDetails$ = this.dashboardService.getButtonDetails().pipe(shareReplay(1));
+    this.activeOrderDetails$ = this.dashboardService.getActiveOrderDetails().pipe(shareReplay(1));
+    this.iconDetails$ = this.dashboardService.getIcons().pipe(shareReplay(1));
+    this.restaurantDetails$ = this.dashboardService.getRestaurantDetails().pipe(shareReplay(1));
+
+    forkJoin([
+    this.statDetails$,
+    this.customerDetails$,
+    this.dishDetails$,
+    this.orderColumns$,
+    this.buttonDetails$,
+    this.activeOrderDetails$,
+    this.iconDetails$,
+    this.restaurantDetails$,
+  ])
+    .pipe(finalize(() => (this.isLoading = false)))
+    .subscribe({
+    error: () => {
+      this.error = 'Unable to load dashboard data!';
+    },
+  });
   }
 
   onRestaurantChange(value: string): void {

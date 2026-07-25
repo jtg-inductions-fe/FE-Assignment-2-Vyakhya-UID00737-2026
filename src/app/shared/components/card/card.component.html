@@ -11,5 +11,8 @@
       </div>
       <h4 class="card__count p-card-main">{{ item.count }}</h4>
     </div>
+    <div *ngIf="!details || details.length===0" class="card__no-data">
+      <p>No data available!</p>
+    </div>
   </mat-card-content>
 </mat-card>

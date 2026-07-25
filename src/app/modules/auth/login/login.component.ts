@@ -40,12 +40,10 @@ export class LoginComponent {
       this.loginForm.markAllAsTouched();
       return;
     }
-
     const email_value = this.loginForm.value.email ?? '';
     const password_value = this.loginForm.value.password ?? '';
 
     const userData = this.authService.login(email_value, password_value);
-
     if (!userData) {
       this.error = 'Invalid email or password!';
       return;
