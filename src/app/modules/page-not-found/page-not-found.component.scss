@@ -1,0 +1,29 @@
+@use 'src/styles/abstract/mixin';
+@use 'src/styles/abstract/functions';
+@use 'src/styles/abstract/variables';
+
+.unknown-page {
+  @include mixin.flex-container(flex, center, center, column);
+  width: 100%;
+  height: 100%;
+  padding-top: functions.px-to-rem(60);
+  gap: functions.px-to-rem(60);
+
+  &__label {
+    @include mixin.flex-container(flex, center, center, column);
+    gap: functions.px-to-rem(15);
+    text-align: center;
+  }
+
+  &__btn {
+    width: functions.px-to-rem(130);
+  }
+
+  @include mixin.respond('small-desktop') {
+    padding-top: functions.px-to-rem(20);
+  }
+
+  @include mixin.respond('desktop') {
+    padding-right: functions.px-to-rem(50);
+  }
+}

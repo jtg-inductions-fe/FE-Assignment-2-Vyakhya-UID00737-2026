@@ -1,4 +1,5 @@
 // Reset default browser styles
+@use 'sass:map';
 @use 'src/styles/abstract/functions';
 @use 'src/styles/abstract/variables';
 
@@ -43,43 +44,43 @@ a {
 
 p {
   font-size: functions.px-to-rem(14);
-  font-weight: 500;
+  font-weight: map.get(variables.$font-weight, 'light');
   line-height: functions.px-to-rem(20);
   color: variables.$secondary-text;
 }
 
 h1 {
   font-size: functions.px-to-rem(48);
-  font-weight: 700;
+  font-weight: map.get(variables.$font-weight, 'bold');
   line-height: functions.px-to-rem(62);
 }
 
 h2 {
   font-size: functions.px-to-rem(35);
-  font-weight: 700;
+  font-weight: map.get(variables.$font-weight, 'bold');
   line-height: functions.px-to-rem(40);
 }
 
 h3 {
   font-size: functions.px-to-rem(20);
-  font-weight: 700;
+  font-weight: map.get(variables.$font-weight, 'bold');
   line-height: functions.px-to-rem(30);
 }
 
 h4 {
   font-size: functions.px-to-rem(18);
-  font-weight: 700;
+  font-weight: map.get(variables.$font-weight, 'bold');
   line-height: functions.px-to-rem(20);
 }
 
 h5 {
   font-size: functions.px-to-rem(14);
-  font-weight: 700;
+  font-weight: map.get(variables.$font-weight, 'bold');
   line-height: functions.px-to-rem(21);
 }
 
 h6 {
   font-size: functions.px-to-rem(12);
-  font-weight: 700;
+  font-weight: map.get(variables.$font-weight, 'bold');
   line-height: functions.px-to-rem(18);
 }

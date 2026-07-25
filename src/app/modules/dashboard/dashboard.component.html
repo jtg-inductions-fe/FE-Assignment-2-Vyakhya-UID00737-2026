@@ -2,7 +2,12 @@
   <div class="dashboard__header">
     <div class="dashboard__heading">
       <h1 class="heading">Overview Dashboard</h1>
-      <p class="text-primary">System administrator overview panel. Impersonate owners or view aggregate metrics.</p>
+      <p class="text-primary" *ngIf="(currentUser$ | async)?.role === 'admin'">
+        System administrator overview panel. Impersonate owners or view aggregate metrics.
+      </p>
+      <p class="text-primary" *ngIf="(currentUser$ | async)?.role === 'owner'">
+        Welcome back, restaurant partner! Track your orders and performance details.
+      </p>
     </div>
     <div class="dashboard__restaurants" *ngIf="(currentUser$ | async)?.role === 'admin'">
       <app-dropdown
