@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from '@core/services/restaurant.service';
 import { RestaurantList } from '@shared/models/restaurant.models';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { catchError, tap, Observable } from 'rxjs';
 import { addRestaurant, editRestaurant } from '@shared/constants/path.constants';
 
 @Component({
@@ -13,6 +13,8 @@ import { addRestaurant, editRestaurant } from '@shared/constants/path.constants'
 export class ListRestaurantComponent implements OnInit {
   restaurantData$!: Observable<RestaurantList[]>;
   displayedColumns: string[] = ['restaurantName', 'address', 'owners', 'actions'];
+  isLoading = true;
+  error = '';
 
   constructor(
     private router: Router,
@@ -20,7 +22,16 @@ export class ListRestaurantComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.restaurantData$ = this.restaurantService.getRestaurantData();
+    this.restaurantData$ = this.restaurantService.getRestaurantData().pipe(
+      tap(() => {
+        this.isLoading = false;
+      }),
+      catchError(() => {
+        this.error = 'Unable to load restaurant data!';
+        this.isLoading = false;
+        return [];
+      }),
+    );
   }
 
   onAddClick(): void {

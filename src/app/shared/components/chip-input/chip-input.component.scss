@@ -76,13 +76,13 @@
 :host ::ng-deep {
   .chip-input {
     .mat-mdc-text-field-wrapper {
-      height: functions.px-to-rem(50);
+      min-height: functions.px-to-rem(56);
       background-color: variables.$white;
-      padding: functions.px-to-rem(6);
     }
 
     .mat-mdc-form-field-infix {
-      padding: functions.px-to-rem(5) 0;
+      min-height: functions.px-to-rem(45);
+      padding: functions.px-to-rem(12) 0;
     }
 
     .mat-mdc-chip-set {
@@ -98,8 +98,10 @@
     .mdc-floating-label {
       font-size: functions.px-to-rem(15);
       font-weight: map.get(variables.$font-weight, 'light');
-      top: 50%;
-      transform: translateY(-50%);
+      line-height: functions.px-to-rem(24);
+    }
+    .mdc-floating-label--float-above {
+      transform: translateY(-55%) scale(0.75);
     }
   }
 

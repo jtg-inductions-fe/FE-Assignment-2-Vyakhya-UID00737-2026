@@ -12,7 +12,7 @@
           <div class="layout__top">
             <ng-container *ngFor="let option of sidebar_options">
               <ng-container *ngIf="option.type === 'link'">
-                <a [routerLink]="option.route ? option.route : dashboardRoute" class="layout__link">
+                <a [routerLink]="option.route ? option.route : dashboardRoute" class="layout__link" (click)="closeSidebar()">
                   <span class="layout__icon btn-report-icon" [ngClass]="option.icon"></span>
                   <h5 class="p-card-main">{{ option.label }}</h5>
                 </a>
@@ -27,7 +27,7 @@
                   </mat-expansion-panel-header>
                   <div class="layout__accordion-content">
                     <div *ngFor="let child of option.children">
-                      <a [routerLink]="child.route ? child.route : dashboardRoute" class="layout__sub-link">
+                      <a [routerLink]="child.route ? child.route : dashboardRoute" class="layout__sub-link" (click)="closeSidebar()">
                         <span class="layout__icon btn-report-icon" [ngClass]="child.icon"></span>
                         <h5 class="p-card-main">{{ child.label }}</h5>
                       </a>
@@ -42,7 +42,7 @@
           <div class="layout__bottom">
             <ng-container *ngFor="let option of common_sidebar_options">
               <ng-container *ngIf="option.type === 'link'">
-                <a [routerLink]="option.route ? option.route : dashboardRoute" class="layout__link">
+                <a [routerLink]="option.route ? option.route : dashboardRoute" class="layout__link" (click)="closeSidebar()">
                   <span class="layout__icon btn-report-icon" [ngClass]="option.icon"></span>
                   <h5 class="p-card-main">{{ option.label }}</h5>
                 </a>
@@ -57,7 +57,7 @@
                   </mat-expansion-panel-header>
                   <div class="layout__accordion-content">
                     <div *ngFor="let child of option.children" class="layout__sub-link">
-                      <a [routerLink]="child.route ? child.route : dashboardRoute" class="layout__link">
+                      <a [routerLink]="child.route ? child.route : dashboardRoute" class="layout__link" (click)="closeSidebar()">
                         <span class="layout__icon btn-report-icon" [ngClass]="child.icon"></span>
                         <h5 class="p-card-main">{{ child.label }}</h5>
                       </a>
@@ -71,9 +71,9 @@
 
         <!-- Sidebar footer links -->
         <div class="layout__footer-options social-icon">
-          <a><span class="icon-links layout__social-link"></span></a>
-          <a><span class="icon-globe layout__social-link"></span></a>
-          <a><span class="icon-settings layout__social-link"></span></a>
+          <a [routerLink]="dashboardRoute" ><span class="icon-links layout__social-link"></span></a>
+          <a [routerLink]="dashboardRoute" ><span class="icon-globe layout__social-link"></span></a>
+          <a [routerLink]="dashboardRoute" ><span class="icon-settings layout__social-link"></span></a>
         </div>
       </div>
     </mat-drawer>

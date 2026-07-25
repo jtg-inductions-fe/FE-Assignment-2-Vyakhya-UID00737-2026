@@ -7,6 +7,7 @@
   @include mixin.flex-container(flex, space-between, center, column);
   width: 100%;
   align-items: flex-start;
+  background-color: variables.$bg-card-primary;
   border: 1px solid variables.$border-secondary;
   border-radius: map.get(variables.$border-radius, 'md-3');
   padding: functions.px-to-rem(10);
@@ -34,7 +35,7 @@
     @include mixin.flex-container(flex, space-between, center, row);
     gap: functions.px-to-rem(5);
     &__info {
-      max-width: functions.px-to-rem(390);
+      max-width: functions.px-to-rem(379);
     }
   }
 

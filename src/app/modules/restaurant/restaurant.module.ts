@@ -9,6 +9,7 @@ import { ListRestaurantComponent } from '@modules/restaurant/list-restaurant/lis
 import { RestaurantFormComponent } from '@modules/restaurant/restaurant-form/restaurant-form.component';
 import { SharedModule } from '@shared/shared.module';
 import { RestaurantService } from '@core/services/restaurant.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [ListRestaurantComponent, RestaurantFormComponent],
@@ -20,6 +21,7 @@ import { RestaurantService } from '@core/services/restaurant.service';
     MatChipsModule,
     ReactiveFormsModule,
     MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [RestaurantService],
 })
