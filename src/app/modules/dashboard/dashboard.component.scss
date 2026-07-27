@@ -3,12 +3,20 @@
 @use 'src/styles/abstract/functions';
 @use 'src/styles/abstract/mixin';
 
+.loader {
+  @include mixin.flex-container(flex, center, center);
+  background-color: variables.$white;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
 .dashboard {
   @include mixin.flex-container($display: flex, $direction: column);
   width: 100%;
   height: 100%;
   padding: functions.px-to-rem(16);
-  gap: functions.px-to-rem(20);
+  gap: functions.px-to-rem(16);
 
   &__header {
     @include mixin.flex-container(flex, space-between, flex-start, column);

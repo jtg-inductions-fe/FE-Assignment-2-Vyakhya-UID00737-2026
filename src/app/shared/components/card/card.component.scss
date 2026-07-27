@@ -18,6 +18,8 @@
 
   &__records {
     @include mixin.flex-container($direction: column);
+    flex: 1;
+    min-height: 0;
     width: 100%;
     padding: functions.px-to-rem(2) functions.px-to-rem(1);
     overflow-y: auto;
@@ -57,6 +59,12 @@
   &__count {
     flex-shrink: 0;
     text-align: right;
+  }
+
+  &__no-data {
+    @include mixin.flex-container(flex, center, center);
+    flex: 1;
+    width: 100%;
   }
 
   @include mixin.respond('tablet') {

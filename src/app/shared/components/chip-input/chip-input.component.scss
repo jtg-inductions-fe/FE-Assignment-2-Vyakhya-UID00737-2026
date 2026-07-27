@@ -76,14 +76,13 @@
 :host ::ng-deep {
   .chip-input {
     .mat-mdc-text-field-wrapper {
-      min-height: functions.px-to-rem(50);
+      min-height: functions.px-to-rem(56);
       background-color: variables.$white;
-      padding: functions.px-to-rem(6);
     }
 
     .mat-mdc-form-field-infix {
       min-height: functions.px-to-rem(45);
-      padding: functions.px-to-rem(5) 0;
+      padding: functions.px-to-rem(12) 0;
     }
 
     .mat-mdc-chip-set {
